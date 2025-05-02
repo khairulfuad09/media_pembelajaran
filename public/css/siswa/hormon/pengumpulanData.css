@@ -1,0 +1,43 @@
+table {
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #2b5db3;
+    color: white;
+}
+input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+.correct {
+    background-color: lightgreen;
+}
+.incorrect {
+    background-color: lightcoral;
+}
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+}.btn-cekJawaban{
+    text-align: center;
+}.container-petunjuk{
+    /* margin-top: 20px; */
+    /* margin-left: 10px; */
+    /* background-color: #727D73; */
+    background: rgba(255, 255, 255, 0.2);
+    /* padding: 50px; */
+    padding-right: 200px;
+    /* padding-left: 20px; */
+    /* padding-top: 20px; */
+    padding-bottom: 20px;
+    font-size: 15px;
+}

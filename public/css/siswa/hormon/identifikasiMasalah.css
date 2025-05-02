@@ -1,0 +1,15 @@
+.table .chekbox, .table th {
+  vertical-align: middle;
+  text-align: center;
+}
+.identifikasi {
+  text-align: left;
+}
+.benar {
+  color: green;
+  font-weight: bold;
+}
+.salah {
+  color: red;
+  font-weight: bold;
+}

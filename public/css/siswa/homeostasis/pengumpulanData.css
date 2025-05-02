@@ -1,0 +1,32 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #2a5db0;
+    color: white;
+}
+.correct {
+    color: green;
+    font-weight: bold;
+}
+.incorrect {
+    color: red;
+    font-weight: bold;
+}.container-petunjuk{
+    /* margin-top: 20px; */
+    /* margin-left: 10px; */
+    /* background-color: #727D73; */
+    background: rgba(255, 255, 255, 0.2);
+    /* padding: 50px; */
+    padding-right: 200px;
+    /* padding-left: 20px; */
+    /* padding-top: 20px; */
+    padding-bottom: 20px;
+    font-size: 15px;
+}

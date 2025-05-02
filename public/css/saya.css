@@ -1,0 +1,91 @@
+.header-subbab {
+    text-align: center;
+}
+.materi{
+    text-align: justify;
+    text-indent: 30px;
+}
+ol.custom-list {
+    counter-reset: list-counter;
+    padding-left: 20px;
+}
+
+ol.custom-list li {
+    counter-increment: list-counter;
+    list-style: none; /* Menghilangkan numbering default */
+}
+
+ol.custom-list li::before {
+    content: counter(list-counter) ") ";
+    /* font-weight: bold; */
+}
+ol.custom-list p {
+    margin-left: 17px;
+}.subbab-type-1 ol h4{
+    margin-left: 7px;
+} ol div p{
+    text-align: justify;
+    margin-left: 8px;
+    text-indent: 35px;
+}ol div img{
+    width: 50%;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+ul.bullet-list li::before {
+    content: "•"; /* Bullet manual */
+    color: black;
+    font-size: 16px;
+    margin-right: 10px;
+}table, th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}th, td{
+    padding: 10px;
+    margin: 10px;
+}.video{
+    display: block;
+    margin: auto;
+    width: 640px;
+    height: auto;
+}.periksa-jawaban{
+background-color: #8E44AD;
+color: #ffffff;
+}.reset{
+    background-color: #CCCCCC;
+    color: #333333;
+}.btn-unggah{
+    background-color: #BFA2DB;
+    color: #ffffff;
+
+}.btn-simpan{
+    background-color: #6A0DAD;
+    color: #ffffff;
+}.periksa-jawaban:hover{
+    background-color: #732d91;
+}.reset:hover{
+    background-color: #AAAAAA;
+}.btn-unggah:hover{
+    background-color: #A087C2;  
+}.btn-simpan:hover{
+    background-color: #5c0aa1;
+}
+
+
+/* Saat layar kecil, tabel bisa di-scroll */
+    @media (max-width: 768px) {
+        .table-container {
+            overflow-x: auto;
+            width: 100%;
+        }
+        .responsive-table {
+            min-width: 600px; /* Supaya tabel lebih lebar dari layar kecil */
+        }.video{
+            width: 240px;
+            height: auto;
+        }
+    }
+
+
+

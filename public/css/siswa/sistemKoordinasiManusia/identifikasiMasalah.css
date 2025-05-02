@@ -1,0 +1,62 @@
+.table .chekbox, .table th {
+    vertical-align: middle;
+    text-align: center;
+  }
+  .identifikasi {
+    text-align: left;
+  }
+  .benar {
+    color: green;
+    font-weight: bold;
+  }
+  .salah {
+    color: red;
+    font-weight: bold;
+  }
+/* table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #f2f2f2;
+} */
+input {
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+}
+.correct {
+    background-color: lightgreen;
+}
+.incorrect {
+    background-color: lightcoral;
+}
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.button-identifikasiMasalah {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    display: none;
+}
+.soal_tabel{
+    display: none;
+}
+p{
+    font-size: 15px;
+}.identifikasiMasalah{
+    padding: 10px;
+    margin: 10px;
+}ol li{
+    font-size: 15px;
+}

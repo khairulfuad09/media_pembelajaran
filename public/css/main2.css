@@ -1,0 +1,10 @@
+.circle-image {
+    width: 50px; /* Sesuaikan ukuran gambar */
+    height: 50px;
+    border-radius: 50%; /* Membuat gambar menjadi bulat */
+    object-fit: cover; /* Menyesuaikan gambar agar tidak terdistorsi */
+    border: 2px solid #333; /* Opsional: Tambahkan border */
+}
+#header .container a h1{
+    color: white;
+}

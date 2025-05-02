@@ -1,0 +1,50 @@
+
+table {
+    width: 60%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+th, td {
+    border: 1px solid black;
+    padding: 10px;
+    text-align: left;
+}
+th {
+    background-color: #1f4e79;
+    color: white;
+}
+.pilihan {
+    text-align: left;
+    width: 60%;
+    margin: 20px auto;
+}
+.pilihan p {
+    font-weight: bold;
+}
+.jawaban-item {
+    font-size: 16px;
+    margin: 5px 0;
+}
+.terpakai {
+    text-decoration: line-through;
+    color: gray;
+}
+button {
+    margin: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+}.cekJawaban-resetJawaban{
+    text-align: center;
+}.container-petunjuk{
+    /* margin-top: 20px; */
+    /* margin-left: 10px; */
+    /* background-color: #727D73; */
+    background: rgba(255, 255, 255, 0.2);
+    /* padding: 50px; */
+    padding-right: 200px;
+    /* padding-left: 20px; */
+    /* padding-top: 20px; */
+    padding-bottom: 20px;
+    font-size: 15px;
+}
