@@ -101,9 +101,21 @@
                             </ul>
                         </li>
                         <li><a href="#contact">Kontak</a></li>
-                        <li><a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                href="#">Masuk</a></li>
-                        <li><a class="cd-signup" href="#">Daftar</a></li>
+                        @guest
+                            <li><a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                    href="/masuk_siswa">Masuk</a></li>
+                            <li><a class="" href="/daftar_siswa">Daftar</a></li>
+                        @endguest
+                        @auth
+                            @if (Auth::user()->role === 'siswa')
+                                <li>
+                                    <form action="{{ route('keluar') }}" method="post">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Keluar</button>
+                                    </form>
+                                </li>
+                            @endif
+                        @endauth
                     </ul>
                     <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
                 </nav>

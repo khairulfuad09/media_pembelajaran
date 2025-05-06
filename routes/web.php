@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MasukSiswaController;
+use App\Http\Controllers\DaftarSiswaController;
 use App\Http\Controllers\UserControllerGuru;
 use App\Http\Controllers\UserControllerSiswa;
 use App\Http\Controllers\SiswaContoller_guru;
@@ -16,12 +18,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/masuk_siswa', function () {
-    return view('login');
-});
-Route::get('/daftar_siswa', function () {
-    return view('daftar');
-});
+Route::get('/masuk_siswa', [MasukSiswaController::class, 'index']);
+Route::post('/masukSiswa', [MasukSiswaController::class, 'store'])->name('masuk.store');
+Route::post('/keluarSiswa', [MasukSiswaController::class, 'logout'])->name('keluar');
+// Route::get('/daftar_siswa', function () {
+//     return view('daftar');
+// });
+Route::get('/daftar_siswa', [DaftarSiswaController::class, 'index']);
+Route::post('/daftar_siswa', [DaftarSiswaController::class, 'store'])->name('daftar.store');
 
 // admin get
 Route::get('/admin_profil', function () {
@@ -48,7 +52,7 @@ Route::get('/guru_daftarSiswa', [SiswaContoller_guru::class, 'index']);
 //
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home.siswa');
 // materi Sistem Koordinasi Manusia
 Route::get('/skm_stimulasi', function () {
     return view('siswa.SistemKoordinasiManusia.materi_SKM_Stimulasi');
