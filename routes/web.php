@@ -72,6 +72,9 @@ Route::get('/skm_kesimpulan', function () {
 Route::get('/skm_pengolahanData', function () {
     return view('siswa.SistemKoordinasiManusia.pengolahan_Data');
 });
+Route::get('/skm_kuis', function () {
+    return view('siswa.SistemKoordinasiManusia.kuis');
+});
 
 // Materi Alat indra manusia
 Route::get('/AIM_Stimulasi', function () {
@@ -91,6 +94,9 @@ Route::get('/AIM_verifikasi', function () {
 });
 Route::get('/AIM_kesimpulan', function () {
     return view('siswa.AlatIndraManusia.kesimpulan');
+});
+Route::get('/AIM_kuis', function () {
+    return view('siswa.AlatIndraManusia.kuis');
 });
 
 // Materi Hormon
@@ -112,6 +118,9 @@ Route::get('/Hormon_verifikasi', function () {
 Route::get('/Hormon_kesimpulan', function () {
     return view('siswa.hormon.kesimpulan');
 });
+Route::get('/Hormon_kuis', function () {
+    return view('siswa.hormon.kuis');
+});
 
 // Materi Homeostasis
 Route::get('/Homeostasis_Stimulasi', function () {
@@ -131,6 +140,9 @@ Route::get('/Homeostasis_verifikasi', function () {
 });
 Route::get('/Homeostasis_kesimpulan', function () {
     return view('siswa.homeostasis.kesimpulan');
+});
+Route::get('/Homeostasis_kuis', function () {
+    return view('siswa.homeostasis.kuis');
 });
 
 // post admin
