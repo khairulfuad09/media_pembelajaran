@@ -51,6 +51,9 @@ class="collapse list-unstyled pageSubmenu {{ Request::is('skm_*') ? 'show' : '' 
                         <a href="/skm_kesimpulan"
                             class="{{ Request::is('skm_kesimpulan') ? 'active' : '' }}">Kesimpulan</a>
                     </li>
+                    <li>
+                        <a href="/skm_kuis" class="{{ Request::is('skm_kuis') ? 'active' : '' }}">Kuis</a>
+                    </li>
                 </ul>
             </li>
             <li class="{{ Request::is('AIM_*') ? 'active' : '' }}">
@@ -82,6 +85,9 @@ class="collapse list-unstyled pageSubmenu {{ Request::is('skm_*') ? 'show' : '' 
                     <li>
                         <a href="/AIM_kesimpulan"
                             class="{{ Request::is('AIM_kesimpulan') ? 'active' : '' }}">Kesimpulan</a>
+                    </li>
+                    <li>
+                        <a href="/AIM_kuis" class="{{ Request::is('AIM_kuis') ? 'active' : '' }}">Kuis</a>
                     </li>
                 </ul>
             </li>
@@ -115,6 +121,9 @@ class="collapse list-unstyled pageSubmenu {{ Request::is('skm_*') ? 'show' : '' 
                         <a href="/Hormon_kesimpulan"
                             class="{{ Request::is('Hormon_kesimpulan') ? 'active' : '' }}">Kesimpulan</a>
                     </li>
+                    <li>
+                        <a href="/Hormon_kuis" class="{{ Request::is('Hormon_kuis') ? 'active' : '' }}">Kuis</a>
+                    </li>
                 </ul>
             </li>
             <li class="{{ Request::is('Homeostasis_*') ? 'active' : '' }}">
@@ -147,6 +156,10 @@ class="collapse list-unstyled pageSubmenu {{ Request::is('skm_*') ? 'show' : '' 
                     <li>
                         <a href="/Homeostasis_kesimpulan"
                             class="{{ Request::is('Homeostasis_kesimpulan') ? 'active' : '' }}">Kesimpulan</a>
+                    </li>
+                    <li>
+                        <a href="/Homeostasis_kuis"
+                            class="{{ Request::is('Homeostasis_kuis') ? 'active' : '' }}">Kuis</a>
                     </li>
                 </ul>
             </li>
