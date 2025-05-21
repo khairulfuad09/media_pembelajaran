@@ -32,7 +32,8 @@
                             <thead class="table-dark">
                                 <tr>
                                     <th>Nama</th>
-                                    <th>Email</th>
+                                    <th>NISN</th>
+                                    <th>Password</th>
                                     <th>Gender</th>
                                     <th>Alamat</th>
                                     <th>No. Telepon</th>
@@ -44,7 +45,15 @@
                                 @foreach ($siswas as $index => $siswa)
                                     <tr>
                                         <td>{{ $siswa->name }}</td>
-                                        <td>{{ $siswa->email }}</td>
+                                        <td>{{ $siswa->NISN_NIP }}</td>
+                                        <td>
+                                            <div>
+                                                <span id="pw-1">********</span>
+                                                <button
+                                                    onclick="togglePassword(1, '{{ $siswa->plain_password }}')">Tampilkan/Sembunyikan</button>
+                                            </div>
+
+                                        </td>
                                         <td>{{ $siswa->profile->gender ?? '-' }}</td>
                                         <td>{{ $siswa->profile->alamat ?? '-' }}</td>
                                         <td>{{ $siswa->profile->phone ?? '-' }}</td>
@@ -74,9 +83,9 @@
                                                             value="{{ $siswa->name }}">
                                                     </div>
                                                     <div class="col-md-6 mb-2">
-                                                        <label>Email</label>
-                                                        <input type="email" class="form-control" name="email"
-                                                            value="{{ $siswa->email }}">
+                                                        <label>NISN</label>
+                                                        <input type="text" class="form-control" name="NISN_NIP"
+                                                            value="{{ $siswa->NISN_NIP }}">
                                                     </div>
                                                     <div class="col-md-6 mb-2">
                                                         <label>Password Baru</label>
@@ -144,8 +153,8 @@
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="email">Email</label>
-                                <input type="email" name="email" class="form-control" required>
+                                <label for="email">NISN</label>
+                                <input type="text" name="NISN_NIP" class="form-control" required>
                             </div>
 
                             <div class="col-md-6 mb-3">

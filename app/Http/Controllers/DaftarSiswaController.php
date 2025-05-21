@@ -18,7 +18,7 @@ class DaftarSiswaController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email'    => 'required|email|unique:users',
+            'NISN_NIP'    => 'required|unique:users',
             'password' => 'required|string',
             'gender'   => 'required',
             'alamat'  => 'nullable|string',
@@ -28,7 +28,7 @@ class DaftarSiswaController extends Controller
 
         $user = User::create([
             'name' => $request->name,
-            'email' => $request->email,
+            'NISN_NIP' => $request->NISN_NIP,
             'password' => Hash::make($request->password),
             'plain_password' => $request->password,
             'role' => 'siswa', // default

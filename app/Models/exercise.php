@@ -13,13 +13,17 @@ class exercise extends Model
         'chapter_id'
     ];
 
-    public function chapter()
-    {
-        return $this->belongsTo(chapter::class);
-    }
+    // public function chapter()
+    // {
+    //     return $this->belongsTo(chapter::class);
+    // }
 
     public function grade()
     {
         return $this->hasMany(grade::class);
+    }
+    public function essay()
+    {
+        return $this->hasMany(essay::class);
     }
 }

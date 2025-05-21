@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\grade;
+use App\Models\User;
 use App\Http\Requests\StoregradeRequest;
 use App\Http\Requests\UpdategradeRequest;
+use Illuminate\Http\Request;
 
 class GradeController extends Controller
 {
@@ -13,7 +15,10 @@ class GradeController extends Controller
      */
     public function index()
     {
-        //
+        $nilai_siswa = User::with(['profile', 'grades.subject', 'grades.chapter', 'grades.exercise', 'essays.subject', 'essays.chapter', 'essays.exercise'])->get();
+        // dd($nilai_siswa['essays']);
+        // $rataNilai = '';
+        return view('guru.nilaiSiswa_guru', compact('nilai_siswa'));
     }
 
     /**
@@ -27,7 +32,7 @@ class GradeController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoregradeRequest $request)
+    public function store(Request $request, $id)
     {
         //
     }
@@ -45,15 +50,23 @@ class GradeController extends Controller
      */
     public function edit(grade $grade)
     {
-        //
+        // 
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdategradeRequest $request, grade $grade)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nilai' => 'required|numeric|min:0|max:100',
+        ]);
+
+        $grade = grade::findOrFail($id);
+        $grade->nilai = $request->nilai;
+        $grade->save();
+
+        return redirect()->back();
     }
 
     /**

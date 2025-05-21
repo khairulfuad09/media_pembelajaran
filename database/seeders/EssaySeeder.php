@@ -2,19 +2,16 @@
 
 namespace Database\Seeders;
 
-use App\Models\subject;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class SubjectSeeder extends Seeder
+class EssaySeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        subject::create([
-            'nama_pelajaran' => 'koordinasi manusia'
-        ]);
+        //
     }
 }

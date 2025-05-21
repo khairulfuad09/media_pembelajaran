@@ -20,7 +20,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'email',
+        'NISN_NIP',
         'password',
         'plain_password',
         'role',
@@ -34,6 +34,10 @@ class User extends Authenticatable
     public function grades()
     {
         return $this->hasMany(grade::class);
+    }
+    public function essays()
+    {
+        return $this->hasMany(essay::class);
     }
 
     /**

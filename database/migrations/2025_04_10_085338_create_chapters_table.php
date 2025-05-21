@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('chapters', function (Blueprint $table) {
             $table->id();
-            $table->string('subject_id')->constrained('subjects')->onDelete('cascade');
             $table->string('title');
+            $table->integer('kkm');
             $table->timestamps();
         });
     }

@@ -50,7 +50,7 @@
                     </ul>
                 </div>
                 <div class="col-md-4 d-flex align-items-center justify-content-center">
-                    <a href="/AIM_kesimpulan"><button class="btn btn-primary btn-lg">kembali</button></a>
+                    <a href="/Hormon_kesimpulan"><button class="btn btn-primary btn-lg">kembali</button></a>
                     <button class="btn btn-success btn-lg" onclick="mulaiKuis()">Mulai Kuis</button>
                 </div>
             </div>
@@ -103,104 +103,104 @@
         }
 
         const daftarSoal = [{
-                teks: "1. Bagian mata yang berfungsi mengatur banyak sedikitnya cahaya yang masuk adalah ...",
+                teks: "1. Apa fungsi utama hormon yang dihasilkan oleh kelenjar endokrin?",
                 pilihan: [
-                    "A. Retina",
-                    "B. Lensa",
-                    "C. Kornea",
-                    "D. Pupil"
-                ],
-                jawaban: "D"
-            },
-            {
-                teks: "2. Bagian mata yang berfungsi menangkap bayangan benda dan meneruskannya ke otak adalah ...",
-                pilihan: [
-                    "A. Retina",
-                    "B. Iris",
-                    "C. Pupil",
-                    "D. Kornea"
-                ],
-                jawaban: "A"
-            },
-            {
-                teks: "3. Cairan air mata pada mata berguna untuk ...",
-                pilihan: [
-                    "A. Meneruskan cahaya",
-                    "B. Melindungi retina",
-                    "C. Menjaga kelembapan dan kebersihan mata",
-                    "D. Membentuk bayangan"
+                    "A. Menyimpan energi dalam otot",
+                    "B. Menyaring darah dari racun",
+                    "C. Mengatur pertumbuhan, metabolisme, dan keseimbangan tubuh",
+                    "D. Menyerap sari-sari makanan di usus"
                 ],
                 jawaban: "C"
             },
             {
-                teks: "4. Bagian telinga yang berfungsi menangkap getaran suara dari lingkungan adalah ...",
+                teks: "2. Mengapa kelenjar endokrin disebut kelenjar buntu?",
                 pilihan: [
-                    "A. Koklea",
-                    "B. Tulang martil",
-                    "C. Daun telinga",
-                    "D. Gendang telinga"
+                    "A. Karena hormon disimpan di dalamnya untuk waktu lama",
+                    "B. Karena tidak memiliki saluran dan hormonnya dibawa oleh darah",
+                    "C. Karena hormon keluar melalui saluran pencernaan",
+                    "D. Karena terletak di tempat yang tertutup"
+                ],
+                jawaban: "B"
+            },
+            {
+                teks: "3. Hormon yang mengatur pertumbuhan tubuh dan anabolisme protein dihasilkan oleh...?",
+                pilihan: [
+                    "A. Tiroid",
+                    "B. Adrenal",
+                    "C. Hipofisis (Somatotrof)",
+                    "D. Pankreas"
                 ],
                 jawaban: "C"
             },
             {
-                teks: "5. Getaran suara diteruskan ke otak oleh bagian telinga dalam yang disebut ...",
+                teks: "4. Fungsi utama hormon tiroksin yang dihasilkan oleh kelenjar tiroid adalah...?",
                 pilihan: [
-                    "A. Saluran eustachius",
-                    "B. Gendang telinga",
-                    "C. Tulang sanggurdi",
-                    "D. Koklea"
+                    "A. Mengatur kadar gula darah",
+                    "B. Memacu metabolisme tubuh",
+                    "C. Mengatur keseimbangan air",
+                    "D. Mengontrol tekanan darah"
                 ],
-                jawaban: "D"
+                jawaban: "B"
             },
             {
-                teks: "6. Bagian telinga yang membedakan nada tinggi dan rendah adalah ...",
+                teks: "5. Jika seseorang kekurangan iodium, maka kemungkinan mengalami...?",
                 pilihan: [
-                    "A. Gendang telinga",
-                    "B. Saluran telinga",
-                    "C. Koklea",
-                    "D. Tulang landasan"
+                    "A. Diabetes melitus",
+                    "B. Kretinisme",
+                    "C. Asma",
+                    "D. Hepatitis"
+                ],
+                jawaban: "B"
+            },
+            {
+                teks: "6. Hormon yang dihasilkan oleh kelenjar adrenal bagian medula adalah...?",
+                pilihan: [
+                    "A. Tiroksin",
+                    "B. Kortison",
+                    "C. Adrenalin",
+                    "D. Glukagon"
                 ],
                 jawaban: "C"
             },
             {
-                teks: "7. Bagian hidung yang berfungsi menyaring udara adalah ...",
+                teks: "7. Fungsi hormon adrenalin adalah...?",
                 pilihan: [
-                    "A. Bulu hidung",
-                    "B. Ujung saraf pembau",
-                    "C. Rongga hidung",
-                    "D. Lendir"
-                ],
-                jawaban: "A"
-            },
-            {
-                teks: "8. Saraf pembau berada di bagian ...",
-                pilihan: [
-                    "A. Pangkal lidah",
-                    "B. Dinding luar hidung",
-                    "C. Ujung rongga hidung bagian atas",
-                    "D. Langit-langit mulut"
+                    "A. Menurunkan tekanan darah",
+                    "B. Memperlambat detak jantung",
+                    "C. Meningkatkan denyut jantung dan tekanan darah",
+                    "D. Meningkatkan produksi urin"
                 ],
                 jawaban: "C"
             },
             {
-                teks: "9. Indra pencium manusia adalah ...",
+                teks: "8. Hormon insulin dan glukagon dihasilkan oleh...?",
                 pilihan: [
-                    "A. Lidah",
-                    "B. Telinga",
-                    "C. Kulit",
-                    "D. Hidung"
+                    "A. Kelenjar tiroid",
+                    "B. Kelenjar adrenal",
+                    "C. Kelenjar pankreas (Pulau Langerhans)",
+                    "D. Kelenjar hipofisis"
                 ],
-                jawaban: "D"
+                jawaban: "C"
             },
             {
-                teks: "10. Agar indra penciuman tetap sehat, kita harus ...",
+                teks: "9. Jika kadar gula darah tinggi, maka tubuh akan...?",
                 pilihan: [
-                    "A. Menyiramnya dengan air",
-                    "B. Membersihkannya secara rutin",
-                    "C. Menutup hidung saat tidur",
-                    "D. Tidak menghirup udara"
+                    "A. Menghasilkan lebih banyak glukagon",
+                    "B. Mengurangi produksi insulin",
+                    "C. Menyimpan glukosa dalam bentuk glikogen dengan bantuan insulin",
+                    "D. Meningkatkan laju metabolisme"
                 ],
-                jawaban: "D"
+                jawaban: "C"
+            },
+            {
+                teks: "10. Fungsi hormon progesteron pada wanita adalah...?",
+                pilihan: [
+                    "A. Menyebabkan kontraksi otot rahim saat melahirkan",
+                    "B. Merangsang pertumbuhan sperma",
+                    "C. Mempersiapkan rahim untuk menerima ovum",
+                    "D. Mengatur produksi insulin"
+                ],
+                jawaban: "C"
             },
             // Tambahkan soal lain di sini
         ];
@@ -293,7 +293,7 @@
 
             const form = document.createElement('form');
             form.method = 'POST';
-            form.action = '/nilai_kuis_aim';
+            form.action = '/nilai_kuis_hormon';
 
             // CSRF Token Laravel
             const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');

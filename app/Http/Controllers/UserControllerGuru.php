@@ -34,7 +34,7 @@ class UserControllerGuru extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email'    => 'required|email|unique:users',
+            'NISN_NIP'    => 'required|unique:users',
             'password' => 'required|string',
             'gender'   => 'required',
             'address'  => 'nullable|string',
@@ -45,7 +45,7 @@ class UserControllerGuru extends Controller
         // menyimpan user di user
         $user = User::create([
             'name'     => $request->name,
-            'email'    => $request->email,
+            'NISN_NIP'    => $request->NISN_NIP,
             'password' => Hash::make($request->password),
             'plain_password' => $request->password,
             'role'     => 'guru', // default untuk form ini
@@ -86,7 +86,7 @@ class UserControllerGuru extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email'    => 'required|email',
+            'NISN_NIP'    => 'required',
             'password' => 'nullable|string',
             'gender'   => 'nullable',
             'alamat'  => 'nullable|string',
@@ -95,7 +95,7 @@ class UserControllerGuru extends Controller
         ]);
 
         $user->name = $request->name;
-        $user->email = $request->email;
+        $user->NISN_NIP = $request->NISN_NIP;
 
         if ($request->filled('password')) {
             $user->password = Hash::make($request->password);

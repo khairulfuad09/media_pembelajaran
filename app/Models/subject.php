@@ -13,8 +13,12 @@ class subject extends Model
         'nama_pelajaran',
     ];
 
-    public function chapter()
+    public function grade()
     {
-        return $this->hasMany(chapter::class);
+        return $this->hasMany(grade::class);
+    }
+    public function essay()
+    {
+        return $this->hasMany(essay::class);
     }
 }

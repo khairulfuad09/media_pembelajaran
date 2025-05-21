@@ -32,7 +32,8 @@
                             <thead class="table-dark">
                                 <tr>
                                     <th>Nama</th>
-                                    <th>Email</th>
+                                    <th>NISN</th>
+                                    <th>Password</th>
                                     <th>Gender</th>
                                     <th>Alamat</th>
                                     <th>No. Telepon</th>
@@ -44,7 +45,15 @@
                                 @foreach ($siswas as $index => $siswa)
                                     <tr>
                                         <td>{{ $siswa->name }}</td>
-                                        <td>{{ $siswa->email }}</td>
+                                        <td>{{ $siswa->NISN_NIP }}</td>
+                                        <td>
+                                            <div>
+                                                <span id="pw-{{ $index }}">********</span>
+                                                <button
+                                                    onclick="togglePassword({{ $index }}, '{{ $siswa->plain_password }}')">Tampilkan/Sembunyikan</button>
+                                            </div>
+
+                                        </td>
                                         <td>{{ $siswa->profile->gender ?? '-' }}</td>
                                         <td>{{ $siswa->profile->alamat ?? '-' }}</td>
                                         <td>{{ $siswa->profile->phone ?? '-' }}</td>

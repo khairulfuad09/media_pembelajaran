@@ -16,7 +16,7 @@ class MasukSiswaController extends Controller
     public function store(Request $request)
     {
         $credentials = $request->validate([
-            'email' => 'required|email:dns',
+            'NISN_NIP' => 'required',
             'password' => 'required',
         ]);
         if (Auth::attempt($credentials)) {
@@ -27,11 +27,11 @@ class MasukSiswaController extends Controller
             }
             Auth::logout();
             return back()->withErrors([
-                'email' => 'Anda tidak memiliki akses sebagai siswa.',
+                'NISN_NIP' => 'Anda tidak memiliki akses sebagai siswa.',
             ]);
         }
         return back()->withErrors([
-            'email' => 'Email atau password salah.',
+            'NISN_NIP' => 'NISN atau password salah.',
         ]);
     }
     public function logout(Request $request)

@@ -1,5 +1,6 @@
 @extends('template.main')
 @section('container')
+    {{-- @dd($essay) --}}
     <button id="backToTop">↑</button>
     <button id="scrollDown">↓</button>
     <div class="text-center mt-4">
@@ -48,12 +49,16 @@
 
             <br>
             <div class="container-kesimpulan">
-                <textarea id="manualInput" placeholder="Ketik kesimpulan Anda di sini..."></textarea>
-                <input type="file" id="imageInput" accept="image/*" placeholder="pilih gambar">
+                <form action="/simpan_kesimpulan_skm" method="post">
+                    @csrf
+                    <input type="hidden" name='id_kesimpulan' value="{{ $essay->id ?? '' }}">
+                    <textarea id="manualInput" placeholder="Ketik kesimpulan Anda di sini..." name="kesimpulan">{{ old('kesimpulan', $essay->jawaban ?? '') }}</textarea>
+                    <input type="file" id="imageInput" accept="image/*" placeholder="pilih gambar">
+                    <p class="loading" id="loadingText">Sedang memproses, harap tunggu...</p>
+                    <button class="btn-simpan" type="submit">Simpan Kesimpulan</button>
+                    <div class="output" id="output"></div>
+                </form>
                 <button class="btn-unggah" onclick="extractText()">Unggah & Baca Gambar</button>
-                <p class="loading" id="loadingText">Sedang memproses, harap tunggu...</p>
-                <button class="btn-simpan" onclick="saveSummary()">Simpan Kesimpulan</button>
-                <div class="output" id="output"></div>
             </div>
         </div>
     </div>

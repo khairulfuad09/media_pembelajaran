@@ -111,6 +111,12 @@
                                         <p>Daftar Siswa</p>
                                     </a>
                                 </li>
+                                <li class="nav-item">
+                                    <a href="/guru_kkm" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>kkm</p>
+                                    </a>
+                                </li>
                             </ul>
                         </li>
                     </ul>

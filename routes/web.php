@@ -5,6 +5,11 @@ use App\Http\Controllers\DaftarSiswaController;
 use App\Http\Controllers\UserControllerGuru;
 use App\Http\Controllers\UserControllerSiswa;
 use App\Http\Controllers\SiswaContoller_guru;
+use App\Http\Controllers\GradeController;
+use App\Http\Controllers\SKMController;
+use App\Http\Controllers\EssayController;
+use App\Http\Controllers\kesimpulanController;
+use App\Http\Controllers\kkmController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,10 +49,12 @@ Route::get('/user_siswa', [UserControllerSiswa::class, 'index']);
 Route::get('/guru_home', function () {
     return view('guru.home_guru');
 });
-Route::get('/guru_nilai_siswa', function () {
-    return view('guru.nilaiSiswa_guru');
-});
+// Route::get('/guru_nilai_siswa', function () {
+//     return view('guru.nilaiSiswa_guru');
+// });
+Route::get('/guru_nilai_siswa', [GradeController::class, 'index']);
 Route::get('/guru_daftarSiswa', [SiswaContoller_guru::class, 'index']);
+Route::get('/guru_kkm', [kkmController::class, 'index'])->name('guru.kkm');
 // guru get
 //
 Route::get('/', function () {
@@ -66,15 +73,19 @@ Route::get('/skm_pengumpulanData', function () {
 Route::get('/skm_verifikasi', function () {
     return view('siswa.SistemKoordinasiManusia.verifikasi');
 });
-Route::get('/skm_kesimpulan', function () {
-    return view('siswa.SistemKoordinasiManusia.kesimpulan');
-});
+Route::get('/skm_kesimpulan', [kesimpulanController::class, 'indexSKM']);
 Route::get('/skm_pengolahanData', function () {
     return view('siswa.SistemKoordinasiManusia.pengolahan_Data');
 });
 Route::get('/skm_kuis', function () {
     return view('siswa.SistemKoordinasiManusia.kuis');
-});
+})->name('kuis.skm');
+Route::get('/hasil_kuis', function () {
+    return view('siswa.SistemKoordinasiManusia.hasilkuis');
+})->name('skm.hasilKuis');
+Route::post('/nilai_kuis_skm', [SKMController::class, 'nilaiSKM']);
+Route::post('/simpan_kesimpulan_skm', [EssayController::class, 'simpanKesimpulanSKM'])->name('simpan.kesimpulanSKM');
+Route::put('/beri_nilai_kesimpulan_skm/{id}', [EssayController::class, 'beriNilaiSKM'])->name('beri.nilaiSKM');
 
 // Materi Alat indra manusia
 Route::get('/AIM_Stimulasi', function () {
@@ -92,12 +103,19 @@ Route::get('/AIM_pengolahanData', function () {
 Route::get('/AIM_verifikasi', function () {
     return view('siswa.AlatIndraManusia.verifikasi');
 });
-Route::get('/AIM_kesimpulan', function () {
-    return view('siswa.AlatIndraManusia.kesimpulan');
-});
+// Route::get('/AIM_kesimpulan', function () {
+//     return view('siswa.AlatIndraManusia.kesimpulan');
+// });
+Route::get('/AIM_kesimpulan', [kesimpulanController::class, 'indexAIM']);
 Route::get('/AIM_kuis', function () {
     return view('siswa.AlatIndraManusia.kuis');
-});
+})->name('kuis.aim');
+Route::get('/hasil_kuis_aim', function () {
+    return view('siswa.AlatIndraManusia.hasilkuis');
+})->name('aim.hasilKuis');
+Route::post('/nilai_kuis_aim', [SKMController::class, 'nilaiAIM']);
+Route::post('/simpan_kesimpulan_aim', [EssayController::class, 'simpanKesimpulanAIM'])->name('simpan.kesimpulanAIM');
+Route::put('/beri_nilai_kesimpulan_aim/{id}', [EssayController::class, 'beriNilaiAIM'])->name('beri.nilaiAIM');
 
 // Materi Hormon
 Route::get('/Hormon_Stimulasi', function () {
@@ -115,12 +133,15 @@ Route::get('/Hormon_pengolahanData', function () {
 Route::get('/Hormon_verifikasi', function () {
     return view('siswa.hormon.verifikasi');
 });
-Route::get('/Hormon_kesimpulan', function () {
-    return view('siswa.hormon.kesimpulan');
-});
+Route::get('/Hormon_kesimpulan', [kesimpulanController::class, 'indexHormon']);
 Route::get('/Hormon_kuis', function () {
     return view('siswa.hormon.kuis');
-});
+})->name('kuis.hormon');
+Route::get('/hasil_kuis_hormon', function () {
+    return view('siswa.hormon.hasilkuis');
+})->name('hormon.hasilKuis');
+Route::post('/nilai_kuis_hormon', [SKMController::class, 'nilaiHormon']);
+Route::post('/simpan_kesimpulan_hormon', [EssayController::class, 'simpanKesimpulanHormon'])->name('simpan.kesimpulanHormon');
 
 // Materi Homeostasis
 Route::get('/Homeostasis_Stimulasi', function () {
@@ -138,12 +159,18 @@ Route::get('/Homeostasis_pengolahanData', function () {
 Route::get('/Homeostasis_verifikasi', function () {
     return view('siswa.homeostasis.verifikasi');
 });
-Route::get('/Homeostasis_kesimpulan', function () {
-    return view('siswa.homeostasis.kesimpulan');
-});
+Route::get('/Homeostasis_kesimpulan', [kesimpulanController::class, 'indexHomeostasis']);
+// Route::get('/Homeostasis_kesimpulan', function () {
+//     return view('siswa.homeostasis.kesimpulan');
+// });
 Route::get('/Homeostasis_kuis', function () {
     return view('siswa.homeostasis.kuis');
-});
+})->name('kuis.homeostasis');
+Route::get('/hasil_kuis_homeostasis', function () {
+    return view('siswa.homeostasis.hasilkuis');
+})->name('homeostasis.hasilKuis');
+Route::post('/nilai_kuis_homeostasis', [SKMController::class, 'nilaiHomeostasis']);
+Route::post('/simpan_kesimpulan_homeostasis', [EssayController::class, 'simpanKesimpulanHomeostasis'])->name('simpan.kesimpulanHomeostasis');
 
 // post admin
 Route::post('/tambahGuru', [UserControllerGuru::class, 'store'])->name('tambah.guru');
@@ -154,3 +181,6 @@ Route::post('/tambahSiswa', [UserControllerSiswa::class, 'store'])->name('tambah
 Route::put('/updateSiswa/{user}', [UserControllerSiswa::class, 'update'])->name('update.siswa');
 Route::delete('hapusSiswa/{user}', [UserControllerSiswa::class, 'destroy'])->name('hapus.siswa');
 // post admin
+
+Route::put('/beri_nilai_kuis/{id}', [GradeController::class, 'update'])->name('beri.nilaiKuis');
+Route::put('/update_kkm/{id}', [kkmController::class, 'updateKKM'])->name('update.kkm');

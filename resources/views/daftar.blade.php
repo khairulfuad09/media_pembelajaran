@@ -38,8 +38,9 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="email" class="form-label">Alamat Email</label>
-                        <input type="email" name="email" class="form-control" required value="{{ old('email') }}">
+                        <label for="NISN_NIP" class="form-label">NISN</label>
+                        <input type="text" name="NISN_NIP" class="form-control" required
+                            value="{{ old('NISN_NIP') }}">
                     </div>
 
                     <div class="mb-3">

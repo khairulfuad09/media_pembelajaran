@@ -14,13 +14,18 @@ class chapter extends Model
     protected $fillable = [
         'subject_id',
         'title',
+        'kkm',
     ];
-    public function exercise()
+    public function grade()
     {
-        return $this->hasMany(exercise::class);
+        return $this->hasMany(grade::class);
     }
-    public function subject()
+    public function essay()
     {
-        return $this->belongsTo(subject::class);
+        return $this->hasMany(essay::class);
     }
+    // public function subject()
+    // {
+    //     return $this->belongsTo(subject::class);
+    // }
 }

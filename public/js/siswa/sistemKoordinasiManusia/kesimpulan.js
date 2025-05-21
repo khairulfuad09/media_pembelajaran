@@ -7,12 +7,12 @@ function extractText() {
         reader.onload = function() {
             document.getElementById('loadingText').style.display = 'block';
             Tesseract.recognize(reader.result, 'ind', {
-                langPath: 'https://tessdata.projectnaptha.com/4.0.0_best/', 
+                langPath: 'https://tessdata.projectnaptha.com/4.0.0_best/',
                 logger: m => console.log(m)
-            }).then(({ data: { text } }) => { 
+            }).then(({ data: { text } }) => {
                 document.getElementById('manualInput').value = text;
                 document.getElementById('loadingText').style.display = 'none';
-            });            
+            });
         };
         reader.readAsDataURL(file);
     }

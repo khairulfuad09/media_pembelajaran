@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
             $table->string('nama_pelajaran');
-            $table->text('deskripsi')->nullable();
             $table->timestamps();
         });
     }

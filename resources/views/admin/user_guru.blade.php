@@ -1,5 +1,6 @@
 @extends('template.main_admin')
 @section('container')
+    {{-- @dd($gurus) --}}
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -32,7 +33,7 @@
                             <thead class="table-dark">
                                 <tr>
                                     <th>Nama</th>
-                                    <th>Email</th>
+                                    <th>NIP</th>
                                     <th>Gender</th>
                                     <th>Alamat</th>
                                     <th>No. Telepon</th>
@@ -44,7 +45,7 @@
                                 @foreach ($gurus as $index => $guru)
                                     <tr>
                                         <td>{{ $guru->name }}</td>
-                                        <td>{{ $guru->email }}</td>
+                                        <td>{{ $guru->NISN_NIP }}</td>
                                         <td>{{ $guru->profile->gender ?? '-' }}</td>
                                         <td>{{ $guru->profile->alamat ?? '-' }}</td>
                                         <td>{{ $guru->profile->phone ?? '-' }}</td>
@@ -74,9 +75,9 @@
                                                             value="{{ $guru->name }}">
                                                     </div>
                                                     <div class="col-md-6 mb-2">
-                                                        <label>Email</label>
-                                                        <input type="email" class="form-control" name="email"
-                                                            value="{{ $guru->email }}">
+                                                        <label>NIP</label>
+                                                        <input type="text" class="form-control" name="NISN_NIP"
+                                                            value="{{ $guru->NISN_NIP }}">
                                                     </div>
                                                     <div class="col-md-6 mb-2">
                                                         <label>Password Baru</label>
@@ -144,8 +145,8 @@
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="email">Email</label>
-                                <input type="email" name="email" class="form-control" required>
+                                <label for="NISN_NIP">NIP</label>
+                                <input type="text" name="NISN_NIP" class="form-control" required>
                             </div>
 
                             <div class="col-md-6 mb-3">

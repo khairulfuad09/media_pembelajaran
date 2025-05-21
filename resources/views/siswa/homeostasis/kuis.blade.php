@@ -1,6 +1,14 @@
-@extends('template.main')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('css')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>Document</title>
+    {{-- <!-- vendor css --> bootstrap 5 --}}
+    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <style>
         .soal-box {
             border: 1px solid #ddd;
@@ -26,9 +34,9 @@
             color: red;
         }
     </style>
-@endsection
+</head>
 
-@section('container')
+<body>
     <div class="container mt-4" id="kuis-container">
         <div id="intro-kuis">
             <div class="row">
@@ -42,6 +50,7 @@
                     </ul>
                 </div>
                 <div class="col-md-4 d-flex align-items-center justify-content-center">
+                    <a href="/Homeostasis_kesimpulan"><button class="btn btn-primary btn-lg">kembali</button></a>
                     <button class="btn btn-success btn-lg" onclick="mulaiKuis()">Mulai Kuis</button>
                 </div>
             </div>
@@ -83,9 +92,9 @@
             </div>
         </div>
     </div>
-@endsection
 
-@section('js')
+    {{--  --}}
+    <script src="{{ asset('js/bootstrap/bootstrap.bundle.min.js') }}"></script>
     <script>
         function mulaiKuis() {
             document.getElementById('intro-kuis').style.display = 'none';
@@ -282,60 +291,32 @@
                 return;
             }
 
-            let skor = 0;
+            const form = document.createElement('form');
+            form.method = 'POST';
+            form.action = '/nilai_kuis_homeostasis';
 
-            // Cek jawaban benar
-            jawabanUser.forEach((jawaban, i) => {
-                if (jawaban === daftarSoal[i].jawaban) {
-                    skor++;
-                }
+            // CSRF Token Laravel
+            const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+            const csrfInput = document.createElement('input');
+            csrfInput.type = 'hidden';
+            csrfInput.name = '_token';
+            csrfInput.value = csrf;
+            form.appendChild(csrfInput);
+
+            // Buat input jawaban satu per satu
+            jawabanUser.forEach((jwb, i) => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = `jawaban[${i}]`;
+                input.value = jwb ?? '';
+                form.appendChild(input);
             });
-
-            const total = daftarSoal.length;
-            const nilai = Math.round((skor / total) * 100);
-
-            // Sembunyikan konten soal
-            document.getElementById("konten-kuis").style.display = 'none';
-
-            // Tampilkan nilai akhir di div baru
-            const kuisContainer = document.getElementById('kuis-container');
-            const hasilDiv = document.createElement('div');
-            hasilDiv.className = "container mt-4";
-            hasilDiv.innerHTML = `
-                <div class="alert alert-success text-center">
-                    <h2>Kuis Selesai</h2>
-                    <h3>Nilai Anda: ${nilai}</h3>
-                    <p>Jawaban benar: ${skor} dari ${total} soal</p>
-                </div>
-            `;
-            kuisContainer.appendChild(hasilDiv);
-
-            // Hentikan timer
             clearInterval(timer);
 
-            // Kirim nilai ke server
-            kirimNilaiKeServer(nilai);
-        }
-
-
-        function kirimNilaiKeServer(nilai) {
-            // fetch('/kirim-nilai', {
-            //         method: 'POST',
-            //         headers: {
-            //             'Content-Type': 'application/json',
-            //             'X-CSRF-TOKEN': '{{ csrf_token() }}'
-            //         },
-            //         body: JSON.stringify({
-            //             nilai: nilai
-            //         })
-            //     })
-            //     .then(res => res.json())
-            //     .then(data => {
-            //         console.log("Nilai berhasil dikirim:", data);
-            //     })
-            //     .catch(err => {
-            //         console.error("Gagal mengirim nilai:", err);
-            //     });
+            document.body.appendChild(form);
+            form.submit();
         }
     </script>
-@endsection
+</body>
+
+</html>
