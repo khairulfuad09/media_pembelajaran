@@ -39,6 +39,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(essay::class);
     }
+    public function progress()
+    {
+        return $this->hasMany(essay::class);
+    }
 
     /**
      * The attributes that should be hidden for serialization.

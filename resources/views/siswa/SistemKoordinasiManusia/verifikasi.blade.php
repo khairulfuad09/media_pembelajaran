@@ -72,9 +72,17 @@
                     <input type="text" class="answer" data-answer="sinapsis" placeholder="Bagian terakhir...">
                 </div>
             </div>
-            <div class="container">
+            {{-- <button type="button" onclick="checkAnswers()" class="periksa-jawaban">Periksa</button> --}}
+            <form action="/selesai_verifikasi_SKM" method="post">
+                @csrf
+                <input type="hidden" name="chapter_id" value="1">
+                <input type="hidden" name="exercise_id" value="5">
+                <button class="button-identifikasiMasalah periksa-jawaban" id="btnNext"
+                    style="display: none;">Next</button>
+            </form>
+            {{-- <div class="container">
                 <h3>Benar: <span id="correctCount">0</span> | Salah: <span id="wrongCount">0</span></h3>
-            </div>
+            </div> --}}
         </div>
     </div>
 @endsection

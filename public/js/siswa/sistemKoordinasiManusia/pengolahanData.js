@@ -21,7 +21,11 @@ function checkAnswersPengolahanData() {
             input.style.backgroundColor = "lightcoral";
         }
     }
-    document.getElementById("result").textContent = `Skor Anda: ${nilai_pengolahanData} / ${Object.keys(jawaban).length}`;
+    if (nilai_pengolahanData === Object.keys(jawaban).length) {
+        document.getElementById("btnNext").style.display = "inline-block";
+        document.getElementById("cekJawaban").style.display = "none";
+    }
+    // document.getElementById("result").textContent = `Skor Anda: ${nilai_pengolahanData} / ${Object.keys(jawaban).length}`;
 }
 
 function resetGamePengolahanData() {

@@ -141,13 +141,20 @@
                     </tr>
                 </table>
                 <div class="button-container">
+                    <form action="/selesai_identifikasiMasalah_SKM" method="post">
+                        @csrf
+                        <input type="hidden" name="chapter_id" value="1">
+                        <input type="hidden" name="exercise_id" value="2">
+                        <button class="button-identifikasiMasalah periksa-jawaban" id="btnNext"
+                            style="display: none;">Next</button>
+                    </form>
                     <button class="button-identifikasiMasalah periksa-jawaban" id="cekJawaban"
                         onclick="cekJawaban_identifikasiMasalah()">Periksa
                         Jawaban</button>
                     <button class="button-identifikasiMasalah reset" id="reset"
                         onclick="resetForm_identifikasiMasalah()">Reset</button>
                 </div>
-                <p id="hasil"></p>
+                {{-- <p id="hasil"></p> --}}
             </div>
         </div>
     </div>

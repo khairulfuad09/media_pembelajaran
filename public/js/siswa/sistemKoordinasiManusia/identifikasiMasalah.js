@@ -24,7 +24,11 @@
         input.classList.remove("correct");
       }
     });
-    document.getElementById("hasil").innerText = `Jawaban benar: ${benar} dari 5`;
+    if (benar === jawabanBenar.length) {
+        document.getElementById("btnNext").style.display = "inline-block";
+        document.getElementById("cekJawaban").style.display = "none";
+    }
+    // document.getElementById("hasil").innerText = `Jawaban benar: ${benar} dari 5`;
   }
   
   function resetForm_identifikasiMasalah() {

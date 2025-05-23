@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\exercise;
+use App\Models\Progress;
 use App\Models\grade;
 use App\Models\chapter;
 use Illuminate\Http\Request;
@@ -30,6 +31,13 @@ class SKMController extends Controller
         $nilai = round(($skor / $total) * 100);
 
         if ($nilai >= $kkm->kkm) {
+            Progress::updateOrCreate([
+                'user_id' => auth()->id(),
+                'chapter_id' => 1,
+                'exercise_id' => 7,
+            ], [
+                'is_complete' => true,
+            ]);
             $keterangan = 'memenuhi kkm';
         } else {
             $keterangan = 'tidak memenuhi kkm';
@@ -53,6 +61,8 @@ class SKMController extends Controller
                 'nilai' => $nilai,
             ]
         );
+
+
 
         return redirect()->route('skm.hasilKuis')->with([
             'nilai' => $nilai,

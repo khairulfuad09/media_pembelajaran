@@ -100,6 +100,13 @@
                 </ol>
             </div>
         </div>
+        <button id="sudahMembaca" class="btn btn-success">Saya sudah membaca</button>
+        <form action="/selesai_PengumpulanData_SKM" method="post">
+            @csrf
+            <input type="hidden" name="chapter_id" value="1">
+            <input type="hidden" name="exercise_id" value="3">
+            <button type="submit" id="nextButton" class="btn btn-primary" style="display: none;">Next</button>
+        </form>
     </div>
 @endsection
 @section('js')

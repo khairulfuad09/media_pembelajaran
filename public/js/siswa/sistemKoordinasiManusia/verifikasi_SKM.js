@@ -44,18 +44,44 @@ function updateOptions() {
     });
 }
 
+// function checkAnswers() {
+//     correctCount = 0;
+//     wrongCount = 0;
+//     answers.forEach(input => {
+//         let userAnswer = input.value.trim().toLowerCase();
+//         let correctAnswer = input.dataset.answer;
+//         if (userAnswer === correctAnswer) {
+//             correctCount++;
+//         } else if (userAnswer !== "") {
+//             wrongCount++;
+//         }
+//     });
+//     document.getElementById('correctCount').innerText = correctCount;
+//     document.getElementById('wrongCount').innerText = wrongCount;
+// }
+
 function checkAnswers() {
-    correctCount = 0;
-    wrongCount = 0;
+    let correctCount = 0;
+    let wrongCount = 0;
+    const answers = document.querySelectorAll("input[data-answer]"); // Pastikan elemen input memiliki data-answer
+
     answers.forEach(input => {
         let userAnswer = input.value.trim().toLowerCase();
-        let correctAnswer = input.dataset.answer;
+        let correctAnswer = input.dataset.answer.toLowerCase();
+
         if (userAnswer === correctAnswer) {
             correctCount++;
+            input.style.backgroundColor = "lightgreen"; // Benar = hijau
         } else if (userAnswer !== "") {
             wrongCount++;
+            input.style.backgroundColor = "lightcoral"; // Salah = merah
+        } else {
+            input.style.backgroundColor = ""; // Kosong = netral
         }
     });
-    document.getElementById('correctCount').innerText = correctCount;
-    document.getElementById('wrongCount').innerText = wrongCount;
+    if (correctCount === answers.length) {
+        document.getElementById("btnNext").style.display = "inline-block";
+    } else {
+    console.log(`Belum benar semua. Benar: ${correctCount}, Total: ${answers.length}`);
+}
 }

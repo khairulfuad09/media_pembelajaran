@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\essay;
+use App\Models\Progress;
 use App\Http\Requests\StoreessayRequest;
 use App\Http\Requests\UpdateessayRequest;
 use Illuminate\Http\Request;
@@ -45,6 +46,14 @@ class EssayController extends Controller
                 'nilai' => 0,
             ]);
         }
+
+        Progress::updateOrCreate([
+            'user_id' => auth()->id(),
+            'chapter_id' => 1,
+            'exercise_id' => 6,
+        ], [
+            'is_complete' => true,
+        ]);
 
         return redirect()->route('kuis.skm');
     }
@@ -150,6 +159,45 @@ class EssayController extends Controller
 
         return redirect()->route('kuis.hormon');
     }
+    public function simpanVerifikasiHormon(Request $request)
+    {
+        $kesimpulan = $request->input('kesimpulan');
+        $id_kesimpulan = $request->input('id_kesimpulan');
+        // dd($kesimpulan);
+        if ($id_kesimpulan) {
+            $essay = Essay::where('id', $id_kesimpulan)
+                ->where('user_id', auth()->id())
+                ->first();
+
+            if ($essay) {
+                // Jika data ditemukan dan milik user yang sedang login → update
+                $essay->update([
+                    'jawaban' => $kesimpulan,
+                ]);
+            } else {
+                // Jika id tidak valid atau bukan milik user, buat baru
+                Essay::create([
+                    'user_id' => auth()->id(),
+                    'subject_id' => 1,
+                    'chapter_id' => 3,
+                    'exercise_id' => 5,
+                    'jawaban' => $kesimpulan,
+                    'nilai' => 0,
+                ]);
+            }
+        } else {
+            essay::create([
+                'user_id' => auth()->id(),
+                'subject_id' => 1,
+                'chapter_id' => 3,
+                'exercise_id' => 5,
+                'jawaban' => $kesimpulan,
+                'nilai' => 0,
+            ]);
+        }
+
+        return redirect()->route('kesimpulan.hormon');
+    }
     public function simpanKesimpulanHomeostasis(Request $request)
     {
         $kesimpulan = $request->input('kesimpulan');
@@ -188,6 +236,84 @@ class EssayController extends Controller
         }
 
         return redirect()->route('kuis.homeostasis');
+    }
+    public function simpanPengolahanDataHomeostasis(Request $request)
+    {
+        $kesimpulan = $request->input('kesimpulan');
+        $id_kesimpulan = $request->input('id_kesimpulan');
+        // dd($kesimpulan);
+        if ($id_kesimpulan) {
+            $essay = Essay::where('id', $id_kesimpulan)
+                ->where('user_id', auth()->id())
+                ->first();
+
+            if ($essay) {
+                // Jika data ditemukan dan milik user yang sedang login → update
+                $essay->update([
+                    'jawaban' => $kesimpulan,
+                ]);
+            } else {
+                // Jika id tidak valid atau bukan milik user, buat baru
+                Essay::create([
+                    'user_id' => auth()->id(),
+                    'subject_id' => 1,
+                    'chapter_id' => 4,
+                    'exercise_id' => 4,
+                    'jawaban' => $kesimpulan,
+                    'nilai' => 0,
+                ]);
+            }
+        } else {
+            essay::create([
+                'user_id' => auth()->id(),
+                'subject_id' => 1,
+                'chapter_id' => 4,
+                'exercise_id' => 4,
+                'jawaban' => $kesimpulan,
+                'nilai' => 0,
+            ]);
+        }
+
+        return redirect()->route('verifikasi.homeostasis');
+    }
+    public function simpanVerifikasiHomeostasis(Request $request)
+    {
+        $kesimpulan = $request->input('kesimpulan');
+        $id_kesimpulan = $request->input('id_kesimpulan');
+        // dd($kesimpulan);
+        if ($id_kesimpulan) {
+            $essay = Essay::where('id', $id_kesimpulan)
+                ->where('user_id', auth()->id())
+                ->first();
+
+            if ($essay) {
+                // Jika data ditemukan dan milik user yang sedang login → update
+                $essay->update([
+                    'jawaban' => $kesimpulan,
+                ]);
+            } else {
+                // Jika id tidak valid atau bukan milik user, buat baru
+                Essay::create([
+                    'user_id' => auth()->id(),
+                    'subject_id' => 1,
+                    'chapter_id' => 4,
+                    'exercise_id' => 5,
+                    'jawaban' => $kesimpulan,
+                    'nilai' => 0,
+                ]);
+            }
+        } else {
+            essay::create([
+                'user_id' => auth()->id(),
+                'subject_id' => 1,
+                'chapter_id' => 4,
+                'exercise_id' => 5,
+                'jawaban' => $kesimpulan,
+                'nilai' => 0,
+            ]);
+        }
+
+        return redirect()->route('kesimpulan.homeostasis');
     }
     /**
      * Display a listing of the resource.

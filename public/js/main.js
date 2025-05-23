@@ -218,6 +218,8 @@
 })();
 
 
+
+
 // js button auto top
     // Ambil elemen button
     let backToTopButton = document.getElementById("backToTop");
@@ -245,3 +247,9 @@
           behavior: "smooth"
       });
   });
+
+
+   document.getElementById('sudahMembaca').addEventListener('click', function () {
+        document.getElementById('nextButton').style.display = 'inline-block';
+        this.style.display = 'none'; // sembunyikan tombol "saya sudah membaca"
+    });

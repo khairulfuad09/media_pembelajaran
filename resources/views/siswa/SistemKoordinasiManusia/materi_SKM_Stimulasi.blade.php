@@ -5,7 +5,7 @@
     <div class="text-center mt-4">
         <h2>SISTEM KOORDINASI MANUSIA</h2>
     </div>
-    <div class="container mt-4">
+    <div class="container mt-4" id="materi">
 
         <div class="card p-4">
             <h3>Bagian 1: STIMULASI</h3>
@@ -434,4 +434,11 @@
             </div>
         </div>
     </div>
+    <button id="sudahMembaca" class="btn btn-success">Saya sudah membaca</button>
+    <form action="/selesai_Stimulasi_SKM" method="post">
+        @csrf
+        <input type="hidden" name="chapter_id" value="1">
+        <input type="hidden" name="exercise_id" value="1">
+        <button type="submit" id="nextButton" class="btn btn-primary" style="display: none;">Next</button>
+    </form>
 @endsection

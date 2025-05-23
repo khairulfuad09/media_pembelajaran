@@ -24,6 +24,10 @@ class chapter extends Model
     {
         return $this->hasMany(essay::class);
     }
+    public function progress()
+    {
+        return $this->hasMany(essay::class);
+    }
     // public function subject()
     // {
     //     return $this->belongsTo(subject::class);

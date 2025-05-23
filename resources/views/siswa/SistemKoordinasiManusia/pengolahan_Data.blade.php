@@ -70,10 +70,16 @@
                     <label for="labelG">Bagian (g): <input type="text" id="labelG"></label>
                     <label for="labelH">Bagian (h): <input type="text" id="labelH"></label>
                 </div>
-
-                <button class="periksa-jawaban" onclick="checkAnswersPengolahanData()">Periksa Jawaban</button>
+                <form action="/selesai_pengolahanData_SKM" method="post">
+                    @csrf
+                    <input type="hidden" name="chapter_id" value="1">
+                    <input type="hidden" name="exercise_id" value="4">
+                    <button class="periksa-jawaban" id="btnNext" style="display: none;">Next</button>
+                </form>
+                <button id="cekJawaban" class="periksa-jawaban" onclick="checkAnswersPengolahanData()">Periksa
+                    Jawaban</button>
                 <button class="reset" onclick="resetGamePengolahanData()">Reset</button>
-                <p id="result"></p>
+                {{-- <p id="result"></p> --}}
             </div>
         </div>
     </div>

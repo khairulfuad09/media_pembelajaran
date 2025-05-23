@@ -21,9 +21,12 @@ class="collapse list-unstyled pageSubmenu {{ Request::is('skm_*') ? 'show' : '' 
 
         <ul class="list-unstyled components">
             <p>Kumpulan Materi</p>
+            <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
+                <a href="{{ url('/dashboard_siswa') }}" class="">Dashboard</a>
+            </li>
             <li class="{{ Request::is('skm_*') ? 'active' : '' }}">
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="{{ Request::is('skm_*') ? 'true' : 'false' }}"
-                    class="dropdown-toggle dtp">Sistem
+                <a href="#pageSubmenu" data-toggle="collapse"
+                    aria-expanded="{{ Request::is('skm_*') ? 'true' : 'false' }}" class="dropdown-toggle dtp">Sistem
                     Koordinasi Manusia</a>
                 <ul class="collapse list-unstyled pageSubmenu {{ Request::is('skm_*') ? 'show' : '' }}">
                     <li>

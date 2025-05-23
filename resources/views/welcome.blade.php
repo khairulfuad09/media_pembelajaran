@@ -54,6 +54,7 @@
                         <li class="dropdown"><a href="#"><span>Materi</span> <i
                                     class="bi bi-chevron-down toggle-dropdown"></i></a>
                             <ul>
+                                <li class="dropdown"><a href="/dashboard_siswa"><span>Dashboard</span>
                                 <li class="dropdown"><a href="/skm_stimulasi"><span>Sistem Koordinasi Manusia</span>
                                         <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                                     <ul>
