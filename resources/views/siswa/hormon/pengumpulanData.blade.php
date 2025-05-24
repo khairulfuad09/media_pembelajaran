@@ -55,7 +55,8 @@
                 <div class="col-md-7">
                     <div class="card p-3">
                         <h5 class="mb-3">Pilih letak kelenjar berdasarkan fungsinya</h5>
-                        <form id="quizForm">
+                        <form id="quizForm" action="/selesai_pengumpulanData_Hormon" method="post">
+                            @csrf
                             @php
                                 $pertanyaan = [
                                     'Kelenjar yang terletak di dasar otak dan berperan sebagai kelenjar pengatur utama' =>
@@ -86,13 +87,17 @@
                             @endforeach
 
                             <div class="d-flex justify-content-end gap-2 mt-3">
-                                <button type="button" class="btn btn-success" onclick="periksaJawaban()">Periksa
+                                <input type="hidden" name="chapter_id" value="3">
+                                <input type="hidden" name="exercise_id" value="3">
+                                <button class="btn btn-success" id="btnNext" style="display: none;">Next</button>
+                                <button id="cekJawaban" type="button" class="btn btn-success"
+                                    onclick="periksaJawaban()">Periksa
                                     Jawaban</button>
                                 <button type="button" class="btn btn-secondary" onclick="resetJawaban()">Reset</button>
                             </div>
                         </form>
 
-                        <div id="hasil" class="mt-3"></div>
+                        {{-- <div id="hasil" class="mt-3"></div> --}}
                     </div>
                 </div>
 

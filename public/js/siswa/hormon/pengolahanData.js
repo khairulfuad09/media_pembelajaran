@@ -53,6 +53,8 @@ function resetJawaban() {
     pilihanItems.forEach(item => item.classList.remove("terpakai"));
 }
 function cekKasus() {
+    let benar = 0;
+    let totalJawaban = 0;
     document.querySelectorAll('.jawaban-kasus').forEach(input => {
         const jawaban = input.value.trim().toLowerCase();
         const kunci = input.dataset.kunci.toLowerCase();
@@ -61,11 +63,17 @@ function cekKasus() {
         if (jawaban === kunci) {
             hasil.innerHTML = '✅ Benar';
             hasil.style.color = 'green';
+            benar++;
         } else {
             hasil.innerHTML = '❌ Salah';
             hasil.style.color = 'red';
         }
+        totalJawaban++;
     });
+    if (benar === totalJawaban) {
+        document.getElementById("btnNext").style.display = "inline-block";
+        document.getElementById("cekJawaban").style.display = "none";
+    }
 }
 
 function resetKasus() {

@@ -77,7 +77,13 @@
             </table>
             <br>
             <div>
-                <button class="periksa-jawaban" onclick="cekJawaban()">Periksa Jawaban</button>
+                <form action="/selesai_pengumpulanData_Homeostasis" method="post">
+                    @csrf
+                    <input type="hidden" name="chapter_id" value="4">
+                    <input type="hidden" name="exercise_id" value="3">
+                    <button class="periksa-jawaban" id="btnNext" style="display: none;">Next</button>
+                </form>
+                <button id="cekJawaban" class="periksa-jawaban" onclick="cekJawaban()">Periksa Jawaban</button>
             </div>
         </div>
     </div>

@@ -115,51 +115,60 @@
                 </div>
             </div>
             <br>
-            <form id="quizForm">
-                <ol>
-                    <li>
-                        Ketika tubuh merasa panas, mekanisme homeostasis yang terjadi adalah...
-                        <br>
-                        <input type="radio" name="q1" value="A">Mengurangi produksi keringat<br>
-                        <input type="radio" name="q1" value="B">Meningkatkan produksi keringat<br>
-                        <input type="radio" name="q1" value="C">Menurunkan detak jantung<br>
-                        <input type="radio" name="q1" value="D">Meningkatkan produksi hormon insulin<br>
-                    </li>
-                    <li>
-                        Hormon yang berperan dalam pengaturan kadar cairan tubuh adalah...
-                        <br>
-                        <input type="radio" name="q2" value="A">Insulin<br>
-                        <input type="radio" name="q2" value="B">Glukagon<br>
-                        <input type="radio" name="q2" value="C">ADH<br>
-                        <input type="radio" name="q2" value="D">Testosteron<br>
-                    </li>
-                    <li>
-                        Jika kadar gula dalam darah meningkat setelah makan, tubuh akan mengeluarkan hormon...
-                        <br>
-                        <input type="radio" name="q3" value="A">Glukagon<br>
-                        <input type="radio" name="q3" value="B">Adrenalin<br>
-                        <input type="radio" name="q3" value="C">Insulin<br>
-                        <input type="radio" name="q3" value="D">Estrogen<br>
-                    </li>
-                    <li>
-                        Zat adiktif yang sering ditemukan dalam kopi dan teh adalah...
-                        <br>
-                        <input type="radio" name="q4" value="A">Nikotin<br>
-                        <input type="radio" name="q4" value="B">Teanin dan kafein<br>
-                        <input type="radio" name="q4" value="C">LSD<br>
-                        <input type="radio" name="q4" value="D">Heroin<br>
-                    </li>
-                    <li>
-                        Organ yang berperan dalam pengaturan suhu tubuh adalah...
-                        <br>
-                        <input type="radio" name="q5" value="A">Hipotalamus<br>
-                        <input type="radio" name="q5" value="B">Ginjal<br>
-                        <input type="radio" name="q5" value="C">Pankreas<br>
-                        <input type="radio" name="q5" value="D">Hati<br>
-                    </li>
-                </ol>
-                <button class="periksa-jawaban" type="button" onclick="cekJawaban()">Periksa Jawaban</button>
+            {{-- <form id="quizForm"> --}}
+            {{-- @csrf --}}
+            <ol>
+                <li>
+                    Ketika tubuh merasa panas, mekanisme homeostasis yang terjadi adalah...
+                    <br>
+                    <input type="radio" name="q1" value="A">Mengurangi produksi keringat<br>
+                    <input type="radio" name="q1" value="B">Meningkatkan produksi keringat<br>
+                    <input type="radio" name="q1" value="C">Menurunkan detak jantung<br>
+                    <input type="radio" name="q1" value="D">Meningkatkan produksi hormon insulin<br>
+                </li>
+                <li>
+                    Hormon yang berperan dalam pengaturan kadar cairan tubuh adalah...
+                    <br>
+                    <input type="radio" name="q2" value="A">Insulin<br>
+                    <input type="radio" name="q2" value="B">Glukagon<br>
+                    <input type="radio" name="q2" value="C">ADH<br>
+                    <input type="radio" name="q2" value="D">Testosteron<br>
+                </li>
+                <li>
+                    Jika kadar gula dalam darah meningkat setelah makan, tubuh akan mengeluarkan hormon...
+                    <br>
+                    <input type="radio" name="q3" value="A">Glukagon<br>
+                    <input type="radio" name="q3" value="B">Adrenalin<br>
+                    <input type="radio" name="q3" value="C">Insulin<br>
+                    <input type="radio" name="q3" value="D">Estrogen<br>
+                </li>
+                <li>
+                    Zat adiktif yang sering ditemukan dalam kopi dan teh adalah...
+                    <br>
+                    <input type="radio" name="q4" value="A">Nikotin<br>
+                    <input type="radio" name="q4" value="B">Teanin dan kafein<br>
+                    <input type="radio" name="q4" value="C">LSD<br>
+                    <input type="radio" name="q4" value="D">Heroin<br>
+                </li>
+                <li>
+                    Organ yang berperan dalam pengaturan suhu tubuh adalah...
+                    <br>
+                    <input type="radio" name="q5" value="A">Hipotalamus<br>
+                    <input type="radio" name="q5" value="B">Ginjal<br>
+                    <input type="radio" name="q5" value="C">Pankreas<br>
+                    <input type="radio" name="q5" value="D">Hati<br>
+                </li>
+            </ol>
+            <form action="/selesai_identifikasiMasalah_Homeostasis" method="post">
+                @csrf
+                <input type="hidden" name="chapter_id" value="4">
+                <input type="hidden" name="exercise_id" value="2">
+                <button class="button-identifikasiMasalah periksa-jawaban" id="btnNext" type="submit"
+                    style="display: none;">Next</button>
             </form>
+            <button id="cekJawaban" class="periksa-jawaban" type="button" onclick="cekJawaban()">Periksa
+                Jawaban</button>
+            {{-- </form> --}}
             <br>
             {{-- <div class="card"> --}}
             {{-- <div id="materiHomeostasis card" class="hidden">

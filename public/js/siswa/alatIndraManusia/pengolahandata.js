@@ -15,6 +15,7 @@ const kunciJawaban = {
 
 function periksaJawaban() {
     let benar = 0;
+    let totalJawaban = 0;
     for (let i = 1; i <= 12; i++) {
         const input = document.getElementById("jawaban" + i);
         const userJawab = input.value.trim().toLowerCase();
@@ -28,11 +29,16 @@ function periksaJawaban() {
             input.classList.add("is-invalid");
             input.classList.remove("is-valid");
         }
+        totalJawaban++;
     }
 
-    document.getElementById('hasil').innerHTML = `
-        <div class="alert alert-info">Jawaban Benar: <strong>${benar}/12</strong></div>
-    `;
+    // document.getElementById('hasil').innerHTML = `
+    //     <div class="alert alert-info">Jawaban Benar: <strong>${benar}/12</strong></div>
+    // `;
+    if (benar === totalJawaban) {
+        document.getElementById("btnNext").style.display = "inline-block";
+        document.getElementById("cekJawaban").style.display = "none";
+    }
 }
 
 function resetJawaban() {

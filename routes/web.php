@@ -12,6 +12,9 @@ use App\Http\Controllers\kesimpulanController;
 use App\Http\Controllers\kkmController;
 use App\Http\Controllers\ProgressController;
 use App\Http\Controllers\ProgressSKMController;
+use App\Http\Controllers\ProgressAIMController;
+use App\Http\Controllers\ProgressHormonController;
+use App\Http\Controllers\ProgressHomeostasisController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -108,22 +111,34 @@ Route::put('/beri_nilai_kesimpulan_skm/{id}', [EssayController::class, 'beriNila
 Route::get('/AIM_Stimulasi', function () {
     return view('siswa.AlatIndraManusia.Stimulasi');
 });
+Route::post('/selesai_Stimulasi_AIM', [ProgressAIMController::class, 'selesaiStimulasiAIM']);
+
 Route::get('/AIM_identifikasiMasalah', function () {
     return view('siswa.AlatIndraManusia.identifikasiMasalah');
-});
+})->name('aim.identifikasiMasalah');
+Route::post('/selesai_identifikasiMasalah_AIM', [ProgressAIMController::class, 'selesaiIdentifikasiMasalahAIM']);
+
+
 Route::get('/AIM_pengumpulanData', function () {
     return view('siswa.AlatIndraManusia.pengumpulanData');
-});
+})->name('aim.pengumpulanData');
+Route::post('/selesai_pengumpulanData_AIM', [ProgressAIMController::class, 'selesaiPengumpulanDataAIM']);
+
 Route::get('/AIM_pengolahanData', function () {
     return view('siswa.AlatIndraManusia.pengolahanData');
-});
+})->name('aim.pengolahanData');
+Route::post('/selesai_pengolahanData_AIM', [ProgressAIMController::class, 'selesaiPengolahanDataAIM']);
+
 Route::get('/AIM_verifikasi', function () {
     return view('siswa.AlatIndraManusia.verifikasi');
-});
+})->name('aim.verifikasi');
+Route::post('/selesai_verifikasi_AIM', [ProgressAIMController::class, 'selesaiVerifikasiAIM']);
+
 // Route::get('/AIM_kesimpulan', function () {
 //     return view('siswa.AlatIndraManusia.kesimpulan');
 // });
-Route::get('/AIM_kesimpulan', [kesimpulanController::class, 'indexAIM']);
+Route::get('/AIM_kesimpulan', [kesimpulanController::class, 'indexAIM'])->name('aim.kesimpulan');
+
 Route::get('/AIM_kuis', function () {
     return view('siswa.AlatIndraManusia.kuis');
 })->name('kuis.aim');
@@ -138,20 +153,31 @@ Route::put('/beri_nilai_kesimpulan_aim/{id}', [EssayController::class, 'beriNila
 Route::get('/Hormon_Stimulasi', function () {
     return view('siswa.hormon.Stimulasi');
 });
+Route::post('/selesai_Stimulasi_Hormon', [ProgressHormonController::class, 'selesaiStimulasiHormon']);
+
 Route::get('/Hormon_identifikasiMasalah', function () {
     return view('siswa.hormon.identifikasiMasalah');
-});
+})->name('hormon.identifikasiMasalah');
+Route::post('/selesai_identifikasiMasalah_Hormon', [ProgressHormonController::class, 'selesaiIdentifikasiMasalahHormon']);
+
 Route::get('/Hormon_pengumpulanData', function () {
     return view('siswa.hormon.pengumpulanData');
-});
+})->name('hormon.pengumpulanData');
+Route::post('/selesai_pengumpulanData_Hormon', [ProgressHormonController::class, 'selesaiPengumpulanDataHormon']);
+
 Route::get('/Hormon_pengolahanData', function () {
     return view('siswa.hormon.pengolahanData');
-});
+})->name('hormon.pengolahanData');
+Route::post('/selesai_pengolahanData_Hormon', [ProgressHormonController::class, 'selesaiPengolahanDataHormon']);
 // Route::get('/Hormon_verifikasi', function () {
 //     return view('siswa.hormon.verifikasi');
 // });
-Route::get('/Hormon_verifikasi', [kesimpulanController::class, 'indexVerifikasiHormon']);
+Route::get('/Hormon_verifikasi', [kesimpulanController::class, 'indexVerifikasiHormon'])->name('hormon.verifikasi');
+Route::post('/simpan_verifikasi_hormon', [EssayController::class, 'simpanVerifikasiHormon'])->name('simpan.kesimpulanHormon');
+
 Route::get('/Hormon_kesimpulan', [kesimpulanController::class, 'indexHormon'])->name('kesimpulan.hormon');
+Route::post('/simpan_kesimpulan_hormon', [EssayController::class, 'simpanKesimpulanHormon'])->name('simpan.kesimpulanHormon');
+
 Route::get('/Hormon_kuis', function () {
     return view('siswa.hormon.kuis');
 })->name('kuis.hormon');
@@ -159,22 +185,33 @@ Route::get('/hasil_kuis_hormon', function () {
     return view('siswa.hormon.hasilkuis');
 })->name('hormon.hasilKuis');
 Route::post('/nilai_kuis_hormon', [SKMController::class, 'nilaiHormon']);
-Route::post('/simpan_kesimpulan_hormon', [EssayController::class, 'simpanKesimpulanHormon'])->name('simpan.kesimpulanHormon');
-Route::post('/simpan_verifikasi_hormon', [EssayController::class, 'simpanVerifikasiHormon'])->name('simpan.kesimpulanHormon');
 
 // Materi Homeostasis
 Route::get('/Homeostasis_Stimulasi', function () {
     return view('siswa.homeostasis.Stimulasi');
 });
+Route::post('/selesai_Stimulasi_Homeostasis', [ProgressHomeostasisController::class, 'selesaiStimulasiHomeostasis']);
+
 Route::get('/Homeostasis_identifikasiMasalah', function () {
     return view('siswa.homeostasis.identifikasiMasalah');
-});
+})->name('homeostasis.identifikasiMasalah');
+Route::post('/selesai_identifikasiMasalah_Homeostasis', [ProgressHomeostasisController::class, 'selesaiIdentifikasiMasalahHomeostasis']);
+
 Route::get('/Homeostasis_pengumpulanData', function () {
     return view('siswa.homeostasis.pengumpulanData');
-});
+})->name('homeostasis.pengumpulanData');
+Route::post('/selesai_pengumpulanData_Homeostasis', [ProgressHomeostasisController::class, 'selesaiPengumpulanDataHomeostasis']);
+
 Route::get('/Homeostasis_pengolahanData', [kesimpulanController::class, 'indexPengolahanDataHomeostasis'])->name('pengolahan.data.homeostasis');
+Route::post('/simpan_pengolahanData_homeostasis', [EssayController::class, 'simpanPengolahanDataHomeostasis'])->name('simpan.pengolahanDataHomeostasis');
+
 Route::get('/Homeostasis_verifikasi', [kesimpulanController::class, 'indexVerifikasiHomeostasis'])->name('verifikasi.homeostasis');
+Route::post('/simpan_verifikasi_homeostasis', [EssayController::class, 'simpanVerifikasiHomeostasis'])->name('simpan.verifikasiHomeostasis');
+
+
 Route::get('/Homeostasis_kesimpulan', [kesimpulanController::class, 'indexHomeostasis'])->name('kesimpulan.homeostasis');
+Route::post('/simpan_kesimpulan_homeostasis', [EssayController::class, 'simpanKesimpulanHomeostasis'])->name('simpan.kesimpulanHomeostasis');
+
 Route::get('/Homeostasis_kuis', function () {
     return view('siswa.homeostasis.kuis');
 })->name('kuis.homeostasis');
@@ -182,9 +219,6 @@ Route::get('/hasil_kuis_homeostasis', function () {
     return view('siswa.homeostasis.hasilkuis');
 })->name('homeostasis.hasilKuis');
 Route::post('/nilai_kuis_homeostasis', [SKMController::class, 'nilaiHomeostasis']);
-Route::post('/simpan_kesimpulan_homeostasis', [EssayController::class, 'simpanKesimpulanHomeostasis'])->name('simpan.kesimpulanHomeostasis');
-Route::post('/simpan_pengolahanData_homeostasis', [EssayController::class, 'simpanPengolahanDataHomeostasis'])->name('simpan.pengolahanDataHomeostasis');
-Route::post('/simpan_verifikasi_homeostasis', [EssayController::class, 'simpanVerifikasiHomeostasis'])->name('simpan.verifikasiHomeostasis');
 
 // post admin
 Route::post('/tambahGuru', [UserControllerGuru::class, 'store'])->name('tambah.guru');

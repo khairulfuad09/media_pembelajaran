@@ -155,7 +155,14 @@
             </div>
 
             <div class="text-center mt-4">
-                <button onclick="cekKasus()">Periksa Jawaban</button>
+                <form action="/selesai_pengolahanData_Hormon" method="post">
+                    @csrf
+                    <input type="hidden" name="chapter_id" value="3">
+                    <input type="hidden" name="exercise_id" value="4">
+                    <button class="button-identifikasiMasalah periksa-jawaban" id="btnNext"
+                        style="display: none;">Next</button>
+                </form>
+                <button onclick="cekKasus()" id="cekJawaban">Periksa Jawaban</button>
                 <button onclick="resetKasus()">Reset</button>
             </div>
         </div>

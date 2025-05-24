@@ -19,7 +19,9 @@ function cekJawaban() {
     }
 
     if (benarSemua) {
-        document.getElementById("materiHomeostasis").classList.remove("hidden");
+        // document.getElementById("materiHomeostasis").classList.remove("hidden");
+        document.getElementById("btnNext").style.display = "inline-block";
+        document.getElementById("cekJawaban").style.display = "none";
     }
 }
 

@@ -14,9 +14,14 @@
         <!-- Konten Kuis -->
         <div class="alert alert-success text-center">
             <h2>Kuis Selesai</h2>
-            <h3>Nilai Anda: {{ session('nilai') }}</h3>
-            <p>Jawaban benar: {{ session('benar') }} dari {{ session('total') }} soal</p>
-            <a href="/skm_stimulasi"><button class="btn btn-secondary" onclick="">Next</button></a>
+            <h3>Nilai Anda: {{ $nilai }}</h3>
+            <p>Jawaban benar: {{ $benar }} dari {{ $total }} soal</p>
+            <p>{{ $keterangan }}</p>
+            @if ($keterangan == 'tidak memenuhi kkm')
+                <a href="/Homeostasis_Stimulasi"><button class="btn btn-secondary btn-lg">Pelajari Kembali</button></a>
+            @else
+                <a href="/skm_stimulasi"><button class="btn btn-secondary btn-lg">Next</button></a>
+            @endif
         </div>
     </div>
 

@@ -106,6 +106,14 @@ class EssayController extends Controller
             ]);
         }
 
+        Progress::updateOrCreate([
+            'user_id' => auth()->id(),
+            'chapter_id' => 2,
+            'exercise_id' => 6,
+        ], [
+            'is_complete' => true,
+        ]);
+
         return redirect()->route('kuis.aim');
     }
     // public function beriNilaiAIM(Request $request, $id)
@@ -157,6 +165,14 @@ class EssayController extends Controller
             ]);
         }
 
+        Progress::updateOrCreate([
+            'user_id' => auth()->id(),
+            'chapter_id' => 3,
+            'exercise_id' => 6,
+        ], [
+            'is_complete' => true,
+        ]);
+
         return redirect()->route('kuis.hormon');
     }
     public function simpanVerifikasiHormon(Request $request)
@@ -196,6 +212,14 @@ class EssayController extends Controller
             ]);
         }
 
+        Progress::updateOrCreate([
+            'user_id' => auth()->id(),
+            'chapter_id' => 3,
+            'exercise_id' => 5,
+        ], [
+            'is_complete' => true,
+        ]);
+
         return redirect()->route('kesimpulan.hormon');
     }
     public function simpanKesimpulanHomeostasis(Request $request)
@@ -234,6 +258,13 @@ class EssayController extends Controller
                 'nilai' => 0,
             ]);
         }
+        Progress::updateOrCreate([
+            'user_id' => auth()->id(),
+            'chapter_id' => 4,
+            'exercise_id' => 6,
+        ], [
+            'is_complete' => true,
+        ]);
 
         return redirect()->route('kuis.homeostasis');
     }
@@ -274,6 +305,14 @@ class EssayController extends Controller
             ]);
         }
 
+        Progress::updateOrCreate([
+            'user_id' => auth()->id(),
+            'chapter_id' => 4,
+            'exercise_id' => 4,
+        ], [
+            'is_complete' => true,
+        ]);
+
         return redirect()->route('verifikasi.homeostasis');
     }
     public function simpanVerifikasiHomeostasis(Request $request)
@@ -312,6 +351,13 @@ class EssayController extends Controller
                 'nilai' => 0,
             ]);
         }
+        Progress::updateOrCreate([
+            'user_id' => auth()->id(),
+            'chapter_id' => 4,
+            'exercise_id' => 5,
+        ], [
+            'is_complete' => true,
+        ]);
 
         return redirect()->route('kesimpulan.homeostasis');
     }

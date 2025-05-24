@@ -84,8 +84,14 @@
                     suhu.</p>
             </div>
             <div class="btn-cekJawaban">
-                <button class="periksa-jawaban" onclick="cekJawaban()">Periksa Jawaban</button>
-                <p id="hasil"></p>
+                <form action="/selesai_verifikasi_AIM" method="post">
+                    @csrf
+                    <input type="hidden" name="chapter_id" value="2">
+                    <input type="hidden" name="exercise_id" value="5">
+                    <button class="periksa-jawaban" id="btnNext" style="display: none;">Next</button>
+                </form>
+                <button class="periksa-jawaban" onclick="cekJawaban()" id="cekJawaban">Periksa Jawaban</button>
+                {{-- <p id="hasil"></p> --}}
             </div>
         </div>
     </div>

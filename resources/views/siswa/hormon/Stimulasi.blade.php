@@ -166,4 +166,11 @@
             </ol>
         </div>
     </div>
+    <button id="sudahMembaca" class="btn btn-success">Saya sudah membaca</button>
+    <form action="/selesai_Stimulasi_Hormon" method="post">
+        @csrf
+        <input type="hidden" name="chapter_id" value="3">
+        <input type="hidden" name="exercise_id" value="1">
+        <button type="submit" id="nextButton" class="btn btn-primary" style="display: none;">Next</button>
+    </form>
 @endsection

@@ -21,6 +21,7 @@ function updateUsedAnswers() {
 }
 function periksaJawaban() {
     let benar = 0;
+    let totalJawaban = 0;
     document.querySelectorAll('.pilihan-jawaban').forEach(select => {
         const kunci = select.getAttribute('data-kunci');
         if (select.value === kunci) {
@@ -31,10 +32,15 @@ function periksaJawaban() {
             select.classList.add('is-invalid');
             select.classList.remove('is-valid');
         }
+        totalJawaban++;
     });
 
-    document.getElementById('hasil').innerHTML =
-        `<div class="alert alert-info">Jawaban Benar: <strong>${benar}</strong> dari <strong>6</strong></div>`;
+    // document.getElementById('hasil').innerHTML =
+    //     `<div class="alert alert-info">Jawaban Benar: <strong>${benar}</strong> dari <strong>6</strong></div>`;
+    if (benar === totalJawaban) {
+        document.getElementById("btnNext").style.display = "inline-block";
+        document.getElementById("cekJawaban").style.display = "none";
+    }
 }
 
 function resetJawaban() {

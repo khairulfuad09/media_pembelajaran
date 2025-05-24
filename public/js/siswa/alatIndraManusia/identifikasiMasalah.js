@@ -18,7 +18,9 @@ function cekJawaban() {
             select.classList.remove("correct");
         }
     }
-    document.getElementById("hasil").innerText = `Jawaban benar: ${benar} dari 5`;
+    console.log(benar);
+    
+    // document.getElementById("hasil").innerText = `Jawaban benar: ${benar} dari 5`;
 }
 
 function resetGame() {
@@ -96,6 +98,7 @@ const kunciJawaban = {
   });
   
   function periksaJawabanIndra() {
+    let benar = 0;
     const jawabanBenar = {
         fungsi_mata: "melihat",
         fungsi_telinga: "mendengar",
@@ -103,7 +106,7 @@ const kunciJawaban = {
         fungsi_lidah: "mengecap",
         fungsi_kulit: "meraba"
     };
-
+    
     Object.keys(jawabanBenar).forEach(id => {
         const input = document.getElementsByName(id)[0];
         const jawabanUser = input.value.trim().toLowerCase();
@@ -112,11 +115,17 @@ const kunciJawaban = {
         if (jawabanUser === kunci) {
             input.style.backgroundColor = "#d4edda"; // hijau muda
             input.style.color = "black";
+            benar++;
         } else {
             input.style.backgroundColor = "#f8d7da"; // merah muda
             input.style.color = "black";
         }
     });
+    // console.log(jawabanBenar.length);
+    if (benar === 5) {
+        document.getElementById("btnNext").style.display = "inline-block";
+        document.getElementById("cekJawaban").style.display = "none";
+    }
 }
 
 function resetJawabanIndra() {

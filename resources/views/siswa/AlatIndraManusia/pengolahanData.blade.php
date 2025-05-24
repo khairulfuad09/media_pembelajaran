@@ -58,7 +58,8 @@
 
                 <!-- Jawaban di Kanan -->
                 <div class="col-md-7">
-                    <form id="quizForm">
+                    <form id="quizForm" action="/selesai_pengolahanData_AIM" method="post">
+                        @csrf
                         <div class="row">
                             @for ($i = 1; $i <= 12; $i++)
                                 <div class="col-md-6 mb-3">
@@ -70,7 +71,14 @@
                         </div>
 
                         <div class="d-flex justify-content-end gap-2 mt-3">
-                            <button type="button" class="btn btn-success" onclick="periksaJawaban()">Periksa
+                            {{-- <form >
+                                @csrf --}}
+                            <input type="hidden" name="chapter_id" value="2">
+                            <input type="hidden" name="exercise_id" value="4">
+                            <button class="btn btn-success" id="btnNext" style="display: none;">Next</button>
+                            {{-- </form> --}}
+                            <button id="cekJawaban" type="button" class="btn btn-success"
+                                onclick="periksaJawaban()">Periksa
                                 Jawaban</button>
                             <button type="button" class="btn btn-secondary" onclick="resetJawaban()">Reset</button>
                         </div>

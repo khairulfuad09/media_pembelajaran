@@ -96,9 +96,17 @@
                 </tr>
             </table>
             <div class="btn-cekJawaban">
-                <button class=".button-pengumpulanDataAIM btn btn-primary periksa-jawaban" onclick="cekJawaban()">Periksa
+                <button id="cekJawaban" class=".button-pengumpulanDataAIM btn btn-primary periksa-jawaban"
+                    onclick="cekJawaban()">Periksa
                     Jawaban</button>
-                <p id="hasil"></p>
+                {{-- <p id="hasil"></p> --}}
+                <form action="/selesai_pengumpulanData_AIM" method="post">
+                    @csrf
+                    <input type="hidden" name="chapter_id" value="2">
+                    <input type="hidden" name="exercise_id" value="3">
+                    <button class=".button-pengumpulanDataAIM btn btn-primary periksa-jawaban" id="btnNext"
+                        style="display: none;">Next</button>
+                </form>
             </div>
         </div>
     </div>

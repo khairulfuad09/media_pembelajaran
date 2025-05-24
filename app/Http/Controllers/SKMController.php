@@ -64,7 +64,7 @@ class SKMController extends Controller
 
 
 
-        return redirect()->route('skm.hasilKuis')->with([
+        return view('siswa.SistemKoordinasiManusia.hasilkuis', [
             'nilai' => $nilai,
             'benar' => $skor,
             'total' => $total,
@@ -74,6 +74,7 @@ class SKMController extends Controller
 
     public function nilaiAIM(Request $request)
     {
+        $kkm = chapter::where('id', 2)->first();
         $jawabanUser = $request->input('jawaban');
 
         // Kunci jawaban disimpan di server
@@ -88,6 +89,19 @@ class SKMController extends Controller
 
         $total = count($kunci);
         $nilai = round(($skor / $total) * 100);
+
+        if ($nilai >= $kkm->kkm) {
+            Progress::updateOrCreate([
+                'user_id' => auth()->id(),
+                'chapter_id' => 2,
+                'exercise_id' => 7,
+            ], [
+                'is_complete' => true,
+            ]);
+            $keterangan = 'memenuhi kkm';
+        } else {
+            $keterangan = 'tidak memenuhi kkm';
+        }
 
         // Informasi identitas nilai
         $userId = auth()->id();
@@ -108,14 +122,16 @@ class SKMController extends Controller
             ]
         );
 
-        return redirect()->route('aim.hasilKuis')->with([
+        return view('siswa.AlatIndraManusia.hasilkuis', [
             'nilai' => $nilai,
             'benar' => $skor,
-            'total' => $total
+            'total' => $total,
+            'keterangan' => $keterangan,
         ]);
     }
     public function nilaiHormon(Request $request)
     {
+        $kkm = chapter::where('id', 3)->first();
         $jawabanUser = $request->input('jawaban');
 
         // Kunci jawaban disimpan di server
@@ -130,6 +146,19 @@ class SKMController extends Controller
 
         $total = count($kunci);
         $nilai = round(($skor / $total) * 100);
+
+        if ($nilai >= $kkm->kkm) {
+            Progress::updateOrCreate([
+                'user_id' => auth()->id(),
+                'chapter_id' => 3,
+                'exercise_id' => 7,
+            ], [
+                'is_complete' => true,
+            ]);
+            $keterangan = 'memenuhi kkm';
+        } else {
+            $keterangan = 'tidak memenuhi kkm';
+        }
 
         // Informasi identitas nilai
         $userId = auth()->id();
@@ -150,14 +179,16 @@ class SKMController extends Controller
             ]
         );
 
-        return redirect()->route('hormon.hasilKuis')->with([
+        return view('siswa.hormon.hasilkuis', [
             'nilai' => $nilai,
             'benar' => $skor,
-            'total' => $total
+            'total' => $total,
+            'keterangan' => $keterangan,
         ]);
     }
     public function nilaiHomeostasis(Request $request)
     {
+        $kkm = chapter::where('id', 4)->first();
         $jawabanUser = $request->input('jawaban');
 
         // Kunci jawaban disimpan di server
@@ -172,6 +203,19 @@ class SKMController extends Controller
 
         $total = count($kunci);
         $nilai = round(($skor / $total) * 100);
+
+        if ($nilai >= $kkm->kkm) {
+            Progress::updateOrCreate([
+                'user_id' => auth()->id(),
+                'chapter_id' => 4,
+                'exercise_id' => 7,
+            ], [
+                'is_complete' => true,
+            ]);
+            $keterangan = 'memenuhi kkm';
+        } else {
+            $keterangan = 'tidak memenuhi kkm';
+        }
 
         // Informasi identitas nilai
         $userId = auth()->id();
@@ -192,10 +236,11 @@ class SKMController extends Controller
             ]
         );
 
-        return redirect()->route('homeostasis.hasilKuis')->with([
+        return view('siswa.homeostasis.hasilkuis', [
             'nilai' => $nilai,
             'benar' => $skor,
-            'total' => $total
+            'total' => $total,
+            'keterangan' => $keterangan,
         ]);
     }
 }

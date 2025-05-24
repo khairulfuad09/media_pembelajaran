@@ -73,90 +73,6 @@
                     </p>
                 </div>
                 <!-- Petunjuk Pengerjaan -->
-                {{-- <div class="container-petunjuk text-center">
-                    <h2>Petunjuk Pengerjaan</h2>
-                    <ol style="max-width:600px; margin: auto; text-align: left;">
-                        <li>Amati gambar alat indra yang tersedia.</li>
-                        <li>Pilih jawaban yang sesuai dari daftar fungsi.</li>
-                        <li>Klik tombol "Cek Jawaban" untuk memeriksa apakah jawaban Anda benar.</li>
-                        <li>Jika ingin mengulang, tekan tombol "Reset" untuk mencoba lagi.</li>
-                    </ol>
-                </div>
-
-                <br>
-                <div class="game-container">
-                    <table>
-                        <tr>
-                            <td><img src="img/lidah.jpg" alt="Lidah"></td>
-                            <td>
-                                <select id="q1">
-                                    <option value="">Pilih</option>
-                                    <option value="1">melihat</option>
-                                    <option value="2">mendengar</option>
-                                    <option value="3">mengecap</option>
-                                    <option value="4">mencium</option>
-                                    <option value="5">meraba</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="img/hidung.jpg" alt="Hidung"></td>
-                            <td>
-                                <select id="q2">
-                                    <option value="">Pilih</option>
-                                    <option value="1">melihat</option>
-                                    <option value="2">mendengar</option>
-                                    <option value="3">mengecap</option>
-                                    <option value="4">mencium</option>
-                                    <option value="5">meraba</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="img/telinga.jpg" alt="Telinga"></td>
-                            <td>
-                                <select id="q3">
-                                    <option value="">Pilih</option>
-                                    <option value="1">melihat</option>
-                                    <option value="2">mendengar</option>
-                                    <option value="3">mengecap</option>
-                                    <option value="4">mencium</option>
-                                    <option value="5">meraba</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="img/mata2.jpg" alt="Mata"></td>
-                            <td>
-                                <select id="q4">
-                                    <option value="">Pilih</option>
-                                    <option value="1">melihat</option>
-                                    <option value="2">mendengar</option>
-                                    <option value="3">mengecap</option>
-                                    <option value="4">mencium</option>
-                                    <option value="5">meraba</option>
-                                </select>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><img src="img/kulit.jpg" alt="kulit"></td>
-                            <td>
-                                <select id="q5">
-                                    <option value="">Pilih</option>
-                                    <option value="1">melihat</option>
-                                    <option value="2">mendengar</option>
-                                    <option value="3">mengecap</option>
-                                    <option value="4">mencium</option>
-                                    <option value="5">meraba</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="buttons">
-                    <button class="periksa-jawaban" onclick="cekJawaban()">Periksa Jawaban</button>
-                    <button class="reset" onclick="resetGame()">Reset</button>
-                </div> --}}
             </div>
             <p id="hasil"></p>
         </div>
@@ -263,9 +179,17 @@
                     </tr>
                 </tbody>
             </table>
-            <div style="margin-top: 20px;">
-                <button onclick="periksaJawabanIndra()">Periksa Jawaban</button>
-                <button onclick="resetJawabanIndra()">Reset</button>
+            <div style="margin-top: 20px;" class="button-container" style="display: flex;">
+                <button class="button-identifikasiMasalah periksa-jawaban" onclick="periksaJawabanIndra()"
+                    id="cekJawaban">Periksa Jawaban</button>
+                <button class="button-identifikasiMasalah reset" onclick="resetJawabanIndra()">Reset</button>
+                <form action="/selesai_identifikasiMasalah_AIM" method="post">
+                    @csrf
+                    <input type="hidden" name="chapter_id" value="2">
+                    <input type="hidden" name="exercise_id" value="2">
+                    <button class="button-identifikasiMasalah periksa-jawaban" id="btnNext"
+                        style="display: none;">Next</button>
+                </form>
             </div>
         </div>
     </div>

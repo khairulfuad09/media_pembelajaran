@@ -9,6 +9,7 @@ function cekJawaban() {
     };
     
     let benar = 0;
+    let totalJawaban = 0;
     for (let id in jawabanBenar) {
         let input = document.getElementById(id);
         if (input.value.trim().toLowerCase() === jawabanBenar[id].toLowerCase()) {
@@ -19,6 +20,12 @@ function cekJawaban() {
             input.classList.add("incorrect");
             input.classList.remove("correct");
         }
+        totalJawaban++;
     }
-    document.getElementById("hasil").innerText = `Jawaban benar: ${benar} dari 6`;
+    // console.log(totalJawaban.length);
+    if (benar === totalJawaban) {
+        document.getElementById("btnNext").style.display = "inline-block";
+        document.getElementById("cekJawaban").style.display = "none";
+    }
+    // document.getElementById("hasil").innerText = `Jawaban benar: ${benar} dari 6`;
 }
