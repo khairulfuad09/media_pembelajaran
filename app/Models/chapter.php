@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+use function Laravel\Prompts\progress;
+
 class chapter extends Model
 {
     use HasFactory;
@@ -26,7 +28,7 @@ class chapter extends Model
     }
     public function progress()
     {
-        return $this->hasMany(essay::class);
+        return $this->hasMany(progress::class);
     }
     // public function subject()
     // {

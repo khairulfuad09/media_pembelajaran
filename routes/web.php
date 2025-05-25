@@ -51,12 +51,13 @@ Route::get('/user_guru', [UserControllerGuru::class, 'index']);
 Route::get('/user_siswa', [UserControllerSiswa::class, 'index']);
 // admin get
 // guru get
-Route::get('/guru_home', function () {
-    return view('guru.home_guru');
-});
+// Route::get('/guru_home', function () {
+//     return view('guru.home_guru');
+// });
 // Route::get('/guru_nilai_siswa', function () {
 //     return view('guru.nilaiSiswa_guru');
 // });
+Route::get('guru_home', [ProgressController::class, 'indexProgressHalGuru']);
 Route::get('/guru_nilai_siswa', [GradeController::class, 'index']);
 Route::get('/guru_daftarSiswa', [SiswaContoller_guru::class, 'index']);
 Route::get('/guru_kkm', [kkmController::class, 'index'])->name('guru.kkm');

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Progress;
 use App\Models\Chapter;
+use App\Models\User;
 use App\Http\Requests\StoreProgressRequest;
 use App\Http\Requests\UpdateProgressRequest;
 
@@ -36,6 +37,14 @@ class ProgressController extends Controller
         }
 
         return view('siswa.dashboard', compact('progressData'));
+    }
+    public function indexProgressHalGuru()
+    {
+
+        $progress_siswa = User::where('role', 'siswa')
+            ->with(['Progress.chapter', 'Progress.exercise',])->get();
+        // dd($progress_siswa);
+        return view('guru.home_guru', compact('progress_siswa'));
     }
 
     /**

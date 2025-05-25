@@ -28,52 +28,25 @@
                                 <thead class="table-dark">
                                     <tr>
                                         <th>Nama</th>
-                                        <th>Subbab</th>
-                                        <th>Latihan</th>
-                                        <th>Nilai</th>
-                                        <th>Aksi</th>
+                                        <th>jumlah tahapan</th>
+                                        <th>sudah selesai</th>
+                                        <th>persentase</th>
+                                        <th>aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @php
-                                        $nilaiSiswa = [
-                                            [
-                                                'nama' => 'Ahmad Rizki',
-                                                'subbab' => 'Sistem Saraf',
-                                                'latihan' => 'Latihan 1',
-                                                'nilai' => 85,
-                                                'detail' => 'Menjawab 8 dari 10 soal dengan benar.',
-                                            ],
-                                            [
-                                                'nama' => 'Nadia Lestari',
-                                                'subbab' => 'Sistem Saraf',
-                                                'latihan' => 'Latihan 1',
-                                                'nilai' => 90,
-                                                'detail' => 'Sangat baik, hanya satu jawaban salah.',
-                                            ],
-                                            [
-                                                'nama' => 'Putra Wijaya',
-                                                'subbab' => 'Hormon',
-                                                'latihan' => 'Latihan 2',
-                                                'nilai' => 78,
-                                                'detail' => 'Kurang pada soal definisi hormon.',
-                                            ],
-                                            [
-                                                'nama' => 'Sari Amelia',
-                                                'subbab' => 'Alat Indra',
-                                                'latihan' => 'Latihan 1',
-                                                'nilai' => 92,
-                                                'detail' => 'Sempurna! Semua jawaban benar.',
-                                            ],
-                                        ];
-                                    @endphp
-
-                                    @foreach ($nilaiSiswa as $index => $siswa)
-                                        <tr>
-                                            <td>{{ $siswa['nama'] }}</td>
-                                            <td>{{ $siswa['subbab'] }}</td>
-                                            <td>{{ $siswa['latihan'] }}</td>
-                                            <td>{{ $siswa['nilai'] }}</td>
+                                    {{-- @dd($progress_siswa) --}}
+                                    @foreach ($progress_siswa as $index => $psiswa)
+                                        {{-- @dd($psiswa) --}}
+                                        @php
+                                            $total = $psiswa->progress->count();
+                                            $selesai = $psiswa->progress->where('is_complete', true)->count();
+                                            $persen = $total > 0 ? round(($selesai / $total) * 100) : 0;
+                                        @endphp <tr>
+                                            <td>{{ $psiswa->name }}</td>
+                                            <td>{{ $total }}</td>
+                                            <td>{{ $selesai }}</td>
+                                            <td>{{ $persen }}%</td>
                                             <td>
                                                 <button class="btn btn-info btn-sm" data-bs-toggle="collapse"
                                                     data-bs-target="#collapseDetail{{ $index }}">Detail</button>
@@ -81,7 +54,31 @@
                                         </tr>
                                         <tr class="collapse" id="collapseDetail{{ $index }}">
                                             <td colspan="5" class="bg-light">
-                                                <strong>Catatan Guru:</strong> {{ $siswa['detail'] }}
+                                                <strong>Progress Detail:</strong>
+                                                <table class="table table-sm table-bordered mt-2">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Subbab</th>
+                                                            <th>Latihan</th>
+                                                            <th>Status</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($psiswa->progress as $progress)
+                                                            <tr>
+                                                                <td>{{ $progress->chapter->title ?? '-' }}</td>
+                                                                <td>{{ $progress->exercise->title ?? '-' }}</td>
+                                                                <td>
+                                                                    @if ($progress->is_complete)
+                                                                        <span class="badge bg-success">Selesai</span>
+                                                                    @else
+                                                                        <span class="badge bg-secondary">Belum</span>
+                                                                    @endif
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
+                                                    </tbody>
+                                                </table>
                                             </td>
                                         </tr>
                                     @endforeach

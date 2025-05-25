@@ -28,6 +28,6 @@ class exercise extends Model
     }
     public function progress()
     {
-        return $this->hasMany(essay::class);
+        return $this->hasMany(progress::class);
     }
 }
