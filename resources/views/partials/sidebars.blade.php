@@ -21,7 +21,8 @@ class="collapse list-unstyled pageSubmenu {{ Request::is('skm_*') ? 'show' : '' 
 
         <ul class="list-unstyled components">
             <p>Kumpulan Materi</p>
-            <li class="{{ Request::is('dashboard') ? 'active' : '' }}">
+            <li class="{{ Request::is('dashboard_siswa') ? 'active' : '' }}"
+                aria-expanded="{{ Request::is('dashboard_siswa') ? 'true' : 'false' }}">
                 <a href="{{ url('/dashboard_siswa') }}" class="">Dashboard</a>
             </li>
             <li class="{{ Request::is('skm_*') ? 'active' : '' }}">
@@ -183,9 +184,9 @@ class="collapse list-unstyled pageSubmenu {{ Request::is('skm_*') ? 'show' : '' 
                     <span>Sidebar</span>
                 </button>
 
-                <button class="btn btn-dark d-inline-block d-lg-none ml-auto dtp" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto dtp" type="button"
+                    data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <svg class="svg-inline--fa fa-align-justify fa-w-14" aria-hidden="true" data-prefix="fas"
                         data-icon="align-justify" role="img" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 448 512" data-fa-i2svg="">
@@ -198,7 +199,7 @@ class="collapse list-unstyled pageSubmenu {{ Request::is('skm_*') ? 'show' : '' 
 
                 <div class="collapse navbar-collapse pageSubmenu" id="navbarSupportedContent">
                     <ul class="nav navbar-nav ms-auto">
-                        <li class="nav-item active">
+                        <li class="nav-item">
                             <a class="nav-link" href="/">Halaman Utama</a>
                         </li>
                         <li class="nav-item">

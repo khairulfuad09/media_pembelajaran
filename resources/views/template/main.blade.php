@@ -41,7 +41,7 @@
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/siswa/sistemKoordinasiManusia/kesimpulan.js') }}"></script>
     <script src="{{ asset('js/partials/sidebars.js') }}"></script>
-    <script src="{{ asset('js/bootstrap/bootstrap.bundle.min.js') }}"></script>
+    {{-- <script src="{{ asset('js/bootstrap/bootstrap.bundle.min.js') }}"></script> --}}
     @yield('js')
 
     <!-- jQuery (Diperlukan oleh Bootstrap 4, tapi tidak Bootstrap 5) -->

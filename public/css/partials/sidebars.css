@@ -110,7 +110,7 @@ a:focus {
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background: #6A0DAD;
+    background: cornflowerblue;
 }
 
 a[data-toggle="collapse"] {
@@ -166,7 +166,7 @@ a.article:hover {
 }
 
 .active {
-    background-color: #410445 !important; /* Warna biru Bootstrap */
+    background-color: cornflowerblue !important; /* Warna biru Bootstrap */
     color: white !important;
     /* font-weight: bold; */
 }

@@ -34,3 +34,22 @@
         @endforeach
     </div>
 @endsection
+{{-- <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const buttons = document.querySelectorAll('[data-bs-toggle="collapse"]');
+        console.log(buttons);
+
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                const targetId = this.getAttribute('data-bs-target');
+                const collapseEl = document.querySelector(targetId);
+
+                if (collapseEl.classList.contains('show')) {
+                    collapseEl.classList.remove('show');
+                } else {
+                    collapseEl.classList.add('show');
+                }
+            });
+        });
+    });
+</script> --}}

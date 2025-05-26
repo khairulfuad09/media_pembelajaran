@@ -253,3 +253,5 @@
         document.getElementById('nextButton').style.display = 'inline-block';
         this.style.display = 'none'; // sembunyikan tombol "saya sudah membaca"
     });
+
+    
