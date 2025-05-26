@@ -49,8 +49,28 @@
 
                 <nav id="navmenu" class="navmenu">
                     <ul>
-                        <li><a href="/" class="active">Halaman Utama<br></a></li>
-                        <li><a href="#about">Informasi</a></li>
+                        @guest
+                            <li class="dropdown"><a href="#"><span>Masuk</span><i
+                                        class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <ul>
+                                    <li><a class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                            href="/masuk_siswa">Masuk sebagai siswa</a></li>
+                                    <li><a class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                            href="/masuk_guru">Masuk sebagai guru</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown"><a href="#"><span>Daftar</span><i
+                                        class="bi bi-chevron-down toggle-dropdown"></i></a>
+                                <ul>
+                                    <li><a class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                            href="/daftar_siswa">Daftar sebagai siswa</a></li>
+                                    <li><a class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                            href="/daftar_guru">Daftar sebagai guru</a></li>
+                                </ul>
+                            </li>
+                            {{-- <li><a class="" href="/daftar_siswa">Daftar</a></li> --}}
+                        @endguest
+                        {{-- <li><a href="/" class="active">Halaman Utama<br></a></li> --}}
                         <li class="dropdown"><a href="#"><span>Materi</span> <i
                                     class="bi bi-chevron-down toggle-dropdown"></i></a>
                             <ul>
@@ -101,14 +121,18 @@
                                 </li>
                             </ul>
                         </li>
+                        <li><a href="#about">Informasi</a></li>
                         <li><a href="#contact">Kontak</a></li>
-                        @guest
-                            <li><a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                    href="/masuk_siswa">Masuk</a></li>
-                            <li><a class="" href="/daftar_siswa">Daftar</a></li>
-                        @endguest
+
                         @auth
                             @if (Auth::user()->role === 'siswa')
+                                <li>
+                                    <form action="{{ route('keluar') }}" method="post">
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Keluar</button>
+                                    </form>
+                                </li>
+                            @elseif (Auth::user()->role === 'guru')
                                 <li>
                                     <form action="{{ route('keluar') }}" method="post">
                                         @csrf

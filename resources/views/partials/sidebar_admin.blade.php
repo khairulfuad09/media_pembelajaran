@@ -31,7 +31,11 @@
             <a href="index3.html" class="brand-link">
                 {{-- <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                     style="opacity: .8"> --}}
-                <span class="brand-text font-weight-light">Admin</span>
+                @if (Auth::user()->role === 'guru')
+                    <span class="brand-text font-weight-light">Guru</span>
+                @elseif (Auth::user()->role === 'admin')
+                    <span class="brand-text font-weight-light">Admin</span>
+                @endif
             </a>
 
             <!-- Sidebar -->
@@ -42,7 +46,7 @@
                         <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div> --}}
                     <div class="info">
-                        <a href="#" class="d-block">Admin</a>
+                        <a href="#" class="d-block">{{ Auth::user()->name }}</a>
                     </div>
                 </div>
 
@@ -52,73 +56,90 @@
                         data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-                        <li class="nav-item">
-                            <a href="/admin_home" class="nav-link active"> <!-- tambahkan class active untuk aktif -->
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Dashboard
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item"><!-- tambahkan clas menu-open untuk membuka -->
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    User
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/user_guru" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Guru</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/user_siswa" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Siswa</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        {{-- untuk membuka li tambahkan class  menu-open --}}
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-copy"></i>
-                                <p>
-                                    Siswa
-                                    <i class="fas fa-angle-left right"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/guru_home" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Home</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/guru_nilai_siswa" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Nilai Siswa</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/guru_daftarSiswa" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Daftar Siswa</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="/guru_kkm" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>kkm</p>
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
+                        @if (Auth::user()->role === 'admin')
+                            <li class="nav-item">
+                                <a href="/admin_home" class="nav-link active">
+                                    <!-- tambahkan class active untuk aktif -->
+                                    <i class="nav-icon fas fa-th"></i>
+                                    <p>
+                                        Dashboard
+                                    </p>
+                                </a>
+                            </li>
+                            <li class="nav-item"><!-- tambahkan clas menu-open untuk membuka -->
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                                    <p>
+                                        User
+                                        <i class="right fas fa-angle-left"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/user_guru" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Guru</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/user_siswa" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Siswa</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            {{-- untuk membuka li tambahkan class  menu-open --}}
+                        @elseif (Auth::user()->role === 'guru')
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-copy"></i>
+                                    <p>
+                                        Siswa
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/guru_home" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Home</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/guru_nilai_siswa" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Nilai Siswa</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/guru_daftarSiswa" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Daftar Siswa</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/guru_kkm" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>kkm</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                {{-- <a href="{{ route('keluar') }}" class="nav-link active">
+                                    <!-- tambahkan class active untuk aktif -->
+                                    <i class="nav-icon fas fa-th"></i>
+                                    <p>
+                                        keluar
+                                    </p> --}}
+                                <form action="{{ route('keluar') }}" method="post">
+                                    @csrf
+                                    <button type="submit" class="nav-link">Keluar</button>
+                                </form>
+                                {{-- </a> --}}
+                            </li>
+                        @endif
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

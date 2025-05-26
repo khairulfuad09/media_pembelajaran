@@ -159,8 +159,8 @@
                             </div>
 
                             <div class="col-md-6 mb-3">
-                                <label for="email">Email</label>
-                                <input type="email" name="email" class="form-control" required>
+                                <label for="NISN_NIP">NISN</label>
+                                <input type="NISN_NIP" name="NISN_NIP" class="form-control" required>
                             </div>
 
                             <div class="col-md-6 mb-3">

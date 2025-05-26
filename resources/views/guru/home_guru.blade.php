@@ -10,11 +10,11 @@
                     <div class="card">
                         <div class="card-header bg-primary text-white">Profil Guru</div>
                         <div class="card-body">
-                            <p><strong>Nama:</strong> Guru Contoh</p>
-                            <p><strong>Email:</strong> guru@example.com</p>
-                            <p><strong>Gender:</strong> Laki-laki</p>
-                            <p><strong>Alamat:</strong> Jl. Pendidikan No. 123</p>
-                            <p><strong>Telepon:</strong> 081234567890</p>
+                            <p><strong>Nama: </strong> {{ Auth::user()->name }}</p>
+                            <p><strong>NIP: </strong> {{ Auth::user()->NISN_NIP }}</p>
+                            <p><strong>Gender: </strong>{{ Auth::user()->profile->gender }}</p>
+                            <p><strong>Alamat: </strong>{{ Auth::user()->profile->alamat }}</p>
+                            <p><strong>Telepon: </strong>{{ Auth::user()->profile->phone }}</p>
                         </div>
                     </div>
                 </div>
@@ -22,12 +22,13 @@
                 <!-- ====================== NILAI SISWA (KANAN) ===================== -->
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header bg-success text-white">Nilai Siswa</div>
-                        <form action="{{ route('guru.indexProgressHalGuru') }}" method="GET" class="mb-3">
-                            <input type="text" name="search" class="form-control" placeholder="Cari nama siswa..."
-                                value="{{ request('search') }}">
-                            <button type="submit" class="btn btn-primary mt-2">Cari</button>
-                        </form>
+                        <div class="card-header bg-success text-white">
+                            <form action="{{ route('guru.indexProgressHalGuru') }}" method="GET" class="mb-3">
+                                <input type="text" name="search" class="form-control" placeholder="Cari nama siswa..."
+                                    value="{{ request('search') }}">
+                                <button type="submit" class="btn btn-primary mt-2">Cari</button>
+                            </form>
+                        </div>
                         <div class="card-body p-0">
                             <table class="table mb-0 table-bordered table-striped">
                                 <thead class="table-dark">
