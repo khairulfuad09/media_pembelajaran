@@ -23,6 +23,11 @@
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header bg-success text-white">Nilai Siswa</div>
+                        <form action="{{ route('guru.indexProgressHalGuru') }}" method="GET" class="mb-3">
+                            <input type="text" name="search" class="form-control" placeholder="Cari nama siswa..."
+                                value="{{ request('search') }}">
+                            <button type="submit" class="btn btn-primary mt-2">Cari</button>
+                        </form>
                         <div class="card-body p-0">
                             <table class="table mb-0 table-bordered table-striped">
                                 <thead class="table-dark">
@@ -87,6 +92,7 @@
                             </table>
                         </div>
                     </div>
+                    {{ $progress_siswa->links() }}
                 </div>
             </div>
         </div>

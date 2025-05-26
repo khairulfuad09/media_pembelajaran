@@ -13,11 +13,26 @@ class GradeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $nilai_siswa = User::with(['profile', 'grades.subject', 'grades.chapter', 'grades.exercise', 'essays.subject', 'essays.chapter', 'essays.exercise'])->get();
-        // dd($nilai_siswa['essays']);
-        // $rataNilai = '';
+        $search = $request->input('search');
+
+        $nilai_siswa = User::where('role', 'siswa') // pastikan hanya siswa, kalau perlu
+            ->when($search, function ($query, $search) {
+                $query->where('name', 'like', "%{$search}%");
+            })
+            ->with([
+                'profile',
+                'grades.subject',
+                'grades.chapter',
+                'grades.exercise',
+                'essays.subject',
+                'essays.chapter',
+                'essays.exercise'
+            ])
+            ->paginate(10)
+            ->withQueryString();
+
         return view('guru.nilaiSiswa_guru', compact('nilai_siswa'));
     }
 

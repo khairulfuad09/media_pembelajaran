@@ -166,6 +166,9 @@ class="collapse list-unstyled pageSubmenu {{ Request::is('skm_*') ? 'show' : '' 
                     </li>
                 </ul>
             </li>
+            <li class="{{ Request::is('evaluasi') ? 'active' : '' }}">
+                <a href="{{ url('/evaluasi') }}" class="">Evaluasi</a>
+            </li>
         </ul>
     </nav>
 
@@ -181,8 +184,8 @@ class="collapse list-unstyled pageSubmenu {{ Request::is('skm_*') ? 'show' : '' 
                 </button>
 
                 <button class="btn btn-dark d-inline-block d-lg-none ml-auto dtp" type="button" data-toggle="collapse"
-                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <svg class="svg-inline--fa fa-align-justify fa-w-14" aria-hidden="true" data-prefix="fas"
                         data-icon="align-justify" role="img" xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 448 512" data-fa-i2svg="">

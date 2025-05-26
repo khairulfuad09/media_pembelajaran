@@ -15,7 +15,7 @@ class UserControllerSiswa extends Controller
      */
     public function index()
     {
-        $siswas = User::with('profile')->where('role', 'siswa')->get();
+        $siswas = User::with('profile')->where('role', 'siswa')->paginate(10);
 
         return view('admin.user_siswa', compact('siswas'));
     }

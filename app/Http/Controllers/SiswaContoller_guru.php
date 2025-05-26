@@ -12,9 +12,16 @@ class SiswaContoller_guru extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $siswas = User::with('profile')->where('role', 'siswa')->get();
+        $search = $request->input('search');
+
+        $siswas = User::with('profile')
+            ->where('role', 'siswa')
+            ->when($search, function ($query, $search) {
+                $query->where('name', 'like', "%{$search}%");
+            })
+            ->paginate(10); // agar query search tetap ada saat pindah halaman
 
         return view('guru.daftarSiswa_guru', compact('siswas'));
     }

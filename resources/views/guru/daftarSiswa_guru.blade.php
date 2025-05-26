@@ -26,6 +26,11 @@
                 </button>
                 <div class="row">
                     <div class="card p-3 mt-4">
+                        <form method="GET" action="{{ route('guru.daftarSiswa') }}">
+                            <input type="text" name="search" placeholder="Cari nama siswa..."
+                                value="{{ request('search') }}">
+                            <button type="submit">Cari</button>
+                        </form>
                         <h4>Data Siswa</h4>
 
                         <table id="guruTable" class="table table-bordered table-striped">
@@ -129,6 +134,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {{ $siswas->links() }}
                     </div>
                 </div>
             </div>

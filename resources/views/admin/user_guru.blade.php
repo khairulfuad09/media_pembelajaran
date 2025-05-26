@@ -121,6 +121,7 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        {{ $gurus->links() }}
                     </div>
                 </div>
             </div>

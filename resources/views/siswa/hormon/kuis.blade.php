@@ -103,104 +103,104 @@
         }
 
         const daftarSoal = [{
-                teks: "1. Apa fungsi utama hormon yang dihasilkan oleh kelenjar endokrin?",
+                teks: "1. Kelenjar endokrin disebut juga kelenjar buntu karena ...",
                 pilihan: [
-                    "A. Menyimpan energi dalam otot",
-                    "B. Menyaring darah dari racun",
-                    "C. Mengatur pertumbuhan, metabolisme, dan keseimbangan tubuh",
-                    "D. Menyerap sari-sari makanan di usus"
-                ],
-                jawaban: "C"
-            },
-            {
-                teks: "2. Mengapa kelenjar endokrin disebut kelenjar buntu?",
-                pilihan: [
-                    "A. Karena hormon disimpan di dalamnya untuk waktu lama",
-                    "B. Karena tidak memiliki saluran dan hormonnya dibawa oleh darah",
-                    "C. Karena hormon keluar melalui saluran pencernaan",
-                    "D. Karena terletak di tempat yang tertutup"
+                    "A. Mengeluarkan hormon ke udara",
+                    "B. Tidak memiliki saluran untuk mengeluarkan hormon",
+                    "C. Mengeluarkan hormon melalui keringat",
+                    "D. Tidak berfungsi dalam tubuh"
                 ],
                 jawaban: "B"
             },
             {
-                teks: "3. Hormon yang mengatur pertumbuhan tubuh dan anabolisme protein dihasilkan oleh...?",
+                teks: "2. Dibandingkan sistem saraf, hormon bekerja dengan cara ...",
                 pilihan: [
-                    "A. Tiroid",
-                    "B. Adrenal",
-                    "C. Hipofisis (Somatotrof)",
+                    "A. Lebih cepat dan spesifik",
+                    "B. Lebih lambat tetapi pengaruhnya lebih luas",
+                    "C. Tidak berpengaruh pada tubuh",
+                    "D. Hanya memengaruhi otot"
+                ],
+                jawaban: "B"
+            },
+            {
+                teks: "3. Hormon pertumbuhan (GH) dihasilkan oleh ...",
+                pilihan: [
+                    "A. Kelenjar adrenal",
+                    "B. Kelenjar tiroid",
+                    "C. Kelenjar hipofisis",
+                    "D. Kelenjar pankreas"
+                ],
+                jawaban: "C"
+            },
+            {
+                teks: "4. Fungsi hormon melatonin adalah untuk ...",
+                pilihan: [
+                    "A. Mengatur pertumbuhan",
+                    "B. Mengatur kadar gula darah",
+                    "C. Mengatur jam biologis",
+                    "D. Mempercepat denyut jantung"
+                ],
+                jawaban: "C"
+            },
+            {
+                teks: "5. Kelenjar yang menghasilkan hormon tiroksin adalah ...",
+                pilihan: [
+                    "A. Hipofisis",
+                    "B. Tiroid",
+                    "C. Adrenal",
                     "D. Pankreas"
                 ],
-                jawaban: "C"
-            },
-            {
-                teks: "4. Fungsi utama hormon tiroksin yang dihasilkan oleh kelenjar tiroid adalah...?",
-                pilihan: [
-                    "A. Mengatur kadar gula darah",
-                    "B. Memacu metabolisme tubuh",
-                    "C. Mengatur keseimbangan air",
-                    "D. Mengontrol tekanan darah"
-                ],
                 jawaban: "B"
             },
             {
-                teks: "5. Jika seseorang kekurangan iodium, maka kemungkinan mengalami...?",
+                teks: "6. Hormon yang berfungsi meningkatkan metabolisme tubuh adalah ...",
+                pilihan: [
+                    "A. Estrogen",
+                    "B. Insulin",
+                    "C. Tiroksin",
+                    "D. Testosteron"
+                ],
+                jawaban: "C"
+            },
+            {
+                teks: "7. Kekurangan iodium dapat menyebabkan ...",
                 pilihan: [
                     "A. Diabetes melitus",
-                    "B. Kretinisme",
-                    "C. Asma",
-                    "D. Hepatitis"
-                ],
-                jawaban: "B"
-            },
-            {
-                teks: "6. Hormon yang dihasilkan oleh kelenjar adrenal bagian medula adalah...?",
-                pilihan: [
-                    "A. Tiroksin",
-                    "B. Kortison",
-                    "C. Adrenalin",
-                    "D. Glukagon"
+                    "B. Kanker",
+                    "C. Pembesaran kelenjar tiroid",
+                    "D. Infeksi paru-paru"
                 ],
                 jawaban: "C"
             },
             {
-                teks: "7. Fungsi hormon adrenalin adalah...?",
+                teks: "8. Hormon yang berfungsi mengatur kadar gula darah adalah ...",
                 pilihan: [
-                    "A. Menurunkan tekanan darah",
-                    "B. Memperlambat detak jantung",
+                    "A. Adrenalin",
+                    "B. Tiroksin",
+                    "C. Insulin",
+                    "D. Prolaktin"
+                ],
+                jawaban: "C"
+            },
+            {
+                teks: "9. Hormon adrenalin berfungsi untuk ...",
+                pilihan: [
+                    "A. Menenangkan tubuh",
+                    "B. Mengurangi tekanan darah",
                     "C. Meningkatkan denyut jantung dan tekanan darah",
-                    "D. Meningkatkan produksi urin"
+                    "D. Memperlambat napas"
                 ],
                 jawaban: "C"
             },
             {
-                teks: "8. Hormon insulin dan glukagon dihasilkan oleh...?",
+                teks: "10. Penyakit kencing manis (diabetes melitus) disebabkan oleh ...",
                 pilihan: [
-                    "A. Kelenjar tiroid",
-                    "B. Kelenjar adrenal",
-                    "C. Kelenjar pankreas (Pulau Langerhans)",
-                    "D. Kelenjar hipofisis"
+                    "A. Kekurangan insulin",
+                    "B. Kelebihan tiroksin",
+                    "C. Kekurangan testosteron",
+                    "D. Kelebihan estrogen"
                 ],
-                jawaban: "C"
-            },
-            {
-                teks: "9. Jika kadar gula darah tinggi, maka tubuh akan...?",
-                pilihan: [
-                    "A. Menghasilkan lebih banyak glukagon",
-                    "B. Mengurangi produksi insulin",
-                    "C. Menyimpan glukosa dalam bentuk glikogen dengan bantuan insulin",
-                    "D. Meningkatkan laju metabolisme"
-                ],
-                jawaban: "C"
-            },
-            {
-                teks: "10. Fungsi hormon progesteron pada wanita adalah...?",
-                pilihan: [
-                    "A. Menyebabkan kontraksi otot rahim saat melahirkan",
-                    "B. Merangsang pertumbuhan sperma",
-                    "C. Mempersiapkan rahim untuk menerima ovum",
-                    "D. Mengatur produksi insulin"
-                ],
-                jawaban: "C"
+                jawaban: "A"
             },
             // Tambahkan soal lain di sini
         ];

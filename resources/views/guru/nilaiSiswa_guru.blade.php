@@ -6,6 +6,10 @@
         <div class="container mt-4">
             <h2 class="text-center mb-4">Data Nilai Siswa</h2>
 
+            <form method="GET" action="{{ route('guru.nilaiSiswa') }}">
+                <input type="text" name="search" placeholder="Cari nama siswa..." value="{{ request('search') }}">
+                <button type="submit">Search</button>
+            </form>
             <div class="card">
                 <div class="card-body p-0">
                     <table class="table table-bordered mb-0">
@@ -211,5 +215,7 @@
                 </div>
             </div>
         </div>
+        <!-- Link navigasi pagination -->
+        {{ $nilai_siswa->links() }}
     </div>
 @endsection

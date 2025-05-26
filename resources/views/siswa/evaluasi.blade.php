@@ -51,7 +51,7 @@
                 </div>
                 <div class="col-md-4 d-flex align-items-center justify-content-center">
                     <a href="/Homeostasis_kesimpulan"><button class="btn btn-primary btn-lg">kembali</button></a>
-                    <button class="btn btn-success btn-lg" onclick="mulaiKuis()">Mulai Kuis</button>
+                    <button class="btn btn-success btn-lg" onclick="mulaiKuis()">Mulai Evaluasi</button>
                 </div>
             </div>
         </div>
@@ -103,104 +103,196 @@
         }
 
         const daftarSoal = [{
-                teks: "1. Apa yang dimaksud dengan homeostasis?",
+                teks: "1. Apa yang terjadi pertama kali ketika kita menyentuh benda panas secara tidak sengaja?",
                 pilihan: [
-                    "A. Proses tubuh dalam mengatur jumlah makanan yang dikonsumsi",
-                    "B. Proses menjaga stabilitas kondisi tubuh secara otomatis",
-                    "C. Proses pertumbuhan dan perkembangan tubuh",
-                    "D. Proses pembentukan energi dalam sel"
-                ],
-                jawaban: "B"
-            },
-            {
-                teks: "2. Mengapa homeostasis penting bagi tubuh manusia?",
-                pilihan: [
-                    "A. Untuk meningkatkan kadar hormon secara terus-menerus",
-                    "B. Agar tubuh bisa menghasilkan energi dari udara",
-                    "C. Agar kondisi internal tubuh tetap stabil meskipun ada perubahan",
-                    "D. Untuk meningkatkan berat badan"
+                    "A. Impuls dikirim ke otot terlebih dahulu",
+                    "B. Impuls langsung dikirim ke otak untuk diproses",
+                    "C. Reseptor menerima rangsangan panas",
+                    "D. Efektor memberikan tanggapan langsung"
                 ],
                 jawaban: "C"
             },
             {
-                teks: "3. Bagaimana cara tubuh mengatur suhu tubuh saat kita kedinginan?",
+                teks: "2. Berikut ini yang merupakan fungsi dari dendrit adalah...",
                 pilihan: [
-                    "A. Hipotalamus menyuruh tubuh untuk berkeringat",
-                    "B. Hipotalamus mengirim sinyal ke otot untuk menggigil",
-                    "C. Ginjal meningkatkan reabsorpsi air",
-                    "D. Pituitari mengurangi hormon ADH"
-                ],
-                jawaban: "B"
-            },
-            {
-                teks: "4. Organ otak yang berperan penting dalam menjaga homeostasis adalah...",
-                pilihan: [
-                    "A. Serebelum",
-                    "B. Medula oblongata",
-                    "C. Hipotalamus",
-                    "D. Hipokampus"
+                    "A. Meneruskan impuls ke neuron lain",
+                    "B. Menyimpan impuls dalam badan sel",
+                    "C. Menerima impuls dari sel lain",
+                    "D. Menghubungkan neuron motorik dengan efektor"
                 ],
                 jawaban: "C"
             },
             {
-                teks: "5. Ketika kita minum banyak air, apa yang terjadi dengan hormon ADH?",
+                teks: "3. Bagian dari sistem saraf yang berfungsi sebagai pusat pengendali pernapasan dan denyut jantung adalah...",
                 pilihan: [
-                    "A. Jumlahnya meningkat",
-                    "B. Jumlahnya tidak berubah",
-                    "C. Produksinya dihentikan seluruhnya",
-                    "D. Jumlahnya menurun"
+                    "A. Otak besar",
+                    "B. Otak kecil",
+                    "C. Sumsum lanjutan",
+                    "D. Medula spinalis"
+                ],
+                jawaban: "C"
+            },
+            {
+                teks: "4. Impuls dari neuron sensorik menuju neuron motorik tanpa melalui otak terjadi pada...",
+                pilihan: [
+                    "A. Gerak sadar",
+                    "B. Gerak lambat",
+                    "C. Gerak refleks",
+                    "D. Gerak otot sadar"
+                ],
+                jawaban: "C"
+            },
+            {
+                teks: "5. Fungsi utama dari mielin adalah...",
+                pilihan: [
+                    "A. Menghasilkan neurotransmitter",
+                    "B. Menerima rangsangan dari lingkungan",
+                    "C. Menyimpan impuls",
+                    "D. Mempercepat jalannya impuls dan memberi makan sel saraf"
                 ],
                 jawaban: "D"
             },
             {
-                teks: "6. Fungsi hormon insulin adalah...",
+                teks: "6. Fungsi utama mata sebagai alat indra adalah...",
                 pilihan: [
-                    "A. Mengubah glukosa menjadi glikogen",
-                    "B. Mengubah glikogen menjadi glukosa",
-                    "C. Menghentikan kerja pankreas",
-                    "D. Meningkatkan tekanan darah"
-                ],
-                jawaban: "A"
-            },
-            {
-                teks: "7. Saat kadar gula dalam darah menurun, tubuh akan menghasilkan hormon...",
-                pilihan: [
-                    "A. Estrogen",
-                    "B. Glukagon",
-                    "C. Insulin",
-                    "D. Adrenalin"
-                ],
-                jawaban: "B"
-            },
-            {
-                teks: "8. Zat adiktif adalah...",
-                pilihan: [
-                    "A. Zat yang hanya berasal dari tanaman alami",
-                    "B. Zat yang menyebabkan ketagihan jika dikonsumsi terus-menerus",
-                    "C. Zat yang menyembuhkan penyakit kronis",
-                    "D. Zat yang meningkatkan sistem imun"
-                ],
-                jawaban: "B"
-            },
-            {
-                teks: "9. Contoh zat adiktif yang legal dan sering dikonsumsi sehari-hari adalah...",
-                pilihan: [
-                    "A. Morfin",
-                    "B. Heroin",
-                    "C. Kafein",
-                    "D. LSD"
+                    "A. Menangkap getaran suara",
+                    "B. Mendeteksi zat kimia yang larut dalam air",
+                    "C. Mendeteksi cahaya",
+                    "D. Menangkap partikel gas di udara"
                 ],
                 jawaban: "C"
             },
             {
-                teks: "10. Narkoba yang termasuk jenis depresan akan menyebabkan pengguna merasa...",
+                teks: "7. Bagian mata yang berfungsi mengatur jumlah cahaya yang masuk ke dalam mata adalah...",
                 pilihan: [
-                    "A. Berhalusinasi",
-                    "B. Sangat aktif dan bertenaga",
-                    "C. Tenang dan mengantuk hingga tak sadar",
-                    "D. Merasa lapar berlebihan"
+                    "A. Retina",
+                    "B. Kornea",
+                    "C. Iris dan pupil",
+                    "D. Sklera"
                 ],
                 jawaban: "C"
+            },
+            {
+                teks: "8. Lapisan bola mata yang mengandung pembuluh darah dan memberi nutrisi ke mata adalah...",
+                pilihan: [
+                    "A. Sklera",
+                    "B. Retina",
+                    "C. Kornea",
+                    "D. Koroid"
+                ],
+                jawaban: "D"
+            },
+            {
+                teks: "9. Proses melihat dimulai dari cahaya yang dipantulkan oleh benda kemudian...",
+                pilihan: [
+                    "A. Melewati pupil – retina – kornea",
+                    "B. Masuk ke retina – diteruskan ke otak",
+                    "C. Ditangkap kornea – melewati pupil – lensa – retina – otak",
+                    "D. Diteruskan langsung ke otak oleh kornea"
+                ],
+                jawaban: "C"
+            },
+            {
+                teks: "10. Struktur telinga yang berfungsi menangkap gelombang bunyi pertama kali adalah...",
+                pilihan: [
+                    "A. Koklea",
+                    "B. Tulang martil",
+                    "C. Daun telinga",
+                    "D. Saluran Eustachius"
+                ],
+                jawaban: "C"
+            },
+            {
+                teks: "11. Apa fungsi utama dari hormon somatotrof yang dihasilkan oleh kelenjar hipofisis?",
+                pilihan: [
+                    "A. Mengatur tekanan darah",
+                    "B. Mengatur pertumbuhan dan anabolisme protein",
+                    "C. Mengatur produksi urin",
+                    "D. Mengatur sekresi hormon insulin"
+                ],
+                jawaban: "B"
+            },
+            {
+                teks: "12. Kelenjar apa yang menghasilkan hormon melatonin yang berperan sebagai pengatur jam biologis?",
+                pilihan: [
+                    "A. Tiroid",
+                    "B. Paratiroid",
+                    "C. Hipofisis",
+                    "D. Pineal"
+                ],
+                jawaban: "D"
+            }, {
+                teks: "13. Kekurangan hormon insulin dalam tubuh dapat menyebabkan...",
+                pilihan: [
+                    "A. Basedow",
+                    "B. Diabetes melitus",
+                    "C. Miksedema",
+                    "D. Kretinisme"
+                ],
+                jawaban: "B"
+            }, {
+                teks: "14. Fungsi utama dari hormon tiroksin adalah...",
+                pilihan: [
+                    "A. Menurunkan tekanan darah",
+                    "B. Memacu kecepatan reaksi kimia dalam tubuh",
+                    "C. Menyempitkan pembuluh darah",
+                    "D. Mempertahankan ketebalan rahim"
+                ],
+                jawaban: "B"
+            }, {
+                teks: "15. Hormon yang berperan dalam peningkatan denyut jantung dan tekanan darah adalah...",
+                pilihan: [
+                    "A. Glukagon",
+                    "B. Estrogen",
+                    "C. Adrenalin",
+                    "D. Progesteron"
+                ],
+                jawaban: "C"
+            }, {
+                teks: "16. Apa yang terjadi pada produksi urine ketika seseorang minum air dalam jumlah banyak?",
+                pilihan: [
+                    "A. Urine menjadi lebih sedikit",
+                    "B. Warna urine menjadi lebih pekat",
+                    "C. Jumlah urine yang diproduksi bertambah",
+                    "D. Tidak ada perubahan pada jumlah urine"
+                ],
+                jawaban: "C"
+            }, {
+                teks: "17. Homeostasis penting bagi tubuh karena berfungsi untuk...",
+                pilihan: [
+                    "A. Mengurangi keringat",
+                    "B. Menjaga tubuh agar tetap bergerak aktif",
+                    "C. Menstabilkan kondisi tubuh terhadap perubahan",
+                    "D. Meningkatkan suhu tubuh secara drastis"
+                ],
+                jawaban: "C"
+            }, {
+                teks: "18. Organ yang berperan penting dalam pengaturan suhu tubuh manusia adalah...",
+                pilihan: [
+                    "A. Pituitari",
+                    "B. Pankreas",
+                    "C. Ginjal",
+                    "D. Hipotalamus"
+                ],
+                jawaban: "D"
+            }, {
+                teks: "19. Saat tubuh kepanasan, hipotalamus memberi sinyal agar tubuh...",
+                pilihan: [
+                    "A. Menggigil",
+                    "B. Menyimpan panas",
+                    "C. Berkeringat",
+                    "D. Menghentikan pernapasan"
+                ],
+                jawaban: "C"
+            }, {
+                teks: "20. Ketika kadar air dalam darah meningkat, hormon ADH akan...",
+                pilihan: [
+                    "A. Bertambah banyak",
+                    "B. Berkurang jumlahnya",
+                    "C. Tidak berubah",
+                    "D. Diubah menjadi glukagon"
+                ],
+                jawaban: "B"
             },
             // Tambahkan soal lain di sini
         ];
@@ -287,13 +379,13 @@
             simpanJawaban(); // Simpan jawaban terakhir
 
             if (jawabanUser.includes(null)) {
-                alert("Tolong jawab semua soal sebelum menyelesaikan kuis.");
+                alert("Tolong jawab semua soal sebelum menyelesaikan evaluasi.");
                 return;
             }
 
             const form = document.createElement('form');
             form.method = 'POST';
-            form.action = '/nilai_kuis_homeostasis';
+            form.action = '/nilai_evaluasi';
 
             // CSRF Token Laravel
             const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');

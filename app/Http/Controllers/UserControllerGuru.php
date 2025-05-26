@@ -14,7 +14,7 @@ class UserControllerGuru extends Controller
      */
     public function index()
     {
-        $gurus = User::with('profile')->where('role', 'guru')->get();
+        $gurus = User::with('profile')->where('role', 'guru')->paginate(10);
 
         return view('admin.user_guru', compact('gurus'));
     }

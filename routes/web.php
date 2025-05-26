@@ -57,9 +57,9 @@ Route::get('/user_siswa', [UserControllerSiswa::class, 'index']);
 // Route::get('/guru_nilai_siswa', function () {
 //     return view('guru.nilaiSiswa_guru');
 // });
-Route::get('guru_home', [ProgressController::class, 'indexProgressHalGuru']);
-Route::get('/guru_nilai_siswa', [GradeController::class, 'index']);
-Route::get('/guru_daftarSiswa', [SiswaContoller_guru::class, 'index']);
+Route::get('guru_home', [ProgressController::class, 'indexProgressHalGuru'])->name('guru.indexProgressHalGuru');
+Route::get('/guru_nilai_siswa', [GradeController::class, 'index'])->name('guru.nilaiSiswa');
+Route::get('/guru_daftarSiswa', [SiswaContoller_guru::class, 'index'])->name('guru.daftarSiswa');
 Route::get('/guru_kkm', [kkmController::class, 'index'])->name('guru.kkm');
 // guru get
 //
@@ -220,6 +220,12 @@ Route::get('/hasil_kuis_homeostasis', function () {
     return view('siswa.homeostasis.hasilkuis');
 })->name('homeostasis.hasilKuis');
 Route::post('/nilai_kuis_homeostasis', [SKMController::class, 'nilaiHomeostasis']);
+
+// evaluasi
+Route::get('/evaluasi', function () {
+    return view('siswa.evaluasi');
+});
+Route::post('nilai_evaluasi', [SKMController::class, 'nilaiEvaluasi']);
 
 // post admin
 Route::post('/tambahGuru', [UserControllerGuru::class, 'store'])->name('tambah.guru');
