@@ -1,4 +1,5 @@
 <div class="wrapper">
+
     <!-- Sidebar  -->
     <nav id="sidebar">
         <div class="sidebar-header">
@@ -167,9 +168,22 @@ class="collapse list-unstyled pageSubmenu {{ Request::is('skm_*') ? 'show' : '' 
                     </li>
                 </ul>
             </li>
-            <li class="{{ Request::is('evaluasi') ? 'active' : '' }}">
-                <a href="{{ url('/evaluasi') }}" class="">Evaluasi</a>
-            </li>
+            @php
+                $progress_selesai = Auth::user()->progress->where('is_complete', true)->count();
+                $total_progress = Auth::user()->progress->count();
+                $persentase = $progress_selesai > 0 ? round(($progress_selesai / $total_progress) * 100) : 0;
+                // dd($persentase);
+            @endphp
+            @if ($persentase >= 97)
+                <li class="{{ Request::is('evaluasi') ? 'active' : '' }}">
+                    <a href="{{ url('/evaluasi') }}" class="">Evaluasi</a>
+                </li>
+            @else
+                <li>
+                    <a href="#" onclick="alert('Selesaikan materi terlebih dahulu')" disabled>Evaluasi
+                        (Terkunci)</a>
+                </li>
+            @endif
         </ul>
     </nav>
 
@@ -203,10 +217,10 @@ class="collapse list-unstyled pageSubmenu {{ Request::is('skm_*') ? 'show' : '' 
                             <a class="nav-link" href="/">Halaman Utama</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Informasi</a>
+                            <a class="nav-link" href="/informasi">Informasi</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">kontak</a>
+                            <a class="nav-link" href="/kontak">kontak</a>
                         </li>
                     </ul>
                 </div>

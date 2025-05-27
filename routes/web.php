@@ -3,6 +3,7 @@
 use App\Http\Controllers\MasukGuruController;
 use App\Http\Controllers\MasukSiswaController;
 use App\Http\Controllers\DaftarSiswaController;
+use App\Http\Controllers\DaftarGuruController;
 use App\Http\Controllers\UserControllerGuru;
 use App\Http\Controllers\UserControllerSiswa;
 use App\Http\Controllers\SiswaContoller_guru;
@@ -29,6 +30,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/kontak', function () {
+    return view('kontak');
+});
+Route::get('/informasi', function () {
+    return view('infromasi');
+});
+
 Route::get('/masuk_siswa', [MasukSiswaController::class, 'index']);
 Route::post('/masukSiswa', [MasukSiswaController::class, 'store'])->name('masuk.store');
 Route::post('/keluarSiswa', [MasukSiswaController::class, 'logout'])->name('keluar');
@@ -38,6 +46,9 @@ Route::post('/daftar_siswa', [DaftarSiswaController::class, 'store'])->name('daf
 
 Route::get('/masuk_guru', [MasukGuruController::class, 'index']);
 Route::post('/masukGuru', [MasukGuruController::class, 'store'])->name('guru.masuk.store');
+
+Route::get('/daftar_guru', [DaftarGuruController::class, 'index']);
+Route::post('/daftar_guru', [DaftarGuruController::class, 'store'])->name('guru.daftar.store');
 
 // admin get
 Route::middleware(['auth', 'cekRole:admin'])->group(function () {
@@ -61,6 +72,7 @@ Route::middleware(['auth', 'cekRole:guru'])->group(function () {
     Route::get('/guru_nilai_siswa', [GradeController::class, 'index'])->name('guru.nilaiSiswa');
     Route::get('/guru_daftarSiswa', [SiswaContoller_guru::class, 'index'])->name('guru.daftarSiswa');
     Route::get('/guru_kkm', [kkmController::class, 'index'])->name('guru.kkm');
+    Route::put('/beri_nilai_kesimpulan_skm/{id}', [EssayController::class, 'beriNilaiSKM'])->name('beri.nilaiSKM');
 });
 
 // Route::get('/guru_home', [ProgressController::class, 'indexProgressHalGuru'])->name('guru.indexProgressHalGuru');
@@ -114,7 +126,7 @@ Route::middleware(['auth', 'cekRole:siswa'])->group(function () {
         return view('siswa.SistemKoordinasiManusia.hasilkuis');
     })->name('skm.hasilKuis');
     Route::post('/nilai_kuis_skm', [SKMController::class, 'nilaiSKM']);
-    Route::put('/beri_nilai_kesimpulan_skm/{id}', [EssayController::class, 'beriNilaiSKM'])->name('beri.nilaiSKM');
+
 
     // Materi Alat indra manusia
     Route::get('/AIM_Stimulasi', function () {

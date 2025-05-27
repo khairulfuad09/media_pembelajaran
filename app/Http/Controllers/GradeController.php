@@ -16,10 +16,14 @@ class GradeController extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
+        $kelas = $request->input('kelas');
 
-        $nilai_siswa = User::where('role', 'siswa') // pastikan hanya siswa, kalau perlu
+        $nilai_siswa = User::where('role', 'siswa')
             ->when($search, function ($query, $search) {
                 $query->where('name', 'like', "%{$search}%");
+            })
+            ->when($kelas, function ($query, $kelas) {
+                $query->where('kelas', $kelas);
             })
             ->with([
                 'profile',
@@ -33,7 +37,7 @@ class GradeController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        return view('guru.nilaiSiswa_guru', compact('nilai_siswa'));
+        return view('guru.nilaiSiswa_guru', compact('nilai_siswa', 'search', 'kelas'));
     }
 
     /**

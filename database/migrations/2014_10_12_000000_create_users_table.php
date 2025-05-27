@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('NISN_NIP')->unique();
             $table->string('password');
             $table->string('plain_password');
+            $table->string('kelas');
             $table->enum('role', ['admin', 'guru', 'siswa']);
             $table->rememberToken();
             $table->timestamps();

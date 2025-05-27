@@ -54,6 +54,17 @@
                     </div>
                     <input type="text" name="role" id="" value="siswa" hidden>
                     <div class="mb-3">
+                        <label for="kelas">Kelas</label>
+                        <select name="kelas" class="form-control" required>
+                            <option value="">Pilih</option>
+                            <option value="9A">9A</option>
+                            <option value="9B">9B</option>
+                            <option value="9C">9C</option>
+                            <option value="9D">9D</option>
+                        </select>
+                    </div>
+                    <input type="text" name="role" id="" value="siswa" hidden>
+                    <div class="mb-3">
                         <label for="gender">Jenis Kelamin</label>
                         <select name="gender" class="form-control" required>
                             <option value="">Pilih</option>

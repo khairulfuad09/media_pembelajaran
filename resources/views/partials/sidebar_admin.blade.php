@@ -8,10 +8,10 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
+                    <a href="/guru_home" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="/kontak" class="nav-link">Kontak</a>
                 </li>
             </ul>
 
@@ -91,7 +91,7 @@
                             </li>
                             {{-- untuk membuka li tambahkan class  menu-open --}}
                         @elseif (Auth::user()->role === 'guru')
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="nav-icon fas fa-copy"></i>
                                     <p>
@@ -125,6 +125,30 @@
                                         </a>
                                     </li>
                                 </ul>
+                            </li> --}}
+                            <li class="nav-item">
+                                <a href="/guru_home" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Home</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/guru_nilai_siswa" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Nilai Siswa</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/guru_daftarSiswa" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Daftar Siswa</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/guru_kkm" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>kkm</p>
+                                </a>
                             </li>
                             <li class="nav-item">
                                 {{-- <a href="{{ route('keluar') }}" class="nav-link active">

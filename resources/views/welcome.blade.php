@@ -121,8 +121,8 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="#about">Informasi</a></li>
-                        <li><a href="#contact">Kontak</a></li>
+                        <li><a href="/informasi">Informasi</a></li>
+                        <li><a href="/kontak">Kontak</a></li>
 
                         @auth
                             @if (Auth::user()->role === 'siswa')
@@ -163,7 +163,7 @@
                         <p>Disini kalian akan mempelajari terkait Sistem Koordinasi Manusia, Alat Indra Manusia, Hormon,
                             dan Homeostasis</p>
                         <div class="d-flex">
-                            <a href="#about" class="btn-get-started">Mari Belajar!</a>
+                            <a href="/dashboard_siswa" class="btn-get-started">Mari Belajar!</a>
                         </div>
                     </div>
                     <div class="col-lg-5 order-1 order-lg-2">
@@ -254,6 +254,34 @@
                                     class="bi bi-arrow-right"></i></a>
                         </div>
                     </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-item  position-relative">
+                            <div>
+                                <img src="img/mata.png" alt="Gambar Bulat" class="circle-image">
+                            </div>
+                            <h3>Hormon Manusia</h3>
+                            <p>Pernahkan kamu memperhatikan bagaimana kita bisa melihat, mendengar, mencium suatu bau,
+                                bahkan merasakan makanan, ataupun merasakan sebuah sentuhan? Menurut kamu, apa penyebab
+                                sehingga kita bisa merasakan semua hal tersebut? Lalu apa saja fungsi dari kelima alat
+                                indra pada kehidupan...</p>
+                            <a href="/Hormon_Stimulasi" class="readmore stretched-link">Pelajari lebih lanjut<i
+                                    class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="service-item  position-relative">
+                            <div>
+                                <img src="img/mata.png" alt="Gambar Bulat" class="circle-image">
+                            </div>
+                            <h3>Homeostasis</h3>
+                            <p>Pernahkan kamu memperhatikan bagaimana kita bisa melihat, mendengar, mencium suatu bau,
+                                bahkan merasakan makanan, ataupun merasakan sebuah sentuhan? Menurut kamu, apa penyebab
+                                sehingga kita bisa merasakan semua hal tersebut? Lalu apa saja fungsi dari kelima alat
+                                indra pada kehidupan...</p>
+                            <a href="/Homeostasis_Stimulasi" class="readmore stretched-link">Pelajari lebih lanjut<i
+                                    class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
                     <!-- End Service Item -->
 
 
@@ -271,7 +299,7 @@
     <footer id="footer" class="footer accent-background">
 
         <div class="container copyright text-center mt-4">
-            <p>© <span>Copyright</span> <strong class="px-1 sitename">NeuroLearn</strong>
+            <p style='color : white;'>© <span>Copyright</span> <strong class="px-1 sitename">NeuroLearn</strong>
             </p>
         </div>
 

@@ -29,6 +29,14 @@
                         <form method="GET" action="{{ route('guru.daftarSiswa') }}">
                             <input type="text" name="search" placeholder="Cari nama siswa..."
                                 value="{{ request('search') }}">
+
+                            <select name="kelas" onchange="this.form.submit()" class="border rounded px-3 py-1">
+                                <option value="">Semua Kelas</option>
+                                <option value="9A" {{ request('kelas') == '9A' ? 'selected' : '' }}>9A</option>
+                                <option value="9B" {{ request('kelas') == '9B' ? 'selected' : '' }}>9B</option>
+                                <option value="9C" {{ request('kelas') == '9C' ? 'selected' : '' }}>9C</option>
+                                <option value="9D" {{ request('kelas') == '9D' ? 'selected' : '' }}>9D</option>
+                            </select>
                             <button type="submit">Cari</button>
                         </form>
                         <h4>Data Siswa</h4>
@@ -42,7 +50,7 @@
                                     <th>Gender</th>
                                     <th>Alamat</th>
                                     <th>No. Telepon</th>
-                                    <th>tanggal lahir</th>
+                                    <th>kelas</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
@@ -62,7 +70,7 @@
                                         <td>{{ $siswa->profile->gender ?? '-' }}</td>
                                         <td>{{ $siswa->profile->alamat ?? '-' }}</td>
                                         <td>{{ $siswa->profile->phone ?? '-' }}</td>
-                                        <td>{{ $siswa->profile->tanggal_lahir ?? '-' }}</td>
+                                        <td>{{ $siswa->kelas ?? '-' }}</td>
                                         <td>
                                             <button class="btn btn-warning btn-sm" data-bs-toggle="collapse"
                                                 data-bs-target="#collapseEdit{{ $index }}">Edit</button>
@@ -88,15 +96,28 @@
                                                             value="{{ $siswa->name }}">
                                                     </div>
                                                     <div class="col-md-6 mb-2">
-                                                        <label>Email</label>
-                                                        <input type="email" class="form-control" name="email"
-                                                            value="{{ $siswa->email }}">
+                                                        <label>NISN</label>
+                                                        <input type="text" class="form-control" name="NISN_NIP"
+                                                            value="{{ $siswa->NISN_NIP }}">
                                                     </div>
                                                     <div class="col-md-6 mb-2">
                                                         <label>Password Baru</label>
                                                         <input type="text" class="form-control"
                                                             placeholder="Kosongkan jika tidak ingin mengganti"
                                                             name="password">
+                                                    </div>
+                                                    <div class="col-md-6 mb-2">
+                                                        <label>Kelas</label>
+                                                        <select class="form-control" name="kelas">
+                                                            <option {{ $siswa->kelas == '9A' ? 'selected' : '' }}>
+                                                                9A</option>
+                                                            <option {{ $siswa->kelas == '9B' ? 'selected' : '' }}>
+                                                                9B</option>
+                                                            <option {{ $siswa->kelas == '9C' ? 'selected' : '' }}>
+                                                                9C</option>
+                                                            <option {{ $siswa->kelas == '9D' ? 'selected' : '' }}>
+                                                                9D</option>
+                                                        </select>
                                                     </div>
                                                     <div class="col-md-6 mb-2">
                                                         <label>Gender</label>
@@ -148,7 +169,8 @@
                     @csrf
                     <div class="modal-header">
                         <h5 class="modal-title" id="modalTambahGuruLabel">Tambah Siswa</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Tutup"></button>
                     </div>
 
                     <div class="modal-body">
@@ -168,6 +190,16 @@
                                 <input type="password" name="password" class="form-control" required>
                             </div>
 
+                            <div class="col-md-6 mb-3">
+                                <label for="kelas">kelas</label>
+                                <select name="kelas" class="form-control" required>
+                                    <option value="">Pilih</option>
+                                    <option value="9A">9A</option>
+                                    <option value="9B">9B</option>
+                                    <option value="9C">9C</option>
+                                    <option value="9D">9D</option>
+                                </select>
+                            </div>
                             <div class="col-md-6 mb-3">
                                 <label for="gender">Gender</label>
                                 <select name="gender" class="form-control" required>

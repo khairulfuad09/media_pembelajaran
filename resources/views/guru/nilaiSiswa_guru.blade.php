@@ -8,7 +8,14 @@
 
             <form method="GET" action="{{ route('guru.nilaiSiswa') }}">
                 <input type="text" name="search" placeholder="Cari nama siswa..." value="{{ request('search') }}">
-                <button type="submit">Search</button>
+                <select name="kelas" onchange="this.form.submit()" class="border rounded px-3 py-1">
+                    <option value="">Semua Kelas</option>
+                    <option value="9A" {{ request('kelas') == '9A' ? 'selected' : '' }}>9A</option>
+                    <option value="9B" {{ request('kelas') == '9B' ? 'selected' : '' }}>9B</option>
+                    <option value="9C" {{ request('kelas') == '9C' ? 'selected' : '' }}>9C</option>
+                    <option value="9D" {{ request('kelas') == '9D' ? 'selected' : '' }}>9D</option>
+                </select>
+                <button type="submit">Cari</button>
             </form>
             <div class="card">
                 <div class="card-body p-0">
@@ -17,6 +24,7 @@
                             <tr>
                                 <th>Nama</th>
                                 <th>NISN</th>
+                                <th>Kelas</th>
                                 <th>Gender</th>
                                 <th>Rata-rata Nilai</th>
                                 <th>Aksi</th>
@@ -29,6 +37,7 @@
                                 <tr>
                                     <td>{{ $nsiswa->name }}</td>
                                     <td>{{ $nsiswa->NISN_NIP }}</td>
+                                    <td>{{ $nsiswa->kelas }}</td>
                                     <td>{{ $nsiswa->profile->gender }}</td>
                                     <td>
                                         @php
@@ -90,13 +99,13 @@
                                                         <td>
                                                             <button class="btn btn-warning btn-sm btn-beri-nilai"
                                                                 data-bs-toggle="modal"
-                                                                data-bs-target="#nilaiKuisModal">perbarui
+                                                                data-bs-target="#nilaiKuisModal-{{ $grade->id }}">perbarui
                                                                 nilai</button>
                                                             <button class="btn btn-danger btn-sm" disabled>Hapus</button>
                                                         </td>
                                                     </tr>
-                                                    <div class="modal fade" id="nilaiKuisModal" tabindex="-1"
-                                                        aria-labelledby="nilaiModalLabel" aria-hidden="true">
+                                                    <div class="modal fade" id="nilaiKuisModal-{{ $grade->id }}"
+                                                        tabindex="-1" aria-labelledby="nilaiModalLabel" aria-hidden="true">
                                                         <div class="modal-dialog">
                                                             <form id="formNilai" method="POST"
                                                                 action="{{ route('beri.nilaiKuis', $grade->id) }}">
@@ -181,7 +190,7 @@
                                                                 <div class="modal-content">
                                                                     <div class="modal-header">
                                                                         <h5 class="modal-title" id="nilaiModalLabel">Berikan
-                                                                            Nilai</h5>
+                                                                            Nilai essay</h5>
                                                                         <button type="button" class="btn-close"
                                                                             data-bs-dismiss="modal"
                                                                             aria-label="Close"></button>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Profile;
+use App\Models\Progress;
 use Illuminate\Support\Facades\Hash;
 
 class SiswaContoller_guru extends Controller
@@ -15,15 +16,20 @@ class SiswaContoller_guru extends Controller
     public function index(Request $request)
     {
         $search = $request->input('search');
+        $kelas = $request->input('kelas'); // Ambil input kelas
 
         $siswas = User::with('profile')
             ->where('role', 'siswa')
             ->when($search, function ($query, $search) {
                 $query->where('name', 'like', "%{$search}%");
             })
-            ->paginate(10); // agar query search tetap ada saat pindah halaman
+            ->when($kelas, function ($query, $kelas) {
+                $query->where('kelas', $kelas);
+            })
+            ->paginate(10)
+            ->appends(['search' => $search, 'kelas' => $kelas]); // jaga pagination tetap bawa filter
 
-        return view('guru.daftarSiswa_guru', compact('siswas'));
+        return view('guru.daftarSiswa_guru', compact('siswas', 'search', 'kelas'));
     }
 
     /**
@@ -41,8 +47,9 @@ class SiswaContoller_guru extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email'    => 'required|email|unique:users',
+            'NISN_NIP'    => 'required',
             'password' => 'required|string',
+            'kelas' => 'required',
             'gender'   => 'required',
             'alamat'  => 'nullable|string',
             'phone'    => 'nullable|string|max:15',
@@ -54,6 +61,7 @@ class SiswaContoller_guru extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'kelas' => $request->kelas,
             'plain_password' => $request->password,
             'role' => 'siswa', // default
         ]);
@@ -65,6 +73,28 @@ class SiswaContoller_guru extends Controller
             'alamat' => $request->alamat,
             'phone' => $request->phone,
             'tanggal_lahir' => $request->ttl,
+        ]);
+
+        $progress_data = [];
+        $chapters = [1, 2, 3, 4];
+        $exercises = [1, 2, 3, 4, 5, 6, 7];
+
+        foreach ($chapters as $chapter_id) {
+            foreach ($exercises as $exercise_id) {
+                $progress_data[] = [
+                    'user_id' => $user->id,
+                    'chapter_id' => $chapter_id,
+                    'exercise_id' => $exercise_id,
+                ];
+            }
+        }
+        // dd($progress_data);
+        Progress::insert($progress_data);
+
+        Progress::create([
+            'user_id' => $user->id,
+            'chapter_id' => 5,
+            'exercise_id' => 8,
         ]);
 
         return redirect()->back();
@@ -93,8 +123,9 @@ class SiswaContoller_guru extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email'    => 'required|email',
+            'NISN_NIP'    => 'required',
             'password' => 'nullable|string',
+            'kelas' => 'required',
             'gender'   => 'nullable',
             'alamat'  => 'nullable|string',
             'phone'    => 'nullable|string|max:15',
@@ -102,7 +133,8 @@ class SiswaContoller_guru extends Controller
         ]);
 
         $user->name = $request->name;
-        $user->email = $request->email;
+        $user->NISN_NIP = $request->NISN_NIP;
+        $user->kelas = $request->kelas;
 
         if ($request->filled('password')) {
             $user->password = Hash::make($request->password);
