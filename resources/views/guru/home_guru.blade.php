@@ -1,4 +1,5 @@
 @extends('template.main_admin')
+@section('title', 'Dashboard Guru')
 @section('container')
     <div class="content-wrapper">
         <div class="container mt-4">
@@ -21,19 +22,27 @@
 
                 <!-- ====================== NILAI SISWA (KANAN) ===================== -->
                 <div class="col-md-8">
+                    <form action="{{ route('guru.indexProgressHalGuru') }}" method="GET" class="">
+                        <input type="text" name="search" placeholder="Cari nama siswa..."
+                            value="{{ request('search') }}">
+                        <select name="kelas" onchange="this.form.submit()" class="border rounded px-3 py-1">
+                            <option value="">Semua Kelas</option>
+                            <option value="9A" {{ request('kelas') == '9A' ? 'selected' : '' }}>9A</option>
+                            <option value="9B" {{ request('kelas') == '9B' ? 'selected' : '' }}>9B</option>
+                            <option value="9C" {{ request('kelas') == '9C' ? 'selected' : '' }}>9C</option>
+                            <option value="9D" {{ request('kelas') == '9D' ? 'selected' : '' }}>9D</option>
+                        </select>
+                        <button type="submit">Cari</button>
+                    </form>
+                    {{-- <div class="card-header bg-success text-white"> --}}
+                    {{-- </div> --}}
                     <div class="card">
-                        <div class="card-header bg-success text-white">
-                            <form action="{{ route('guru.indexProgressHalGuru') }}" method="GET" class="mb-3">
-                                <input type="text" name="search" class="form-control" placeholder="Cari nama siswa..."
-                                    value="{{ request('search') }}">
-                                <button type="submit" class="btn btn-primary mt-2">Cari</button>
-                            </form>
-                        </div>
                         <div class="card-body p-0">
                             <table class="table mb-0 table-bordered table-striped">
                                 <thead class="table-dark">
                                     <tr>
                                         <th>Nama</th>
+                                        <th>Kelas</th>
                                         <th>jumlah tahapan</th>
                                         <th>sudah selesai</th>
                                         <th>persentase</th>
@@ -50,6 +59,7 @@
                                             $persen = $total > 0 ? round(($selesai / $total) * 100) : 0;
                                         @endphp <tr>
                                             <td>{{ $psiswa->name }}</td>
+                                            <td>{{ $psiswa->kelas }}</td>
                                             <td>{{ $total }}</td>
                                             <td>{{ $selesai }}</td>
                                             <td>{{ $persen }}%</td>

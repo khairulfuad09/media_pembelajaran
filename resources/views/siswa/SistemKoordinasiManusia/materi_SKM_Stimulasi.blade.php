@@ -1,4 +1,5 @@
 @extends('template.main')
+@section('title', 'Sistem Koordinasi Manusia|Stimulasi')
 @section('container')
     <button id="backToTop">↑</button>
     <button id="scrollDown">↓</button>
@@ -12,7 +13,9 @@
             <br>
             <div class="video">
                 <video class="video" controls>
-                    <source src="video/Stimulasi koordinasi.mp4" type="video/mp4">
+                    {{-- <source src="video/Stimulasi koordinasi.mp4" type="video/mp4"> --}}
+                    <source src="https://drive.google.com/file/d/1Nubg6VqB888XjQPQAfVlkelBZkJmMLOZ/view?usp=sharing"
+                        type="video/mp4">
                     Browser Anda tidak mendukung pemutaran video.
                 </video>
             </div>

@@ -1,4 +1,5 @@
 @extends('template.main')
+@section('title', 'Alat Indra Manusia|Pengolahan Data')
 @section('css')
 @endsection
 @section('container')

@@ -21,6 +21,7 @@ class DaftarSiswaController extends Controller
             'name' => 'required|string|max:255',
             'NISN_NIP'    => 'required|unique:users',
             'password' => 'required|string',
+            'kelas' => 'required',
             'gender'   => 'required',
             'alamat'  => 'nullable|string',
             'phone'    => 'nullable|string|max:15',
@@ -32,6 +33,7 @@ class DaftarSiswaController extends Controller
             'NISN_NIP' => $request->NISN_NIP,
             'password' => Hash::make($request->password),
             'plain_password' => $request->password,
+            'kelas' => $request->kelas,
             'role' => 'siswa', // default
         ]);
 

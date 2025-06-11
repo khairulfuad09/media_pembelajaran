@@ -44,19 +44,20 @@ class ProgressController extends Controller
     {
 
         $search = $request->input('search');
+        $kelas = $request->input('kelas');
 
         $progress_siswa = User::where('role', 'siswa')
             ->when($search, function ($query, $search) {
                 $query->where('name', 'like', "%{$search}%");
             })
+            ->when($kelas, function ($query, $kelas) {
+                $query->where('kelas', $kelas);
+            })
             ->with(['Progress.chapter', 'Progress.exercise'])
             ->paginate(10)
             ->withQueryString();
 
-        // $progress_siswa = User::where('role', 'siswa')
-        //     ->with(['Progress.chapter', 'Progress.exercise',])->paginate(10);
-        // dd($progress_siswa);
-        return view('guru.home_guru', compact('progress_siswa'));
+        return view('guru.home_guru', compact('progress_siswa', 'search', 'kelas'));
     }
 
     /**

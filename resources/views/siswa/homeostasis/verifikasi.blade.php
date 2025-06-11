@@ -1,4 +1,5 @@
 @extends('template.main')
+@section('title', 'Homeostasis|Verifikasi')
 @section('css')
     <link href="{{ asset('css/siswa/homeostasis/verifikasi.css') }}" rel="stylesheet">
 @endsection

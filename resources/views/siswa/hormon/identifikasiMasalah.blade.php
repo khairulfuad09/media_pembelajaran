@@ -1,4 +1,5 @@
 @extends('template.main')
+@section('title', 'Hormon Manusia|Identifikasi Masalah')
 @section('css')
     <link href="{{ asset('css/siswa/hormon/identifikasiMasalah.css') }}" rel="stylesheet">
 @endsection

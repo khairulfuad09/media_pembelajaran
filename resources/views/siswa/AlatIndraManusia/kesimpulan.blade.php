@@ -1,4 +1,5 @@
 @extends('template.main')
+@section('title', 'Alat Indra Manusia|Kesimpulan')
 @section('container')
     <div class="text-center mt-4">
         <h2>ALAT INDRA MANUSIA</h2>

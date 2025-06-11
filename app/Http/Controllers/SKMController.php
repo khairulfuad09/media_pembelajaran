@@ -78,7 +78,7 @@ class SKMController extends Controller
         $jawabanUser = $request->input('jawaban');
 
         // Kunci jawaban disimpan di server
-        $kunci = ['D', 'A', 'C', 'C', 'D', 'C', 'A', 'C', 'D', 'D'];
+        $kunci = ['D', 'A', 'C', 'C', 'D', 'C', 'A', 'C', 'D', 'B'];
 
         $skor = 0;
         foreach ($jawabanUser as $i => $jawaban) {

@@ -37,6 +37,7 @@ class UserControllerSiswa extends Controller
             'name' => 'required|string|max:255',
             'NISN_NIP'    => 'required|unique:users',
             'password' => 'required|string',
+            'kelas' => 'required',
             'gender'   => 'required',
             'alamat'  => 'nullable|string',
             'phone'    => 'nullable|string|max:15',
@@ -49,6 +50,7 @@ class UserControllerSiswa extends Controller
             'NISN_NIP' => $request->NISN_NIP,
             'password' => Hash::make($request->password),
             'plain_password' => $request->password,
+            'kelas' => $request->kelas,
             'role' => 'siswa', // default
         ]);
 
@@ -109,22 +111,26 @@ class UserControllerSiswa extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'NISN_NIP'    => 'required',
+            'NISN_NIP' => 'required|unique:users,NISN_NIP,' . $user->id,
             'password' => 'nullable|string',
+            'kelas' => 'required',
             'gender'   => 'nullable',
             'alamat'  => 'nullable|string',
             'phone'    => 'nullable|string|max:15',
-            'ttl'     => 'nullable|required',
+            'ttl'     => 'nullable|date',
         ]);
 
+        // dd($request);
         $user->name = $request->name;
         $user->NISN_NIP = $request->NISN_NIP;
+        $user->kelas = $request->kelas;
 
         if ($request->filled('password')) {
             $user->password = Hash::make($request->password);
             $user->plain_password = $request->password;
         }
 
+        // dd($user->save());
         $user->save();
 
         $user->profile()->update([

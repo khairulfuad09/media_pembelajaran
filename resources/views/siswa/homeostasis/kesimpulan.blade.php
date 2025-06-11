@@ -1,4 +1,5 @@
 @extends('template.main')
+@section('title', 'Homeostasis|Kesimpulan')
 @section('container')
     <div class="text-center mt-4">
         <h2>

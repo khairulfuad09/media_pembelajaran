@@ -1,4 +1,5 @@
 @extends('template.main')
+@section('title', 'Hormon Manusia|Kesimpulan')
 @section('container')
     <div class="text-center mt-4">
         <h2>

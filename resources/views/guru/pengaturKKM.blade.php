@@ -1,9 +1,9 @@
 @extends('template.main_admin')
+@section('title', 'Pengelola KKM')
 
 @section('container')
     <div class="content-wrapper">
         <div class="container mt-4">
-            <h3>Pengaturan KKM (Tanpa Database)</h3>
 
             @if (session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>

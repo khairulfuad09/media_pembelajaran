@@ -1,4 +1,5 @@
 @extends('template.main')
+@section('title', 'Alat Indra Manusia|Stimulasi')
 @section('container')
     <button id="backToTop">↑</button>
     <button id="scrollDown">↓</button>
@@ -11,7 +12,7 @@
             <br>
             <div class="video">
                 <video class="video" controls>
-                    <source src="video/Alat.mp4" type="video/mp4">
+                    <source src="video/video alat indra manusia.mp4" type="video/mp4">
                     Browser Anda tidak mendukung pemutaran video.
                 </video>
             </div>

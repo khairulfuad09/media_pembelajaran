@@ -1,8 +1,10 @@
 @extends('template.main')
+@section('title', 'Dashboard')
 @section('container')
     <div class="container">
         <h2>Progress Siswa</h2>
-        {{-- @dd($progressData) --}}
+        {{-- @dd(Auth::user()->progress->count()) --}}
+
 
         @foreach ($progressData as $data)
             <div class="card my-3">

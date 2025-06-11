@@ -1,4 +1,5 @@
 @extends('template.main')
+@section('title', 'Sistem Koordinasi Manusia|Verifikasi')
 @section('css')
     <link href="css/siswa/sistemKoordinasiManusia/verifikasi_SKM.css" rel="stylesheet">
 @endsection

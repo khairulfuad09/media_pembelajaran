@@ -23,6 +23,7 @@ class User extends Authenticatable
         'NISN_NIP',
         'password',
         'plain_password',
+        'kelas',
         'role',
     ];
 

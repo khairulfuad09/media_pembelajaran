@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Document</title>
+    <title>Sistem Koordinasi Manusia|Kuis</title>
     {{-- <!-- vendor css --> bootstrap 5 --}}
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -96,9 +96,22 @@
     {{--  --}}
     <script src="{{ asset('js/bootstrap/bootstrap.bundle.min.js') }}"></script>
     <script>
+        window.addEventListener('beforeunload', function(e) {
+            if (localStorage.getItem('kuisMulai')) {
+                e.preventDefault();
+                e.returnValue = '';
+            }
+        });
+
         function mulaiKuis() {
             document.getElementById('intro-kuis').style.display = 'none';
             document.getElementById('konten-kuis').style.display = 'block';
+
+            // Simpan waktu mulai jika belum ada
+            if (!localStorage.getItem('kuisMulai')) {
+                localStorage.setItem('kuisMulai', Date.now());
+            }
+
             tampilkanSoal(index);
         }
 
@@ -208,6 +221,15 @@
         let index = 0;
         let jawabanUser = new Array(daftarSoal.length).fill(null);
 
+        // Load data dari localStorage jika ada
+        if (localStorage.getItem('jawabanUser')) {
+            jawabanUser = JSON.parse(localStorage.getItem('jawabanUser'));
+        }
+
+        if (localStorage.getItem('index')) {
+            index = parseInt(localStorage.getItem('index'));
+        }
+
         function tampilkanSoal(i) {
             const soal = daftarSoal[i];
             document.getElementById('soal-teks').innerText = soal.teks;
@@ -217,6 +239,7 @@
                 document.getElementById(id).checked = (jawabanUser[i] === id.toUpperCase());
             });
             highlightNomor();
+            localStorage.setItem('index', index); // Simpan posisi soal
         }
 
         function berikutnya() {
@@ -238,6 +261,7 @@
         function simpanJawaban() {
             const selected = document.querySelector('input[name="jawaban"]:checked');
             jawabanUser[index] = selected ? selected.value : null;
+            localStorage.setItem('jawabanUser', JSON.stringify(jawabanUser)); // Simpan ke localStorage
         }
 
         function pilihSoal(no) {
@@ -259,20 +283,28 @@
         }
 
         // Timer
-        let waktu = 1800;
+        let waktuTotal = 900; // 30 menit
+        let waktuMulai = localStorage.getItem('kuisMulai') ? parseInt(localStorage.getItem('kuisMulai')) : null;
+        let waktuSekarang = Date.now();
+        let sisaDetik = waktuMulai ? Math.floor((waktuTotal * 1000 - (waktuSekarang - waktuMulai)) / 1000) : waktuTotal;
+
+        if (sisaDetik <= 0) {
+            sisaDetik = 0;
+        }
+
         const timer = setInterval(() => {
-            waktu--;
-            const menit = Math.floor(waktu / 60);
-            const detik = waktu % 60;
+            sisaDetik--;
+            const menit = Math.floor(sisaDetik / 60);
+            const detik = sisaDetik % 60;
             document.getElementById("timer").innerText = `Sisa waktu: ${menit}:${detik < 10 ? '0' : ''}${detik}`;
-            if (waktu <= 0) {
+            if (sisaDetik <= 0) {
                 clearInterval(timer);
                 alert("Waktu habis! Jawaban akan dikirim.");
-                // Tambahkan logika kirim jawaban ke server
+                selesaiKuis();
             }
         }, 1000);
 
-        // Inisialisasi
+        // Inisialisasi tombol soal dan tampilkan konten jika reload
         window.onload = function() {
             daftarSoal.forEach((_, i) => {
                 const btn = document.createElement('button');
@@ -281,6 +313,12 @@
                 btn.onclick = () => pilihSoal(i);
                 document.getElementById('nomor-soal').appendChild(btn);
             });
+
+            if (localStorage.getItem('kuisMulai')) {
+                document.getElementById('intro-kuis').style.display = 'none';
+                document.getElementById('konten-kuis').style.display = 'block';
+                tampilkanSoal(index);
+            }
         };
 
         function selesaiKuis() {
@@ -291,11 +329,21 @@
                 return;
             }
 
+            // Hapus data localStorage
+            localStorage.removeItem('jawabanUser');
+            localStorage.removeItem('index');
+            localStorage.removeItem('kuisMulai');
+
+            // Hapus event listener beforeunload agar tidak muncul saat submit
+            window.removeEventListener('beforeunload', function(e) {
+                e.preventDefault();
+                e.returnValue = '';
+            });
+
             const form = document.createElement('form');
             form.method = 'POST';
             form.action = '/nilai_kuis_skm';
 
-            // CSRF Token Laravel
             const csrf = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
             const csrfInput = document.createElement('input');
             csrfInput.type = 'hidden';
@@ -303,7 +351,6 @@
             csrfInput.value = csrf;
             form.appendChild(csrfInput);
 
-            // Buat input jawaban satu per satu
             jawabanUser.forEach((jwb, i) => {
                 const input = document.createElement('input');
                 input.type = 'hidden';

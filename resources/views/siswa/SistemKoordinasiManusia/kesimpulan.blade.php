@@ -1,4 +1,5 @@
 @extends('template.main')
+@section('title', 'Sistem Koordinasi Manusia|Kesimpulan')
 @section('container')
     {{-- @dd($essay) --}}
     <button id="backToTop">↑</button>

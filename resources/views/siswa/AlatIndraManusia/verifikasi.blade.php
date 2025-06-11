@@ -1,4 +1,5 @@
 @extends('template.main')
+@section('title', 'Alat Indra Manusia|Verifikasi')
 @section('css')
     <link href="{{ asset('css/siswa/alatIndraManusia/verifikasi.css') }}" rel="stylesheet">
 @endsection

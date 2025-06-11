@@ -1,4 +1,5 @@
 @extends('template.main')
+@section('title', 'Homeostasis|Stimulasi')
 @section('container')
     <button id="backToTop">↑</button>
     <button id="scrollDown">↓</button>
@@ -15,7 +16,7 @@
             <br>
             <div class="video">
                 <video class="video" controls>
-                    <source src="video/homeostasis.mp4" type="video/mp4">
+                    <source src="video/video Homeostasis.mp4" type="video/mp4">
                     Browser Anda tidak mendukung pemutaran video.
                 </video>
             </div>

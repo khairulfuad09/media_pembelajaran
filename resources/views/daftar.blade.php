@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Halaman Daftar Siswa</title>
     {{-- <!-- vendor css --> bootstrap 5 --}}
     <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
 </head>
@@ -48,9 +48,20 @@
                         <input type="password" name="password" class="form-control" required>
                     </div>
 
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label for="password_confirmation" class="form-label">Konfirmasi Kata Sandi</label>
                         <input type="password" name="plain_password" class="form-control" required>
+                    </div> --}}
+                    <input type="text" name="role" id="" value="siswa" hidden>
+                    <div class="mb-3">
+                        <label for="kelas">Kelas</label>
+                        <select name="kelas" class="form-control" required>
+                            <option value="">Pilih</option>
+                            <option value="9A">9A</option>
+                            <option value="9B">9B</option>
+                            <option value="9C">9C</option>
+                            <option value="9D">9D</option>
+                        </select>
                     </div>
                     <input type="text" name="role" id="" value="siswa" hidden>
                     <div class="mb-3">
