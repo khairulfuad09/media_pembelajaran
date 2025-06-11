@@ -3,7 +3,11 @@
 
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     <title>Halaman Informasi</title>
+=======
+    <title>Informasi</title>
+>>>>>>> e88827a4784e2fbee89519eb31e8f499845ee8cc
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap CSS & Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">

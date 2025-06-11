@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<<<<<<< HEAD
     <title>Halaman Kontak</title>
+=======
+    <title>Kontak Kami</title>
+>>>>>>> e88827a4784e2fbee89519eb31e8f499845ee8cc
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .instagram-btn {
