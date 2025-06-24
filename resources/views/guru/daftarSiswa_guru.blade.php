@@ -123,11 +123,15 @@
                                                     <div class="col-md-6 mb-2">
                                                         <label>Gender</label>
                                                         <select class="form-control" name="gender">
-                                                            <option
+                                                            {{-- <option
                                                                 {{ $siswa->profile->gender == 'Laki-laki' ? 'selected' : '' }}>
                                                                 Laki-laki</option>
                                                             <option
                                                                 {{ $siswa->profile->gender == 'Perempuan' ? 'selected' : '' }}>
+                                                                Perempuan</option> --}}
+                                                            <option>
+                                                                Laki-laki</option>
+                                                            <option>
                                                                 Perempuan</option>
                                                         </select>
                                                     </div>
