@@ -18,7 +18,7 @@ class SiswaContoller_guru extends Controller
         $search = $request->input('search');
         $kelas = $request->input('kelas'); // Ambil input kelas
 
-        $siswas = User::with('profile')
+        $siswas = User::with('Profile')
             ->where('role', 'siswa')
             ->when($search, function ($query, $search) {
                 $query->where('name', 'like', "%{$search}%");
