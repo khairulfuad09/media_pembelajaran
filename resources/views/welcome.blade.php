@@ -64,8 +64,8 @@
                                 <ul>
                                     <li><a class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"
                                             href="/daftar_siswa">Daftar sebagai siswa</a></li>
-                                    <li><a class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                            href="/daftar_guru">Daftar sebagai guru</a></li>
+                                    {{-- <li><a class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                                            href="/daftar_guru">Daftar sebagai guru</a></li> --}}
                                 </ul>
                             </li>
                             {{-- <li><a class="" href="/daftar_siswa">Daftar</a></li> --}}
