@@ -1,52 +1,40 @@
-const kunciJawaban = {
-    jawaban1: "otot",
-    jawaban2: "sklera",
-    jawaban3: "kornea",
-    jawaban4: "vitreous humor",
-    jawaban5: "iris",
-    jawaban6: "koroid",
-    jawaban7: "saraf optik",
-    jawaban8: "lensa",
-    jawaban9: "aqueous humor",
-    jawaban10: "bintik buta",
-    jawaban11: "retina",
-    jawaban12: "pupil",
-};
+document.querySelectorAll('.draggable').forEach(el => {
+        el.addEventListener('dragstart', ev => {
+            ev.dataTransfer.setData("text", ev.target.id);
+        });
+    });
 
-function periksaJawaban() {
-    let benar = 0;
-    let totalJawaban = 0;
-    for (let i = 1; i <= 12; i++) {
-        const input = document.getElementById("jawaban" + i);
-        const userJawab = input.value.trim().toLowerCase();
-        const kunci = kunciJawaban["jawaban" + i];
+    document.querySelectorAll('.dropzone').forEach(zone => {
+        zone.addEventListener('dragover', ev => {
+            ev.preventDefault();
+        });
 
-        if (userJawab === kunci) {
-            input.classList.add("is-valid");
-            input.classList.remove("is-invalid");
-            benar++;
-        } else {
-            input.classList.add("is-invalid");
-            input.classList.remove("is-valid");
+        zone.addEventListener('drop', ev => {
+            ev.preventDefault();
+            const data = ev.dataTransfer.getData("text");
+            const draggedElement = document.getElementById(data);
+            if (zone.children.length === 0) {
+                zone.appendChild(draggedElement);
+                cekSemua();
+            }
+        });
+    });
+
+    function cekSemua() {
+        const benar = [
+            ['drop1', 'img1'],
+            ['drop2', 'img2'],
+            ['drop3', 'img3'],
+            ['drop4', 'img4'],
+            ['drop5', 'img5']
+        ];
+
+        const semuaBenar = benar.every(([dropId, imgId]) => {
+            const drop = document.getElementById(dropId);
+            return drop.children.length > 0 && drop.children[0].id === imgId;
+        });
+
+        if (semuaBenar) {
+            document.getElementById("btnNext").style.display = "inline-block";
         }
-        totalJawaban++;
     }
-
-    // document.getElementById('hasil').innerHTML = `
-    //     <div class="alert alert-info">Jawaban Benar: <strong>${benar}/12</strong></div>
-    // `;
-    if (benar === totalJawaban) {
-        document.getElementById("btnNext").style.display = "inline-block";
-        document.getElementById("cekJawaban").style.display = "none";
-    }
-}
-
-function resetJawaban() {
-    for (let i = 1; i <= 12; i++) {
-        const input = document.getElementById("jawaban" + i);
-        input.value = "";
-        input.classList.remove("is-valid", "is-invalid");
-    }
-
-    document.getElementById('hasil').innerHTML = "";
-}

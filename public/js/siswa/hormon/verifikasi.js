@@ -1,31 +1,23 @@
-let verifikasiList = [];
+function periksaHubungan() {
+        const kunciJawaban = ["Hipofisis", "Adrenal", "Pankreas", "Tiroid", "Gonad"];
+        let benar = 0;
+        let total = 0;
+        const selects = document.querySelectorAll('select[name="jawaban[]"]');
 
-function extractText() {
-    const file = document.getElementById('imageInput').files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function() {
-            document.getElementById('loadingText').style.display = 'block';
-            Tesseract.recognize(reader.result, 'ind', {
-                langPath: 'https://tessdata.projectnaptha.com/4.0.0_best/', 
-                logger: m => console.log(m)
-            }).then(({ data: { text } }) => { 
-                document.getElementById('manualInput').value = text;
-                document.getElementById('loadingText').style.display = 'none';
-            });            
-        };
-        reader.readAsDataURL(file);
-    }
-}
+        selects.forEach((select, index) => {
+            const nilai = select.value.trim();
+            if (nilai !== "") {
+                total++;
+                if (nilai === kunciJawaban[index]) {
+                    benar++;
+                }
+            }
+        });
 
-function saveVerification() {
-    const text = document.getElementById('manualInput').value.trim();
-    if (text) {
-        verifikasiList.push(text);
-        const outputDiv = document.getElementById('output');
-        const newParagraph = document.createElement('p');
-        newParagraph.textContent = text;
-        outputDiv.appendChild(newParagraph);
-        document.getElementById('manualInput').value = "";
+        if (benar === kunciJawaban.length) {
+            return true;
+        } else {
+            alert("Masih ada jawaban yang belum tepat. Harap koreksi kembali.");
+            return false;
+        }
     }
-}

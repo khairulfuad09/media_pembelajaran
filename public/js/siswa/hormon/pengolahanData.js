@@ -1,85 +1,40 @@
-function cekJawaban() {
-    let inputs = document.querySelectorAll(".jawaban");
-    let pilihanItems = document.querySelectorAll(".jawaban-item");
-
-    // Reset semua tanda silang sebelum pengecekan
-    inputs.forEach(input => {
-        let parentTd = input.parentElement.nextElementSibling;
-        parentTd.textContent = ""; // Kosongkan hasil sebelumnya
-    });
-
-    inputs.forEach(input => {
-        let kunci = input.getAttribute("data-kunci").trim();
-        let jawabanUser = input.value.trim();
-        let parentTd = input.parentElement.nextElementSibling;
-
-        if (jawabanUser === kunci) {
-            parentTd.textContent = "✅ Benar";
-            parentTd.style.color = "green";
-        } else {
-            parentTd.textContent = "❌ Salah";
-            parentTd.style.color = "red";
-        }
-    });
-
-    // Coret pilihan jawaban yang telah digunakan
-    pilihanItems.forEach(item => {
-        let itemText = item.getAttribute("data-text");
-        let digunakan = Array.from(inputs).some(input => input.value.trim() === itemText);
-
-        if (digunakan) {
-            item.classList.add("terpakai");
-        } else {
-            item.classList.remove("terpakai");
-        }
-    });
-}
-
-function resetJawaban() {
-    let inputs = document.querySelectorAll(".jawaban");
-    let hasilCells = document.querySelectorAll(".hasil");
-    let pilihanItems = document.querySelectorAll(".jawaban-item");
-
-    // Kosongkan semua input
-    inputs.forEach(input => input.value = "");
-
-    // Hapus hasil cek jawaban
-    hasilCells.forEach(cell => {
-        cell.textContent = "";
-        cell.style.color = "black";
-    });
-
-    // Hapus coretan di daftar pilihan
-    pilihanItems.forEach(item => item.classList.remove("terpakai"));
-}
-function cekKasus() {
-    let benar = 0;
-    let totalJawaban = 0;
-    document.querySelectorAll('.jawaban-kasus').forEach(input => {
-        const jawaban = input.value.trim().toLowerCase();
-        const kunci = input.dataset.kunci.toLowerCase();
-        const hasil = input.nextElementSibling;
-
-        if (jawaban === kunci) {
-            hasil.innerHTML = '✅ Benar';
-            hasil.style.color = 'green';
-            benar++;
-        } else {
-            hasil.innerHTML = '❌ Salah';
-            hasil.style.color = 'red';
-        }
-        totalJawaban++;
-    });
-    if (benar === totalJawaban) {
-        document.getElementById("btnNext").style.display = "inline-block";
-        document.getElementById("cekJawaban").style.display = "none";
+function toggleBtn(btn) {
+        let row = btn.closest('tr');
+        row.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
     }
-}
 
-function resetKasus() {
-    document.querySelectorAll('.jawaban-kasus').forEach(input => input.value = '');
-    document.querySelectorAll('.hasil-kasus').forEach(hasil => {
-        hasil.innerHTML = '';
-        hasil.style.color = '';
-    });
-}
+    function periksaPernyataan() {
+        let benar = 0;
+        let total = 0;
+        let salahAda = false;
+
+        document.querySelectorAll('table tbody tr').forEach(row => {
+            const kunci = row.querySelector('.kunci').innerText.trim();
+            const aktif = row.querySelector('.toggle-btn.active');
+
+            if (!aktif) return;
+
+            if (aktif.innerText === kunci) {
+                benar++;
+            } else {
+                salahAda = true;
+            }
+            total++;
+        });
+
+        if (total === 0) return;
+
+        if (benar === total) {
+            document.getElementById('btnNext').style.display = 'inline-block';
+        } else if (salahAda) {
+            alert("Masih ada jawaban yang belum tepat. Harap koreksi kembali.");
+        }
+    }
+
+    function resetPernyataan() {
+        document.querySelectorAll('table tbody tr').forEach(row => {
+            row.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
+        });
+        document.getElementById('btnNext').style.display = 'none';
+    }

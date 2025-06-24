@@ -1,31 +1,59 @@
-let verifikasiList = [];
-
-function extractText() {
-    const file = document.getElementById('imageInput').files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function() {
-            document.getElementById('loadingText').style.display = 'block';
-            Tesseract.recognize(reader.result, 'ind', {
-                langPath: 'https://tessdata.projectnaptha.com/4.0.0_best/', 
-                logger: m => console.log(m)
-            }).then(({ data: { text } }) => {
-                document.getElementById('manualInput').value = text;
-                document.getElementById('loadingText').style.display = 'none';
-            });
+document.addEventListener("DOMContentLoaded", function () {
+        const kunciJawaban = {
+            verifikasi1: "B",
+            verifikasi2: "B",
+            verifikasi3: "A",
+            verifikasi4: "A",
+            verifikasi5: "B"
         };
-        reader.readAsDataURL(file);
-    }
-}
 
-function saveVerification() {
-    const text = document.getElementById('manualInput').value.trim();
-    if (text) {
-        verifikasiList.push(text);
-        const outputDiv = document.getElementById('output');
-        const newParagraph = document.createElement('p');
-        newParagraph.textContent = text;
-        outputDiv.appendChild(newParagraph);
-        document.getElementById('manualInput').value = "";
-    }
-}
+        const periksaBtn = document.getElementById("btnPeriksaVerifikasi");
+        const nextBtn = document.getElementById("btnNextVerifikasi");
+        const alertBox = document.getElementById("alertVerifikasi");
+
+        periksaBtn.addEventListener("click", function () {
+            let allFilled = true;
+            let allCorrect = true;
+
+            for (let key in kunciJawaban) {
+                const select = document.querySelector(`select[name="${key}"]`);
+                const val = select.value.trim().toUpperCase();
+                const cell = select.closest("td");
+
+                // Reset kelas
+                cell.classList.remove("correct", "incorrect");
+
+                if (!val) {
+                    allFilled = false;
+                    continue;
+                }
+
+                if (val === kunciJawaban[key]) {
+                    cell.classList.add("correct");
+                } else {
+                    cell.classList.add("incorrect");
+                    allCorrect = false;
+                }
+            }
+
+            if (!allFilled) {
+                alertBox.innerText = "❗ Silakan isi semua jawaban.";
+                alertBox.style.color = "red";
+                alertBox.style.display = "block";
+                nextBtn.style.display = "none";
+            } else if (!allCorrect) {
+                alertBox.innerText = "⚠️ Beberapa jawaban masih salah. Silakan periksa kembali.";
+                alertBox.style.color = "orange";
+                alertBox.style.display = "block";
+                nextBtn.style.display = "none";
+            } else {
+                alertBox.innerText = "✅ Semua jawaban benar. Silakan klik Next untuk melanjutkan.";
+                alertBox.style.color = "green";
+                alertBox.style.display = "block";
+                nextBtn.style.display = "inline-block";
+
+                // Disable semua pilihan
+                document.querySelectorAll("select").forEach(s => s.disabled = true);
+            }
+        });
+    });

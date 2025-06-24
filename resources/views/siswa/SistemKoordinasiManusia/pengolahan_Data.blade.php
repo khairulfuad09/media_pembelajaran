@@ -17,70 +17,142 @@
             <br>
             <p style="text-align:justify;">
                 Sistem koordinasi manusia merupakan mekanisme kompleks yang memungkinkan tubuh merespons berbagai rangsangan
-                dari lingkungan.
-                Salah satu komponen utama dalam sistem ini adalah <b>neuron</b>, yaitu sel saraf yang berfungsi mengirimkan
-                dan
+                dari lingkungan. Salah satu komponen utama dalam sistem ini adalah <b>neuron</b>, yaitu sel saraf yang
+                berfungsi mengirimkan dan
                 memproses informasi.
                 Neuron terdiri dari beberapa bagian penting seperti dendrit, akson, badan sel, dan sinapsis yang bekerja
                 secara terintegrasi untuk
                 mengantarkan sinyal listrik dan kimiawi.
             </p>
             <p style="text-align:justify;">
-                Dalam latihan ini, kamu akan mengidentifikasi bagian-bagian neuron.
+                Dalam latihan ini, kamu akan memilih jawaban yang paling tepat dari daftar pilihan yang tersedia.
             </p>
         </div>
 
-
         <div class="container-pengolahan-data mt-4">
-            <p class="d-inline-flex gap-1">
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                    aria-expanded="false" aria-controls="collapseExample">
-                    Petunjuk Pengerjaan
-                </button>
-            </p>
-            <div class="collapse" id="collapseExample" style="text-align: left;">
-                <div class="card card-body">
-                    <ol class="text-start" style="max-width: 500px;">
-                        <li>Baca dan pahami gambar struktur neuron yang tersedia.</li>
-                        <li>Isi jawaban pada kolom yang sesuai dengan bagian-bagian neuron yang ditunjukkan dalam
-                            gambar.
-                        </li>
-                        <li>Setelah semua jawaban diisi, klik tombol <b>"Periksa Jawaban"</b>.</li>
-                        <li>Jika jawaban benar, kolom akan berubah menjadi <b>hijau</b>.</li>
-                        <li>Jika jawaban salah, kolom akan berubah menjadi <b>merah</b>.</li>
-                        <li>Untuk mencoba kembali, klik tombol <b>"Reset"</b> agar kolom kembali kosong.</li>
-                        <li>Jika semua jawaban benar, penjelasan tambahan akan muncul di bawah soal.</li>
-                    </ol>
-                </div>
-            </div>
-            <div class="container-pd">
-
-                <!-- Gambar Neuron -->
-                <div class="container-pd">
-                    <img src="img/struktur neuron soal.jpg" alt="Gambar Neuron" width="500">
-                </div>
-
-                <!-- Form Input Jawaban -->
-                <div class="answer-box">
-                    <label for="labelA">Bagian (a): <input type="text" id="labelA"></label>
-                    <label for="labelB">Bagian (b): <input type="text" id="labelB"></label>
-                    <label for="labelC">Bagian (c): <input type="text" id="labelC"></label>
-                    <label for="labelD">Bagian (d): <input type="text" id="labelD"></label>
-                    <label for="labelE">Bagian (e): <input type="text" id="labelE"></label>
-                    <label for="labelF">Bagian (f): <input type="text" id="labelF"></label>
-                    <label for="labelG">Bagian (g): <input type="text" id="labelG"></label>
-                    <label for="labelH">Bagian (h): <input type="text" id="labelH"></label>
-                </div>
+            <div class="card p-4">
+                <h5>Aktivitas:</h5>
+                <ol style="padding-left: 1rem;">
+                    <li class="mb-3">
+                        Rangsang dari luar pertama kali diterima oleh:<br>
+                        <select class="form-select jawaban" id="q1">
+                            <option selected disabled>Pilih jawaban</option>
+                            <option>Reseptor</option>
+                            <option>Otak</option>
+                            <option>Impuls</option>
+                            <option>Refleks</option>
+                            <option>Adrenal</option>
+                            <option>Kecepatan dan cara penyampaian</option>
+                            <option>Tulang</option>
+                            <option>Pembuluh darah</option>
+                            <option>Detak jantung</option>
+                            <option>Emosi</option>
+                            <option>Kulit</option>
+                            <option>Sumsum tulang belakang</option>
+                        </select>
+                    </li>
+                    <li class="mb-3">
+                        Organ yang berfungsi mengolah informasi dalam sistem saraf adalah:<br>
+                        <select class="form-select jawaban" id="q2">
+                            <option selected disabled>Pilih jawaban</option>
+                            <option>Reseptor</option>
+                            <option>Otak</option>
+                            <option>Impuls</option>
+                            <option>Refleks</option>
+                            <option>Adrenal</option>
+                            <option>Kecepatan dan cara penyampaian</option>
+                            <option>Tulang</option>
+                            <option>Pembuluh darah</option>
+                            <option>Detak jantung</option>
+                            <option>Emosi</option>
+                            <option>Kulit</option>
+                            <option>Sumsum tulang belakang</option>
+                        </select>
+                    </li>
+                    <li class="mb-3">
+                        Sinyal listrik yang dibawa oleh neuron disebut:<br>
+                        <select class="form-select jawaban" id="q3">
+                            <option selected disabled>Pilih jawaban</option>
+                            <option>Reseptor</option>
+                            <option>Otak</option>
+                            <option>Impuls</option>
+                            <option>Refleks</option>
+                            <option>Adrenal</option>
+                            <option>Kecepatan dan cara penyampaian</option>
+                            <option>Tulang</option>
+                            <option>Pembuluh darah</option>
+                            <option>Detak jantung</option>
+                            <option>Emosi</option>
+                            <option>Kulit</option>
+                            <option>Sumsum tulang belakang</option>
+                        </select>
+                    </li>
+                    <li class="mb-3">
+                        Jenis tanggapan yang terjadi tanpa disadari disebut:<br>
+                        <select class="form-select jawaban" id="q4">
+                            <option selected disabled>Pilih jawaban</option>
+                            <option>Reseptor</option>
+                            <option>Otak</option>
+                            <option>Impuls</option>
+                            <option>Refleks</option>
+                            <option>Adrenal</option>
+                            <option>Kecepatan dan cara penyampaian</option>
+                            <option>Tulang</option>
+                            <option>Pembuluh darah</option>
+                            <option>Detak jantung</option>
+                            <option>Emosi</option>
+                            <option>Kulit</option>
+                            <option>Sumsum tulang belakang</option>
+                        </select>
+                    </li>
+                    <li class="mb-3">
+                        Hormon adrenalin dihasilkan oleh kelenjar:<br>
+                        <select class="form-select jawaban" id="q5">
+                            <option selected disabled>Pilih jawaban</option>
+                            <option>Reseptor</option>
+                            <option>Otak</option>
+                            <option>Impuls</option>
+                            <option>Refleks</option>
+                            <option>Adrenal</option>
+                            <option>Kecepatan dan cara penyampaian</option>
+                            <option>Tulang</option>
+                            <option>Pembuluh darah</option>
+                            <option>Detak jantung</option>
+                            <option>Emosi</option>
+                            <option>Kulit</option>
+                            <option>Sumsum tulang belakang</option>
+                        </select>
+                    </li>
+                    <li class="mb-3">
+                        Perbedaan utama sistem saraf dan hormon adalah pada:<br>
+                        <select class="form-select jawaban" id="q6">
+                            <option selected disabled>Pilih jawaban</option>
+                            <option>Reseptor</option>
+                            <option>Otak</option>
+                            <option>Impuls</option>
+                            <option>Refleks</option>
+                            <option>Adrenal</option>
+                            <option>Kecepatan dan cara penyampaian</option>
+                            <option>Tulang</option>
+                            <option>Pembuluh darah</option>
+                            <option>Detak jantung</option>
+                            <option>Emosi</option>
+                            <option>Kulit</option>
+                            <option>Sumsum tulang belakang</option>
+                        </select>
+                    </li>
+                </ol>
                 <form action="/selesai_pengolahanData_SKM" method="post">
                     @csrf
                     <input type="hidden" name="chapter_id" value="1">
                     <input type="hidden" name="exercise_id" value="4">
                     <button class="periksa-jawaban" id="btnNext" style="display: none;">Next</button>
                 </form>
-                <button id="cekJawaban" class="periksa-jawaban" onclick="checkAnswersPengolahanData()">Periksa
-                    Jawaban</button>
-                <button class="reset" onclick="resetGamePengolahanData()">Reset</button>
-                {{-- <p id="result"></p> --}}
+                <div>
+
+                    <button id="cekJawaban" class="periksa-jawaban">Periksa Jawaban</button>
+                    <button class="reset">Reset</button>
+                </div>
             </div>
         </div>
     </div>

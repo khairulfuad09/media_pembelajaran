@@ -43,4 +43,28 @@ class ProgressHomeostasisController extends Controller
 
         return redirect()->route('pengolahan.data.homeostasis');
     }
+    public function selesaiPengolahanDataHomeostasis(Request $request)
+    {
+        Progress::updateOrCreate([
+            'user_id' => auth()->id(),
+            'chapter_id' => $request->chapter_id,
+            'exercise_id' => $request->exercise_id,
+        ], [
+            'is_complete' => true,
+        ]);
+
+        return redirect()->route('verifikasi.homeostasis');
+    }
+    public function selesaiVerifikasiHomeostasis(Request $request)
+    {
+        Progress::updateOrCreate([
+            'user_id' => auth()->id(),
+            'chapter_id' => $request->chapter_id,
+            'exercise_id' => $request->exercise_id,
+        ], [
+            'is_complete' => true,
+        ]);
+
+        return redirect()->route('kesimpulan.homeostasis');
+    }
 }

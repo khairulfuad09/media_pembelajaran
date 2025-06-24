@@ -10,111 +10,104 @@
         <h2>HORMON</h2>
     </div>
     <div class="container mt-4">
-
-        <!-- Narasi Pengantar -->
-        <div class="container-penjelasan">
+        <div class="card p-4">
             <h3>Bagian 3 : PENGUMPULAN DATA</h3>
             <br>
-            <p style=" text-align: justify;">
-                Hormon merupakan zat kimia yang dihasilkan oleh kelenjar endokrin dan berperan dalam mengatur berbagai
-                fungsi tubuh. Kelenjar endokrin tersebar di seluruh tubuh dan bekerja tanpa saluran khusus, sehingga hormon
-                langsung dialirkan melalui darah ke organ sasaran. Meskipun bekerja lebih lambat dibandingkan sistem saraf,
-                hormon memiliki efek yang lebih luas dan bertahan lama.
-            </p>
-            <p style="text-align: justify;">
-                Dalam aktivitas ini, kamu akan mengumpulkan data tentang berbagai kelenjar endokrin, hormon yang dihasilkan,
-                serta fungsinya. Latihan ini akan membantu kamu memahami bagaimana sistem endokrin mengatur pertumbuhan,
-                metabolisme, keseimbangan cairan, hingga sistem reproduksi.
-            </p>
-            <p style="text-align: justify;">
-                Baca kembali materi dengan saksama, lalu lengkapi tabel yang tersedia dengan jawaban yang benar. Setelah
-                itu, gunakan tombol "Cek Jawaban" untuk memverifikasi hasilmu. Jika jawaban benar, kotak akan berubah
-                menjadi hijau ✅, dan jika salah akan berubah menjadi merah ❌.
-            </p>
-        </div>
-        <br>
-        <div class="card p-4">
-            <p class="d-inline-flex gap-1">
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                    aria-expanded="false" aria-controls="collapseExample">
-                    Petunjuk Pengerjaan
-                </button>
-            </p>
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                    <ol>
-                        <li>Bacalah setiap pertanyaan mengenai fungsi kelenjar dengan cermat.</li>
-                        <li>Pilihlah jawaban yang paling sesuai dari dropdown di samping setiap pertanyaan.</li>
-                        <li>Setiap jawaban hanya dapat digunakan satu kali.</li>
-                        <li>Jawaban yang sudah digunakan akan otomatis dicoret dari daftar di sebelah kanan.</li>
-                        <li>Pastikan semua jawaban terisi sebelum memeriksa kembali pekerjaan Anda.</li>
-                    </ol>
+            <div id="aktivitas1">
+                <h5>Aktivitas 1: Coret Kelenjar yang Tidak Cocok</h5>
+                <p>Pilih dan coret kelenjar yang menurutmu tidak cocok dengan fungsi yang diberikan.</p>
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th>Fungsi</th>
+                            <th colspan="3">Pilihan Kelenjar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mengatur metabolisme</td>
+                            <td class="pilihan" data-jawaban="benar" onclick="toggleCoret(this)">Tiroid</td>
+                            <td class="pilihan" data-jawaban="salah" onclick="toggleCoret(this)">Pankreas</td>
+                            <td class="pilihan" data-jawaban="salah" onclick="toggleCoret(this)">Adrenal</td>
+                        </tr>
+                        <tr>
+                            <td>Mengatur kadar gula darah</td>
+                            <td class="pilihan" data-jawaban="benar" onclick="toggleCoret(this)">Pankreas</td>
+                            <td class="pilihan" data-jawaban="salah" onclick="toggleCoret(this)">Hipofisis</td>
+                            <td class="pilihan" data-jawaban="salah" onclick="toggleCoret(this)">Tiroid</td>
+                        </tr>
+                        <tr>
+                            <td>Mengontrol reaksi tubuh saat stress (ketakutan)</td>
+                            <td class="pilihan" data-jawaban="benar" onclick="toggleCoret(this)">Adrenal</td>
+                            <td class="pilihan" data-jawaban="salah" onclick="toggleCoret(this)">Gonad</td>
+                            <td class="pilihan" data-jawaban="salah" onclick="toggleCoret(this)">Hipotalamus</td>
+                        </tr>
+                        <tr>
+                            <td>Mengatur pertumbuhan dan aktivitas hormon lain</td>
+                            <td class="pilihan" data-jawaban="benar" onclick="toggleCoret(this)">Hipofisis</td>
+                            <td class="pilihan" data-jawaban="salah" onclick="toggleCoret(this)">Tiroid</td>
+                            <td class="pilihan" data-jawaban="salah" onclick="toggleCoret(this)">Adrenal</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-end">
+                    <button class="btn btn-primary" onclick="selesaiAktivitas1()">Selesai Aktivitas 1</button>
                 </div>
             </div>
-            <div class="row">
-                <!-- =================== Pertanyaan + Dropdown =================== -->
-                <div class="col-md-7">
-                    <div class="card p-3">
-                        <h5 class="mb-3">Pilih letak kelenjar berdasarkan fungsinya</h5>
-                        <form id="quizForm" action="/selesai_pengumpulanData_Hormon" method="post">
-                            @csrf
-                            @php
-                                $pertanyaan = [
-                                    'Kelenjar yang terletak di dasar otak dan berperan sebagai kelenjar pengatur utama' =>
-                                        'Hipofisis',
-                                    'Kelenjar yang terletak di leher dan menghasilkan hormon tiroksin' => 'Tiroid',
-                                    'Kelenjar kecil di atas ginjal yang menghasilkan adrenalin' => 'Adrenal',
-                                    'Kelenjar di dalam pankreas yang mengatur gula darah' => 'Pankreas',
-                                    'Kelenjar yang menghasilkan hormon seksual pria' => 'Testis',
-                                    'Kelenjar yang menghasilkan hormon seksual wanita' => 'Ovarium',
-                                ];
 
-                                $jawabanPilihan = ['Hipofisis', 'Tiroid', 'Adrenal', 'Pankreas', 'Testis', 'Ovarium'];
-                                $index = 0;
-                            @endphp
-
-                            @foreach ($pertanyaan as $soal => $jawaban)
-                                <div class="mb-3">
-                                    <label class="form-label">{{ $soal }}</label>
-                                    <select class="form-select pilihan-jawaban" id="select{{ $index }}"
-                                        data-kunci="{{ $jawaban }}" onchange="updateUsedAnswers()">
-                                        <option value="">-- Pilih Jawaban --</option>
-                                        @foreach ($jawabanPilihan as $pilihan)
-                                            <option value="{{ $pilihan }}">{{ $pilihan }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                                @php $index++; @endphp
-                            @endforeach
-
-                            <div class="d-flex justify-content-end gap-2 mt-3">
-                                <input type="hidden" name="chapter_id" value="3">
-                                <input type="hidden" name="exercise_id" value="3">
-                                <button class="btn btn-success" id="btnNext" style="display: none;">Next</button>
-                                <button id="cekJawaban" type="button" class="btn btn-success"
-                                    onclick="periksaJawaban()">Periksa
-                                    Jawaban</button>
-                                <button type="button" class="btn btn-secondary" onclick="resetJawaban()">Reset</button>
-                            </div>
-                        </form>
-
-                        {{-- <div id="hasil" class="mt-3"></div> --}}
-                    </div>
-                </div>
-
-                <!-- =================== Kumpulan Jawaban =================== -->
-                <div class="col-md-5">
-                    <div class="card p-3">
-                        <h5>Daftar Pilihan Jawaban</h5>
-                        <ul class="list-group" id="jawabanList">
-                            @foreach ($jawabanPilihan as $pilihan)
-                                <li class="list-group-item d-flex justify-content-between align-items-center">
-                                    <span class="jawaban-text" data-jawaban="{{ $pilihan }}">{{ $pilihan }}</span>
-                                    <span class="badge bg-secondary used-indicator d-none">Digunakan</span>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
+            <div id="aktivitas2" style="display: none;">
+                <h5 class="mt-4">Aktivitas 2: Coret Jawaban Tidak Tepat</h5>
+                <p>Pilih dan coret jawaban yang tidak tepat untuk pernyataan di samping</p>
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr>
+                            <th>Pernyataan</th>
+                            <th colspan="2">Jawaban</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mengirim sinyal melalui impuls listrik</td>
+                            <td class="pilihan" data-jawaban="benar" onclick="toggleCoret(this)">Sistem Saraf</td>
+                            <td class="pilihan" data-jawaban="salah" onclick="toggleCoret(this)">Sistem Hormon</td>
+                        </tr>
+                        <tr>
+                            <td>Bekerja cepat, tapi efeknya singkat</td>
+                            <td class="pilihan" data-jawaban="benar" onclick="toggleCoret(this)">Sistem Saraf</td>
+                            <td class="pilihan" data-jawaban="salah" onclick="toggleCoret(this)">Sistem Hormon</td>
+                        </tr>
+                        <tr>
+                            <td>Mengirim sinyal melalui zat kimia dalam darah</td>
+                            <td class="pilihan" data-jawaban="salah" onclick="toggleCoret(this)">Sistem Saraf</td>
+                            <td class="pilihan" data-jawaban="benar" onclick="toggleCoret(this)">Sistem Hormon</td>
+                        </tr>
+                        <tr>
+                            <td>Efeknya berlangsung lama</td>
+                            <td class="pilihan" data-jawaban="salah" onclick="toggleCoret(this)">Sistem Saraf</td>
+                            <td class="pilihan" data-jawaban="benar" onclick="toggleCoret(this)">Sistem Hormon</td>
+                        </tr>
+                        <tr>
+                            <td>Respon langsung terhadap rangsangan dari luar</td>
+                            <td class="pilihan" data-jawaban="benar" onclick="toggleCoret(this)">Sistem Saraf</td>
+                            <td class="pilihan" data-jawaban="salah" onclick="toggleCoret(this)">Sistem Hormon</td>
+                        </tr>
+                        <tr>
+                            <td>Mengatur proses jangka panjang seperti pertumbuhan</td>
+                            <td class="pilihan" data-jawaban="salah" onclick="toggleCoret(this)">Sistem Saraf</td>
+                            <td class="pilihan" data-jawaban="benar" onclick="toggleCoret(this)">Sistem Hormon</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="text-end">
+                    <button class="btn btn-success" onclick="selesaiAktivitas2()">Selesai Aktivitas 2</button>
+                    {{-- <button class="btn btn-primary" id="btnNext" style="display: none;">Next</button> --}}
+                    <form action="/selesai_pengumpulanData_Hormon" method="post">
+                        @csrf
+                        <input type="hidden" name="chapter_id" value="3">
+                        <input type="hidden" name="exercise_id" value="3">
+                        <button type="submit" class="btn btn-primary" id="btnNext"
+                            style="display: none;">Next</button>
+                    </form>
                 </div>
             </div>
         </div>

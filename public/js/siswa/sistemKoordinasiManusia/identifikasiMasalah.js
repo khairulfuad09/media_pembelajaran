@@ -44,12 +44,11 @@
   
   // === Fungsi untuk Identifikasi Masalah dengan Checkbox ===
   const kunciJawaban = {
-    1: "termasuk",
+    1: "tidak",
     2: "termasuk",
-    3: "tidak",
-    4: "tidak",
-    5: "termasuk",
-    6: "termasuk",
+    3: "termasuk",
+    4: "termasuk",
+    5: "tidak",
   };
   
   function semuaSudahBenar() {
@@ -104,7 +103,8 @@
       // Cek apakah semua benar
       if (semuaSudahBenar()) {
         kunciSemuaCheckbox();
-        tampilkanMateriSelanjutnya();
+        // tampilkanMateriSelanjutnya();
+        document.getElementById("btnNext").style.display = "inline-block";
       }
     });
   });

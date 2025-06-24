@@ -2,6 +2,32 @@
 @section('title', 'Hormon Manusia|Verifikasi')
 @section('css')
     <link href="{{ asset('css/siswa/hormon/verifikasi.css') }}" rel="stylesheet">
+    <style>
+        .matching-pair {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .keterangan,
+        .kelenjar {
+            flex: 1;
+            padding: 0 10px;
+        }
+
+        .kelenjar select {
+            width: 100%;
+        }
+
+        .feedback {
+            display: none;
+            font-weight: bold;
+        }
+    </style>
 @endsection
 @section('container')
     <button id="backToTop">↑</button>
@@ -10,76 +36,99 @@
         <h2>HORMON</h2>
     </div>
     <div class="container mt-4">
-        <!-- Narasi Pengantar -->
         <div class="container-penjelasan">
             <h3>Bagian 5 : VERIFIKASI</h3>
             <br>
-            <p style=" text-align: justify;">
-                Hormon memiliki peran penting dalam menjaga keseimbangan tubuh manusia. Berbagai kelenjar endokrin
-                menghasilkan hormon yang berfungsi untuk mengatur pertumbuhan, metabolisme, keseimbangan cairan, hingga
-                sistem reproduksi. Pemahaman yang baik tentang hormon akan membantu kita mengetahui bagaimana tubuh
-                beradaptasi dengan berbagai kondisi.
-            </p>
             <p style="text-align: justify;">
-                Pada bagian ini, kamu akan melakukan verifikasi terhadap pemahamanmu tentang peran hormon dalam menjaga
-                keseimbangan tubuh. Kamu dapat menuliskan jawaban secara manual atau mengunggah gambar tulisan tangan yang
-                nantinya akan diproses secara otomatis. Pastikan jawaban yang kamu berikan jelas dan sesuai dengan konsep
-                yang telah dipelajari. Selamat mengerjakan!
+                Hormon memiliki peran penting dalam menjaga keseimbangan tubuh manusia. Pada bagian ini, kamu akan menguji
+                pemahamanmu tentang hubungan antara kelenjar dan fungsi hormon. Tarik garis atau hubungkan kelenjar dengan
+                fungsi yang sesuai dengan cara memilih dari daftar pilihan.
             </p>
         </div>
-        <br>
-        <p class="d-inline-flex gap-1">
-            <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                aria-expanded="false" aria-controls="collapseExample">
-                Petunjuk Pengerjaan
-            </button>
-        </p>
-        <div class="collapse" id="collapseExample">
-            <div class="card card-body">
-                <ol>
-                    <li>Menulis atau mengunggah jawaban pada kolom yang disediakan
-                    </li>
-                    <li>
-                        Memastikan jawaban jelas, singkat, dan sesuai dengan konsep hormon dalam tubuh manusia.
-                    </li>
-                    <li>
-                        unggah gambar berisi tulisan tangan atau catatan menggunakan tombol "Unggah & Baca Gambar."
-                        (jika
-                        mengunggah gambar).
-                    </li>
-                    <li>
-                        Menunggu proses pemrosesan gambar hingga teks berhasil diekstrak (jika mengunggah gambar).
-                    </li>
-                    <li>Memastikan hasil yang ditampilkan sesuai dengan jawaban yang dimaksud.
-                    </li>
-                    <li>
-                        Memahami setiap konsep hormon dan perannya dalam menjaga keseimbangan tubuh.
-                    </li>
-                    <li>
-                        Memastikan tulisan tangan dalam gambar mudah terbaca agar hasil ekstraksi teks lebih akurat
-                        (jika
-                        mengunggah gambar).
-                    </li>
-                </ol>
-            </div>
-        </div>
-        <div class="card p-4">
-            <div class="container-vs mt-4">
-                <h4>Menurut kamu, apa saja peran hormon dalam menjaga keseimbangan tubuh?</h4>
-                <div class="container-verifikasi">
-                    <form action="/simpan_verifikasi_hormon" method="post">
-                        @csrf
-                        <input type="hidden" name='id_kesimpulan' value="{{ $essay->id ?? '' }}">
-                        <textarea id="manualInput" placeholder="Ketik kesimpulan Anda di sini..."name="kesimpulan">{{ old('kesimpulan', $essay->jawaban ?? '') }}</textarea>
-                        <input type="file" id="imageInput" accept="image/*">
-                        <p class="loading" id="loadingText">Sedang memproses, harap tunggu...</p>
-                        <button class="btn-simpan" type="submit">Simpan Kesimpulan</button>
-                        <div class="output" id="output"></div>
-                    </form>
-                    <button class="btn-unggah" onclick="extractText()">Unggah & Baca Gambar</button>
 
+        <div class="card mt-4 p-4">
+            <h5 class="text-center">Hubungkan Fungsi Hormon dengan Kelenjarnya</h5>
+            <form action="/selesai_verifikasi_Hormon" method="post" onsubmit="return periksaHubungan()">
+                @csrf
+                {{-- <input type="hidden" name="chapter_id" value="5">   --}}
+
+                <div class="matching-pair">
+                    <div class="keterangan">1. Kelenjar yang berfungsi sebagai pengatur utama berbagai hormon lain.</div>
+                    <div class="kelenjar">
+                        <select name="jawaban[]">
+                            <option value="">-- Pilih --</option>
+                            <option value="Hipofisis">Hipofisis</option>
+                            <option value="Adrenal">Adrenal</option>
+                            <option value="Pankreas">Pankreas</option>
+                            <option value="Tiroid">Tiroid</option>
+                            <option value="Gonad">Gonad</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
+
+                <div class="matching-pair">
+                    <div class="keterangan">2. Kelenjar yang menghasilkan adrenalin saat tubuh menghadapi stres.</div>
+                    <div class="kelenjar">
+                        <select name="jawaban[]">
+                            <option value="">-- Pilih --</option>
+                            <option value="Hipofisis">Hipofisis</option>
+                            <option value="Adrenal">Adrenal</option>
+                            <option value="Pankreas">Pankreas</option>
+                            <option value="Tiroid">Tiroid</option>
+                            <option value="Gonad">Gonad</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="matching-pair">
+                    <div class="keterangan">3. Kelenjar yang menghasilkan insulin untuk mengatur kadar gula darah.</div>
+                    <div class="kelenjar">
+                        <select name="jawaban[]">
+                            <option value="">-- Pilih --</option>
+                            <option value="Hipofisis">Hipofisis</option>
+                            <option value="Adrenal">Adrenal</option>
+                            <option value="Pankreas">Pankreas</option>
+                            <option value="Tiroid">Tiroid</option>
+                            <option value="Gonad">Gonad</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="matching-pair">
+                    <div class="keterangan">4. Kelenjar yang mengatur metabolisme tubuh melalui hormon tiroksin.</div>
+                    <div class="kelenjar">
+                        <select name="jawaban[]">
+                            <option value="">-- Pilih --</option>
+                            <option value="Hipofisis">Hipofisis</option>
+                            <option value="Adrenal">Adrenal</option>
+                            <option value="Pankreas">Pankreas</option>
+                            <option value="Tiroid">Tiroid</option>
+                            <option value="Gonad">Gonad</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="matching-pair">
+                    <div class="keterangan">5. Kelenjar yang menghasilkan hormon reproduksi seperti testosteron dan
+                        estrogen.</div>
+                    <div class="kelenjar">
+                        <select name="jawaban[]">
+                            <option value="">-- Pilih --</option>
+                            <option value="Hipofisis">Hipofisis</option>
+                            <option value="Adrenal">Adrenal</option>
+                            <option value="Pankreas">Pankreas</option>
+                            <option value="Tiroid">Tiroid</option>
+                            <option value="Gonad">Gonad</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="text-end mt-3">
+                    <input type="hidden" name="chapter_id" value="3">
+                    <input type="hidden" name="exercise_id" value="5">
+                    <button type="submit" class="btn btn-primary" id="btnNext">Simpan & Lanjut</button>
+                </div>
+            </form>
         </div>
     </div>
 @endsection

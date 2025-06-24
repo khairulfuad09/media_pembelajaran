@@ -15,13 +15,9 @@
             <h3>Bagian 5 : VERIFIKASI</h3>
             <br>
             <p style="text-align: justify;">
-                Tahap ini merupakan bagian akhir dari proses pembelajaran kita tentang homeostasis. Verifikasi dilakukan
-                untuk memastikan bahwa kalian benar-benar memahami dampak dari gangguan terhadap sistem koordinasi dan
-                keseimbangan tubuh, seperti yang ditimbulkan oleh zat adiktif, termasuk narkoba.
-            </p>
-            <p style="text-align: justify;">
-                Pertanyaan kali ini akan menguji pemahaman kalian mengenai alasan narkoba sangat berbahaya bagi tubuh
-                manusia.
+                Pada tahap ini, kamu akan menguji pemahamanmu tentang konsep homeostasis dengan memilih pernyataan yang
+                benar dari dua situasi yang disajikan.
+                Coret pernyataan yang menurutmu tidak sesuai dengan mekanisme homeostasis.
             </p>
         </div>
         <br>
@@ -35,43 +31,82 @@
             <div class="collapse" id="collapseExample">
                 <div class="card card-body">
                     <ol>
-                        <li>
-                            Bacalah pertanyaan berikut dengan cermat:
-                            "Mengapa narkoba termasuk zat adiktif yang berbahaya bagi tubuh?"
-                        </li>
-                        <li>
-                            Tuliskan jawaban kalian di kolom teks yang disediakan.
-                        </li>
-                        <li>
-                            Jika kalian telah menuliskan jawaban di kertas atau buku catatan, kalian bisa mengunggah foto
-                            jawaban tersebut dengan tombol "Unggah & Baca Gambar".
-                        </li>
-                        <li>
-                            Sistem akan membaca isi gambar secara otomatis. Pastikan tulisan kalian jelas dan mudah terbaca.
-                        </li>
-                        <li>
-                            Setelah selesai, klik tombol "Simpan jawaban" untuk menyimpan hasil kerja kalian.
-                        </li>
+                        <li>Baca dengan teliti setiap pasang pernyataan.</li>
+                        <li>Pilih salah satu yang benar.</li>
+                        <li>pilih jawaban pada kolom yang disediakan.</li>
                     </ol>
                 </div>
             </div>
 
-            <br>
-            <div class="container-vs mt-4">
-                <h4>Mengapa narkoba termasuk zat adiktif yang berbahaya bagi tubuh?</h4>
-                <div class="container-verifikasi">
-                    <form action="/simpan_verifikasi_homeostasis" method="post">
-                        @csrf
-                        <input type="hidden" name='id_kesimpulan' value="{{ $essay->id ?? '' }}">
-                        <textarea id="manualInput" placeholder="Ketik jawaban Anda di sini..."name="kesimpulan">{{ old('kesimpulan', $essay->jawaban ?? '') }}</textarea>
-                        <input type="file" id="imageInput" accept="image/*">
-                        <p class="loading" id="loadingText">Sedang memproses, harap tunggu...</p>
-                        <button class="btn-simpan" type="submit">Simpan Kesimpulan</button>
-                        <div class="output" id="output"></div>
-                    </form>
-                    <button class="btn-unggah" onclick="extractText()">Unggah & Baca Gambar</button>
+            <form action="/selesai_verifikasi_Homeostasis" method="post">
+                @csrf
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th class="text-center">No</th>
+                            <th class="text-center">Situasi A</th>
+                            <th class="text-center">Situasi B</th>
+                            <th class="text-center">Pilih Jawaban</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @php
+                            $soals = [
+                                [
+                                    1,
+                                    'Ketika suhu tubuh meningkat, seseorang langsung minum air dingin sebanyak mungkin agar dingin cepat menyebar ke seluruh tubuh.',
+                                    'Ketika suhu tubuh meningkat, tubuh mulai berkeringat untuk menurunkan suhu tubuh.',
+                                ],
+                                [
+                                    2,
+                                    'Saat kekurangan cairan, tubuh meningkatkan produksi urin agar racun cepat keluar.',
+                                    'Saat kekurangan cairan, hormon ADH meningkatkan penyerapan air di ginjal.',
+                                ],
+                                [
+                                    3,
+                                    'Saat kadar gula darah tinggi, pankreas melepaskan insulin agar glukosa masuk ke dalam sel.',
+                                    'Saat kadar gula darah tinggi, tubuh menambah konsumsi gula untuk menyesuaikan kadar energi.',
+                                ],
+                                [
+                                    4,
+                                    'Saat suhu lingkungan sangat dingin, tubuh menggigil untuk menghasilkan panas.',
+                                    'Saat suhu lingkungan sangat dingin, tubuh membiarkan suhu internal ikut turun supaya hemat energi.',
+                                ],
+                                [
+                                    5,
+                                    'Homeostasis penting hanya saat tubuh sedang berolahraga atau sakit.',
+                                    'Homeostasis berlangsung terus-menerus untuk menjaga kondisi tubuh tetap stabil.',
+                                ],
+                            ];
+                        @endphp
+
+                        @foreach ($soals as $soal)
+                            <tr>
+                                <td class="text-center">{{ $soal[0] }}</td>
+                                <td>{{ $soal[1] }}</td>
+                                <td>{{ $soal[2] }}</td>
+                                <td class="text-center">
+                                    <select name="verifikasi{{ $soal[0] }}" class="form-select" required>
+                                        <option value="">-- Pilih --</option>
+                                        <option value="A">A</option>
+                                        <option value="B">B</option>
+                                    </select>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+
+                <div id="alertVerifikasi" class="text-center mt-3" style="display: none; color: red;"></div>
+
+                <div class="text-center">
+                    <button type="button" id="btnPeriksaVerifikasi" class="btn btn-warning mt-3">Periksa Jawaban</button>
+                    <input type="hidden" name="chapter_id" value="4">
+                    <input type="hidden" name="exercise_id" value="5">
+                    <button type="submit" id="btnNextVerifikasi" class="btn btn-success mt-3"
+                        style="display: none;">Next</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 @endsection

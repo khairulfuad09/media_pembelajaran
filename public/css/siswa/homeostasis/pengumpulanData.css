@@ -30,3 +30,18 @@ th {
     padding-bottom: 20px;
     font-size: 15px;
 }
+.drop-zone {
+  min-height: 50px;
+  padding: 10px;
+  border: 2px dashed #ccc;
+  vertical-align: middle;
+}
+.draggable-item {
+  padding: 6px 10px;
+  background-color: #e3f2fd;
+  border: 1px solid #90caf9;
+  border-radius: 4px;
+  margin: 4px;
+  cursor: move;
+  display: inline-block;
+}

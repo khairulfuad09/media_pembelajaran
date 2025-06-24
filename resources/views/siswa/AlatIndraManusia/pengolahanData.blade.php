@@ -1,6 +1,7 @@
 @extends('template.main')
 @section('title', 'Alat Indra Manusia|Pengolahan Data')
 @section('css')
+    <link href="{{ asset('css/siswa/alatIndraManusia/pengolahanData.css') }}" rel="stylesheet">
 @endsection
 @section('container')
     <button id="backToTop">↑</button>
@@ -16,16 +17,14 @@
                 Mata merupakan salah satu alat indra yang berperan penting dalam menerima rangsangan berupa cahaya, sehingga
                 memungkinkan
                 kita untuk melihat lingkungan sekitar. Untuk dapat menjalankan fungsinya dengan optimal, mata tersusun atas
-                berbagai bagian
-                penting yang memiliki peran masing-masing. Memahami struktur dan fungsi bagian-bagian mata sangatlah penting
-                agar kita
-                dapat menjaga kesehatannya dengan baik.
+                berbagai bagian penting yang memiliki peran masing-masing. Memahami struktur dan fungsi bagian-bagian mata
+                sangatlah penting
+                agar kita dapat menjaga kesehatannya dengan baik.
             </p>
             <p style="text-align: justify;">
-                Pada aktivitas berikut, kalian akan menguji pemahaman terhadap struktur mata dengan mengisi bagian-bagian
-                yang sesuai
-                berdasarkan gambar yang disediakan. Aktivitas ini bertujuan untuk memperkuat pemahaman konsep mengenai
-                sistem penglihatan manusia.
+                Pada aktivitas berikut, kalian akan menguji pemahaman terhadap struktur mata dengan mencocokkan fungsi alat
+                indra dengan bagian yang tepat.
+                Geser gambar alat indra ke kotak yang sesuai di tabel berikut ini.
             </p>
         </div>
         <br>
@@ -39,56 +38,71 @@
             <div class="collapse" id="collapseExample">
                 <div class="card card-body">
                     <ol>
-                        <li>Baca kembali materi tentang bagian mata.
-                        </li>
-                        <li>
-                            Isi bagian yang kosong dengan jawaban yang tepat.
-                        </li>
-                        <li>Jawaban benar akan berubah menjadi hijau.</li>
-                        <li>Jawaban salah akan berubah menjadi merah.</li>
-                        <li>Jika ada kesalahan, koreksi jawaban Anda hingga benar.</li>
+                        <li>Baca kembali materi tentang bagian alat indra.</li>
+                        <li>Seret dan lepaskan gambar alat indra ke kolom jawaban yang sesuai.</li>
+                        <li>Jika semua jawaban benar, tombol "Next" akan muncul.</li>
                     </ol>
                 </div>
             </div>
             <br>
-            <div class="row">
-                <!-- Gambar di Kiri -->
-                <div class="col-md-5 text-center mb-3">
-                    <img src="{{ asset('img/quiz mata.png') }}" alt="Gambar Kuis" class="img-fluid rounded shadow">
-                </div>
+            <div class="table-responsive">
+                <table class="table table-bordered text-center">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Fungsi Alat Indra</th>
+                            <th>Gambar Jawaban</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mendeteksi rangsang cahaya</td>
+                            <td id="drop1" class="dropzone"></td>
+                        </tr>
+                        <tr>
+                            <td>Mengubah getaran suara menjadi sinyal</td>
+                            <td id="drop2" class="dropzone"></td>
+                        </tr>
+                        <tr>
+                            <td>Mengenali bau di udara</td>
+                            <td id="drop3" class="dropzone"></td>
+                        </tr>
+                        <tr>
+                            <td>Merespons perubahan suhu dan sentuhan</td>
+                            <td id="drop4" class="dropzone"></td>
+                        </tr>
+                        <tr>
+                            <td>Mengecap rasa makanan</td>
+                            <td id="drop5" class="dropzone"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-                <!-- Jawaban di Kanan -->
-                <div class="col-md-7">
-                    <form id="quizForm" action="/selesai_pengolahanData_AIM" method="post">
-                        @csrf
-                        <div class="row">
-                            @for ($i = 1; $i <= 12; $i++)
-                                <div class="col-md-6 mb-3">
-                                    <label for="jawaban{{ $i }}">Bagian ({{ $i }})</label>
-                                    <input type="text" id="jawaban{{ $i }}" name="jawaban{{ $i }}"
-                                        class="form-control" placeholder="Jawaban">
-                                </div>
-                            @endfor
-                        </div>
-
-                        <div class="d-flex justify-content-end gap-2 mt-3">
-                            {{-- <form >
-                                @csrf --}}
-                            <input type="hidden" name="chapter_id" value="2">
-                            <input type="hidden" name="exercise_id" value="4">
-                            <button class="btn btn-success" id="btnNext" style="display: none;">Next</button>
-                            {{-- </form> --}}
-                            <button id="cekJawaban" type="button" class="btn btn-success"
-                                onclick="periksaJawaban()">Periksa
-                                Jawaban</button>
-                            <button type="button" class="btn btn-secondary" onclick="resetJawaban()">Reset</button>
-                        </div>
-                    </form>
+            <div class="mt-4 text-center">
+                <h5>Gambar Alat Indra</h5>
+                <div class="d-flex flex-wrap justify-content-center gap-3 mt-3" id="gambarContainer">
+                    <img src="/img/indra_mata.png" id="img1" class="draggable" draggable="true" data-drop="drop1"
+                        alt="Mata" width="100">
+                    <img src="/img/indra_telinga.png" id="img2" class="draggable" draggable="true" data-drop="drop2"
+                        alt="Telinga" width="100">
+                    <img src="/img/indra_hidung.png" id="img3" class="draggable" draggable="true" data-drop="drop3"
+                        alt="Hidung" width="100">
+                    <img src="/img/indra_kulit.png" id="img4" class="draggable" draggable="true" data-drop="drop4"
+                        alt="Kulit" width="100">
+                    <img src="/img/indra_lidah.png" id="img5" class="draggable" draggable="true" data-drop="drop5"
+                        alt="Lidah" width="100">
                 </div>
             </div>
-        </div>
+            <div>
 
-        <div id="hasil" class="mt-4"></div>
+                <form action="/selesai_pengolahanData_AIM" method="post" class="mt-4 text-end">
+                    @csrf
+                    <input type="hidden" name="chapter_id" value="2">
+                    <input type="hidden" name="exercise_id" value="4">
+                    <button class="btn btn-success" id="btnNext" style="display: none;">Next</button>
+                </form>
+            </div>
+        </div>
     </div>
 @endsection
 @section('js')

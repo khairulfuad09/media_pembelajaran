@@ -15,15 +15,9 @@
             <h3>Bagian 5 : VERIFIKASI</h3>
             <br>
             <p style="margin: auto; text-align: justify;">
-                Neuron adalah unit dasar dalam sistem saraf manusia yang bertugas menghantarkan impuls saraf.
-                Sebuah impuls saraf adalah sinyal listrik yang berjalan melalui neuron dari satu bagian tubuh ke bagian
-                lainnya.
-                Perjalanan impuls ini mengikuti jalur tertentu, dimulai dari bagian yang menerima rangsangan hingga ke
-                bagian yang mengirimkan sinyal ke neuron lain atau ke organ efektor.
-            </p>
-            <p style="margin: auto; text-align: justify;">
-                Dalam latihan ini, kamu akan mengurutkan bagian-bagian neuron sesuai dengan jalur pergerakan impuls.
-                Pastikan untuk memahami urutan yang benar agar dapat mengisi dengan tepat.
+                Kamu diminta untuk memeriksa kembali kebenaran informasi yang telah kamu pelajari pada tahap sebelumnya.
+                Dengan menjawab pernyataan-pernyataan yang tersedia, kamu dapat memastikan bahwa pemahamanmu tentang Sistem
+                Koordinasi pada Manusia sudah tepat.
             </p>
         </div>
         <!-- Petunjuk Pengerjaan -->
@@ -36,54 +30,57 @@
         <div class="collapse" id="collapseExample">
             <div class="card card-body">
                 <ol style="text-align: left;">
-                    <li>Baca dan pahami narasi di atas agar memahami urutan perjalanan impuls dalam neuron.</li>
-                    <li>Pada bagian <b>Pilihan Jawaban</b>, terdapat beberapa bagian penyusun neuron.</li>
-                    <li>Isilah kolom <b>Isikan Jawaban</b> dengan urutan yang benar dari jalannya impuls dalam neuron.
-                    </li>
-                    <li>Jika jawaban benar, sistem akan menghitungnya sebagai <b>Benar</b>.</li>
-                    <li>Jika jawaban salah, sistem akan menghitungnya sebagai <b>Salah</b>.</li>
-                    <li>Teruslah mencoba hingga semua jawaban benar!</li>
+                    <li>Baca setiap pernyataan dengan cermat.</li>
+                    <li>Pilih tombol "Benar" atau "Salah" sesuai pemahamanmu.</li>
+                    <li>Jika semua jawaban benar, tombol "Next" akan muncul.</li>
                 </ol>
             </div>
         </div>
         <div class="container-ve mt-4">
-            <br>
-
-            <div class="container-v">
-                <div class="options">
-                    <h3>Pilihan Jawaban</h3>
-                    <div class="option" data-value="dendrit">Dendrit</div>
-                    <div class="option" data-value="akson">Akson</div>
-                    <div class="option" data-value="badan sel">Badan Sel</div>
-                    <div class="option" data-value="sinapsis">Sinapsis</div>
-                    <div class="option" data-value="nukleus">Nukleus</div>
-                    <div class="option" data-value="sel schwan">Sel Schwan</div>
-                    <div class="option" data-value="selubung mielin">Selubung Mielin</div>
-                    <div class="option" data-value="nodus ranvier">Nodus Ranvier</div>
-                </div>
-                <div class="answers-v">
-                    <h3>Isikan Jawaban</h3>
-                    <input type="text" class="answer" data-answer="dendrit" placeholder="Bagian pertama...">
-                    <input type="text" class="answer" data-answer="badan sel" placeholder="Bagian berikutnya...">
-                    <input type="text" class="answer" data-answer="nukleus" placeholder="Bagian berikutnya...">
-                    <input type="text" class="answer" data-answer="akson" placeholder="Bagian berikutnya...">
-                    <input type="text" class="answer" data-answer="selubung mielin" placeholder="Bagian berikutnya...">
-                    <input type="text" class="answer" data-answer="sel schwan" placeholder="Bagian berikutnya...">
-                    <input type="text" class="answer" data-answer="nodus ranvier" placeholder="Bagian berikutnya...">
-                    <input type="text" class="answer" data-answer="sinapsis" placeholder="Bagian terakhir...">
-                </div>
-            </div>
-            {{-- <button type="button" onclick="checkAnswers()" class="periksa-jawaban">Periksa</button> --}}
             <form action="/selesai_verifikasi_SKM" method="post">
                 @csrf
                 <input type="hidden" name="chapter_id" value="1">
                 <input type="hidden" name="exercise_id" value="5">
-                <button class="button-identifikasiMasalah periksa-jawaban" id="btnNext"
-                    style="display: none;">Next</button>
+                <ol style="text-align: left; max-width: 700px; margin: auto;" id="verifikasi-list">
+                    <li class="mb-3">Sistem saraf pusat terdiri atas otak dan sumsum tulang belakang.<br>
+                        <div class="btn-group" role="group" data-id="q1"><button type="button"
+                                class="btn btn-outline-primary">Benar</button><button type="button"
+                                class="btn btn-outline-danger">Salah</button></div>
+                    </li>
+                    <li class="mb-3">Refleks adalah tanggapan sadar terhadap rangsang yang memerlukan waktu lama.<br>
+                        <div class="btn-group" role="group" data-id="q2"><button type="button"
+                                class="btn btn-outline-primary">Benar</button><button type="button"
+                                class="btn btn-outline-danger">Salah</button></div>
+                    </li>
+                    <li class="mb-3">Hormon bekerja lebih cepat daripada sistem saraf.<br>
+                        <div class="btn-group" role="group" data-id="q3"><button type="button"
+                                class="btn btn-outline-primary">Benar</button><button type="button"
+                                class="btn btn-outline-danger">Salah</button></div>
+                    </li>
+                    <li class="mb-3">Mata, telinga, dan kulit termasuk alat indra yang mendeteksi rangsang dari
+                        lingkungan.<br>
+                        <div class="btn-group" role="group" data-id="q4"><button type="button"
+                                class="btn btn-outline-primary">Benar</button><button type="button"
+                                class="btn btn-outline-danger">Salah</button></div>
+                    </li>
+                    <li class="mb-3">Kelenjar pankreas menghasilkan adrenalin untuk memicu respons cepat tubuh.<br>
+                        <div class="btn-group" role="group" data-id="q5"><button type="button"
+                                class="btn btn-outline-primary">Benar</button><button type="button"
+                                class="btn btn-outline-danger">Salah</button></div>
+                    </li>
+                    <li class="mb-3">Impuls adalah sinyal listrik yang dihantarkan oleh neuron.<br>
+                        <div class="btn-group" role="group" data-id="q6"><button type="button"
+                                class="btn btn-outline-primary">Benar</button><button type="button"
+                                class="btn btn-outline-danger">Salah</button></div>
+                    </li>
+                </ol>
+                <div class="mt-4">
+                    <div id="feedback" class="alert" style="display:none;"></div>
+                    <button type="submit" class="button-identifikasiMasalah periksa-jawaban" id="btnNext"
+                        style="display: none;">Next</button>
+                    <button type="button" class="periksa-jawaban" id="cekVerifikasi">Periksa Jawaban</button>
+                </div>
             </form>
-            {{-- <div class="container">
-                <h3>Benar: <span id="correctCount">0</span> | Salah: <span id="wrongCount">0</span></h3>
-            </div> --}}
         </div>
     </div>
 @endsection

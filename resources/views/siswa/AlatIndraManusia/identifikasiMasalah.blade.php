@@ -7,191 +7,117 @@
     <button id="backToTop">↑</button>
     <button id="scrollDown">↓</button>
     <div class="text-center mt-4">
-        <h2>ALAT INDRA MANUSIA</h2>
+        <h2>ALAT INDERA MANUSIA</h2>
     </div>
     <div class="container mt-4">
         <div class="card p-4">
             <h3>Bagian 2 : IDENTIFIKASI MASALAH</h3>
             <br>
             <div class="container">
-                <!-- Narasi Pengantar -->
-                <div class="container-ks">
-                    <p style="max-width:900px; margin: auto; text-align: justify;">
-                        Manusia memiliki lima alat indra utama, yaitu mata, telinga, hidung, lidah, dan kulit. Masing-masing
-                        alat indra memiliki fungsi dan reseptor khusus untuk menerima rangsangan tertentu dari lingkungan
-                        sekitar. Mata berfungsi sebagai indra penglihatan yang dapat menangkap cahaya. Telinga berfungsi
-                        sebagai indra pendengaran dan juga berperan dalam menjaga keseimbangan tubuh. Hidung merupakan indra
-                        penciuman yang dapat mendeteksi bau. Lidah merupakan indra perasa yang mampu mengenali berbagai rasa
-                        seperti manis, asin, asam, pahit, dan umami. Kulit merupakan indra peraba yang mampu merasakan
-                        sentuhan, suhu, tekanan, dan nyeri. Informasi dari alat-alat indra ini diteruskan ke otak untuk
-                        diolah dan ditafsirkan, sehingga manusia dapat memberikan respons yang tepat terhadap lingkungannya.
-                    </p>
-                    <p style="max-width:900px; margin: auto; text-align: justify;">
-                        Namun, masing-masing alat indra bisa mengalami gangguan atau kerusakan karena berbagai faktor,
-                        seperti kecelakaan, kebiasaan buruk, penyakit, maupun faktor usia. Berikut adalah penjelasan
-                        mengenai beberapa gangguan umum yang dapat terjadi pada alat indra:
-                    <ol>
-                        <li>
-                            <h5>Mata</h5>
+                <!-- Narasi Pengantar dengan Collapse -->
+                <p class="d-inline-flex gap-1">
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNarasi"
+                        aria-expanded="false" aria-controls="collapseNarasi">
+                        Buka Materi Alat Indra
+                    </button>
+                </p>
+                <div class="collapse" id="collapseNarasi">
+                    <div class="card card-body">
+                        <div class="container-ks">
                             <p style="max-width:900px; margin: auto; text-align: justify;">
-                                Mata dapat mengalami gangguan seperti rabun jauh, rabun dekat, katarak, atau luka akibat
-                                benda tajam. Gangguan ini dapat menyebabkan penglihatan menjadi buram, tidak fokus, atau
-                                bahkan kebutaan jika tidak ditangani.
+                                Alat indra adalah bagian penting dalam sistem koordinasi manusia. Alat indra berperan
+                                sebagai reseptor, yaitu penerima rangsang dari lingkungan sekitar. Informasi yang diterima
+                                oleh alat indra akan dikirim ke otak melalui saraf, lalu otak akan mengolahnya dan
+                                memberikan tanggapan.
                             </p>
-                        </li>
-                        <li>
-                            <h5>Telinga</h5>
+                            <div class="text-center my-3">
+                                <img src="img/alat-indra-otak.jpg" alt="Alat Indra ke Otak" class="img-fluid rounded"
+                                    style="max-width: 400px;">
+                            </div>
                             <p style="max-width:900px; margin: auto; text-align: justify;">
-                                Telinga tidak hanya berfungsi untuk mendengar, tetapi juga menjaga keseimbangan tubuh.
-                                Infeksi telinga atau kebiasaan mendengar suara terlalu keras dapat menyebabkan gangguan
-                                pendengaran atau keseimbangan.
+                                Manusia memiliki lima alat indra utama, yaitu:
                             </p>
-                        </li>
-                        <li>
-                            <h5>Hidung</h5>
+                            <ul style="max-width:900px; margin: auto;">
+                                <li><strong>Mata</strong> → untuk melihat (menerima rangsang cahaya)</li>
+                                <li><strong>Telinga</strong> → untuk mendengar dan menjaga keseimbangan (menerima rangsang
+                                    suara dan posisi)</li>
+                                <li><strong>Hidung</strong> → untuk mencium (menerima rangsang zat kimia di udara)</li>
+                                <li><strong>Lidah</strong> → untuk mengecap (menerima rangsang zat kimia dalam
+                                    makanan/minuman)</li>
+                                <li><strong>Kulit</strong> → untuk meraba (menerima rangsang tekanan, suhu, dan nyeri)</li>
+                            </ul>
                             <p style="max-width:900px; margin: auto; text-align: justify;">
-                                Indera penciuman dapat terganggu akibat flu berkepanjangan, alergi, atau sering menghirup
-                                zat berbau tajam. Hal ini menyebabkan seseorang tidak dapat mencium aroma dengan baik.
+                                Setiap alat indra memiliki reseptor khusus yang hanya merespons jenis rangsang tertentu.
+                                Misalnya, mata hanya peka terhadap cahaya, sedangkan kulit bisa merasakan tekanan dan suhu.
                             </p>
-                        </li>
-                        <li>
-                            <h5>Lidah</h5>
-                            <p style="max-width:900px; margin: auto; text-align: justify;">
-                                Lidah memiliki bintil pengecap (papila) untuk merasakan rasa manis, asin, asam, dan pahit.
-                                Konsumsi makanan terlalu panas atau pedas secara terus-menerus bisa merusak papila lidah
-                                sehingga kemampuan mengecap menjadi menurun.
-                            </p>
-                        </li>
-                        <li>
-                            <h5>Kulit</h5>
-                            <p style="max-width:900px; margin: auto; text-align: justify;">
-                                Kulit sebagai indera peraba bisa mengalami penurunan sensitivitas karena usia lanjut, luka,
-                                atau gangguan saraf. Akibatnya, seseorang menjadi kurang peka terhadap suhu, sentuhan, atau
-                                tekanan.
-                            </p>
-                        </li>
-                    </ol>
-                    </p>
+                        </div>
+                    </div>
                 </div>
-                <!-- Petunjuk Pengerjaan -->
             </div>
             <p id="hasil"></p>
-        </div>
-        <br>
-        <div class="identifikasiMasalah">
-            <p>Dari penjelasan di atas, mari kita identifikasi beberapa pertanyaan penting yang dapat membantu
-                kita memahami bagaimana alat indra manusia:</p>
-            <table class="table table-bordered">
-                <thead class="table-light">
-                    <tr>
-                        <th>No</th>
-                        <th>Identifikasi Masalah</th>
-                        <th>Termasuk</th>
-                        <th>Tidak Termasuk</th>
-                        <th>Keterangan</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td class="chekbox">1</td>
-                        <td class="identifikasi">Apa saja alat indra yang dimiliki manusia?</td>
-                        <td class="chekbox"><input type="checkbox" data-id="1" data-pilihan="termasuk"></td>
-                        <td class="chekbox"><input type="checkbox" data-id="1" data-pilihan="tidak"></td>
-                        <td class="chekbox" id="ket-1"></td>
-                    </tr>
-                    <tr>
-                        <td class="chekbox">2</td>
-                        <td class="identifikasi">Apa saja jenis rasa yang bisa dikenali oleh lidah manusia?</td>
-                        <td class="chekbox"><input type="checkbox" data-id="2" data-pilihan="termasuk"></td>
-                        <td class="chekbox"><input type="checkbox" data-id="2" data-pilihan="tidak"></td>
-                        <td class="chekbox" id="ket-2"></td>
-                    </tr>
-                    <tr>
-                        <td class="chekbox">3</td>
-                        <td class="identifikasi">Faktor apa saja yang dapat menyebabkan gangguan pada fungsi
-                            alat
-                            indra?</td>
-                        <td class="chekbox"><input type="checkbox" data-id="3" data-pilihan="termasuk"></td>
-                        <td class="chekbox"><input type="checkbox" data-id="3" data-pilihan="tidak"></td>
-                        <td class="chekbox" id="ket-3"></td>
-                    </tr>
-                    <tr>
-                        <td class="chekbox">4</td>
-                        <td class="identifikasi">Jaringan atau reseptor apa yang berperan dalam mengirimkan
-                            rangsangan menuju otak</td>
-                        <td class="chekbox"><input type="checkbox" data-id="4" data-pilihan="termasuk"></td>
-                        <td class="chekbox"><input type="checkbox" data-id="4" data-pilihan="tidak"></td>
-                        <td class="chekbox" id="ket-4"></td>
-                    </tr>
-                    <tr>
-                        <td class="chekbox">5</td>
-                        <td class="identifikasi">Apa fungsi utama dari masing-masing alat indra?</td>
-                        <td class="chekbox"><input type="checkbox" data-id="5" data-pilihan="termasuk"></td>
-                        <td class="chekbox"><input type="checkbox" data-id="5" data-pilihan="tidak"></td>
-                        <td class="chekbox" id="ket-5"></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="soal_tabel">
-            <p class="d-inline-flex gap-1">
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                    aria-expanded="false" aria-controls="collapseExample">
-                    Petunjuk Pengerjaan
-                </button>
-            </p>
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                    <ol>
-                        <li>isi bagian yang kosong pada tabel</li>
-                        <li>jawaban yang benar akan berwarna hijau dan jawaban yang salah akan berwarna merah</li>
-                        <li>gunakan tombol reset untuk menghapus semua jawaban</li>
-                        <li>kerjakan dengan baik dan benar</li>
-                    </ol>
-                </div>
+            <br>
+            <div class="identifikasiMasalah">
+                <p>Dari penjelasan di atas, mari kita identifikasi beberapa pertanyaan penting yang dapat membantu
+                    kita memahami bagaimana alat indra manusia:</p>
+                <table class="table table-bordered">
+                    <thead class="table-light">
+                        <tr>
+                            <th>No</th>
+                            <th>Identifikasi Masalah</th>
+                            <th>Termasuk</th>
+                            <th>Tidak Termasuk</th>
+                            <th>Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="chekbox">1</td>
+                            <td class="identifikasi">Bagaimana cara kerja alat indra dalam menerima rangsang dari
+                                lingkungan?</td>
+                            <td class="chekbox"><input type="checkbox" data-id="1" data-pilihan="termasuk"></td>
+                            <td class="chekbox"><input type="checkbox" data-id="1" data-pilihan="tidak"></td>
+                            <td class="chekbox" id="ket-1"></td>
+                        </tr>
+                        <tr>
+                            <td class="chekbox">2</td>
+                            <td class="identifikasi">Apa perbedaan antara sistem saraf pusat dan sistem hormon?</td>
+                            <td class="chekbox"><input type="checkbox" data-id="2" data-pilihan="termasuk"></td>
+                            <td class="chekbox"><input type="checkbox" data-id="2" data-pilihan="tidak"></td>
+                            <td class="chekbox" id="ket-2"></td>
+                        </tr>
+                        <tr>
+                            <td class="chekbox">3</td>
+                            <td class="identifikasi">Mengapa kulit bisa merasakan panas dan dingin?
+                            </td>
+                            <td class="chekbox"><input type="checkbox" data-id="3" data-pilihan="termasuk"></td>
+                            <td class="chekbox"><input type="checkbox" data-id="3" data-pilihan="tidak"></td>
+                            <td class="chekbox" id="ket-3"></td>
+                        </tr>
+                        <tr>
+                            <td class="chekbox">4</td>
+                            <td class="identifikasi">Apa peran alat indra dalam sistem koordinasi tubuh manusia?</td>
+                            <td class="chekbox"><input type="checkbox" data-id="4" data-pilihan="termasuk"></td>
+                            <td class="chekbox"><input type="checkbox" data-id="4" data-pilihan="tidak"></td>
+                            <td class="chekbox" id="ket-4"></td>
+                        </tr>
+                        <tr>
+                            <td class="chekbox">5</td>
+                            <td class="identifikasi">Mengapa hormon adrenalin diproduksi saat kita ketakutan?</td>
+                            <td class="chekbox"><input type="checkbox" data-id="5" data-pilihan="termasuk"></td>
+                            <td class="chekbox"><input type="checkbox" data-id="5" data-pilihan="tidak"></td>
+                            <td class="chekbox" id="ket-5"></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-            <table border="1" cellpadding="8" cellspacing="0" style="width: 100%; text-align: center;">
-                <thead>
-                    <tr>
-                        <th>Alat Indra</th>
-                        <th>Fungsi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Mata</td>
-                        <td><input type="text" name="fungsi_mata" placeholder="Isi fungsi..."></td>
-                    </tr>
-                    <tr>
-                        <td>Telinga</td>
-                        <td><input type="text" name="fungsi_telinga" placeholder="Isi fungsi..."></td>
-                    </tr>
-                    <tr>
-                        <td>Hidung</td>
-                        <td><input type="text" name="fungsi_hidung" placeholder="Isi fungsi..."></td>
-                    </tr>
-                    <tr>
-                        <td>Lidah</td>
-                        <td><input type="text" name="fungsi_lidah" placeholder="Isi fungsi..."></td>
-                    </tr>
-                    <tr>
-                        <td>Kulit</td>
-                        <td><input type="text" name="fungsi_kulit" placeholder="Isi fungsi..."></td>
-                    </tr>
-                </tbody>
-            </table>
-            <div style="margin-top: 20px;" class="button-container" style="display: flex;">
-                <button class="button-identifikasiMasalah periksa-jawaban" onclick="periksaJawabanIndra()"
-                    id="cekJawaban">Periksa Jawaban</button>
-                <button class="button-identifikasiMasalah reset" onclick="resetJawabanIndra()">Reset</button>
-                <form action="/selesai_identifikasiMasalah_AIM" method="post">
-                    @csrf
-                    <input type="hidden" name="chapter_id" value="2">
-                    <input type="hidden" name="exercise_id" value="2">
-                    <button class="button-identifikasiMasalah periksa-jawaban" id="btnNext"
-                        style="display: none;">Next</button>
-                </form>
-            </div>
+        </div>
+        <div class="text-center mt-4">
+            <form action="/selesai_identifikasiMasalah_AIM" method="post">
+                @csrf
+                <input type="hidden" name="chapter_id" value="2">
+                <input type="hidden" name="exercise_id" value="2">
+                <button class="btn btn-success" id="btnNext" style="display: none;">Next</button>
+            </form>
         </div>
     </div>
 @endsection

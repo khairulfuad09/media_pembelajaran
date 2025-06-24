@@ -1,10 +1,11 @@
 // === Fungsi untuk Identifikasi Masalah dengan Checkbox ===
 const kunciJawaban = {
-    1: "tidak",
+    1: "termasuk",
     2: "termasuk",
     3: "tidak",
     4: "termasuk",
     5: "termasuk",
+    6: "tidak",
   };
   
   function semuaSudahBenar() {

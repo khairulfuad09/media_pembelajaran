@@ -184,19 +184,6 @@ class="collapse list-unstyled pageSubmenu {{ Request::is('skm_*') ? 'show' : '' 
                         (Terkunci)</a>
                 </li>
             @endif
-<<<<<<< HEAD
-        </ul>
-        <ul class="list-unstyled components">
-            @if (Auth::user()->role === 'siswa')
-                <li class="ms-3">
-                    <form action="{{ route('keluar') }}" method="post">
-                        @csrf
-                        <button type="submit" class="btn btn-danger">Keluar</button>
-                    </form>
-                </li>
-            @endif
-=======
->>>>>>> e88827a4784e2fbee89519eb31e8f499845ee8cc
         </ul>
     </nav>
 

@@ -1,7 +1,6 @@
 @extends('template.main')
 @section('title', 'Sistem Koordinasi Manusia|Kesimpulan')
 @section('container')
-    {{-- @dd($essay) --}}
     <button id="backToTop">↑</button>
     <button id="scrollDown">↓</button>
     <div class="text-center mt-4">
@@ -20,11 +19,21 @@
                 Kamu bisa mengetik kesimpulanmu secara manual atau mengunggah gambar tulisan tanganmu agar sistem dapat
                 membacanya. Pastikan kesimpulan yang dibuat mencerminkan pemahaman yang baik tentang materi!
             </p>
+            <div class="mt-3" style="max-width:900px; margin:auto; text-align: left;">
+                <strong>Buatlah kesimpulan berupa:</strong>
+                <ol>
+                    <li>Bagaimana sistem saraf menerima dan merespons rangsang dari lingkungan?</li>
+                    <li>Apa peran alat indra dalam sistem koordinasi manusia?</li>
+                    <li>Bagaimana hubungan antara sistem saraf, alat indra, dan hormon dalam mengendalikan aktivitas tubuh?
+                    </li>
+                </ol>
+            </div>
         </div>
+
         <!-- Formulir Kesimpulan -->
         <div class="container-ks mt-4">
-
             <h2>Buat Kesimpulan</h2>
+
             <!-- Petunjuk Pengerjaan -->
             <div class="container-petunjuk">
                 <p class="d-inline-flex gap-1">
@@ -45,7 +54,6 @@
                         </ol>
                     </div>
                 </div>
-
             </div>
 
             <br>

@@ -1,37 +1,64 @@
-const jawaban = {
-    labelA: "Nodus Ranvier",
-    labelB: "Sinapsis",
-    labelC: "Dendrit",
-    labelD: "Selubung Mielin",
-    labelE: "Badan Sel",
-    labelF: "Sel Schwan",
-    labelG: "Nukleus",
-    labelH: "Akson"
+// Kunci Jawaban - tinggal kamu ubah kalau ada perubahan
+const kunciJawabanPengolahanData = {
+    q1: "Reseptor",
+    q2: "Otak",
+    q3: "Impuls",
+    q4: "Refleks",
+    q5: "Adrenal",
+    q6: "Kecepatan dan cara penyampaian"
 };
-let nilai_pengolahanData = 0;
 
-function checkAnswersPengolahanData() {
-    nilai_pengolahanData = 0;
-    for (let key in jawaban) {
-        const input = document.getElementById(key);
-        if (input.value.trim().toLowerCase() === jawaban[key].toLowerCase()) {
-            nilai_pengolahanData++;
-            input.style.backgroundColor = "lightgreen";
-        } else {
-            input.style.backgroundColor = "lightcoral";
-        }
-    }
-    if (nilai_pengolahanData === Object.keys(jawaban).length) {
-        document.getElementById("btnNext").style.display = "inline-block";
-        document.getElementById("cekJawaban").style.display = "none";
-    }
-    // document.getElementById("result").textContent = `Skor Anda: ${nilai_pengolahanData} / ${Object.keys(jawaban).length}`;
+const selects = document.querySelectorAll('select.jawaban');
+const btnCek = document.getElementById('cekJawaban');
+const btnNext = document.getElementById('btnNext');
+
+btnCek.addEventListener('click', checkAnswersPengolahanData);
+
+// Tampilkan tombol periksa jika semua select terisi
+function cekSemuaTerisi() {
+    return [...selects].every(select => select.value !== "");
 }
 
-function resetGamePengolahanData() {
-    for (let key in jawaban) {
-        document.getElementById(key).value = "";
-        document.getElementById(key).style.backgroundColor = "white";
+function tampilkanTombolPeriksa() {
+    btnCek.style.display = cekSemuaTerisi() ? 'inline-block' : 'none';
+    btnNext.style.display = 'none';
+}
+
+selects.forEach(select => {
+    select.addEventListener('change', tampilkanTombolPeriksa);
+});
+
+// Fungsi untuk memeriksa jawaban
+function checkAnswersPengolahanData() {
+    let benar = 0;
+
+    selects.forEach(select => {
+        const id = select.id;
+        const jawabanSiswa = select.value;
+        const jawabanBenar = kunciJawabanPengolahanData[id];
+
+        if (jawabanSiswa === jawabanBenar) {
+            select.classList.remove("is-invalid");
+            select.classList.add("is-valid");
+            benar++;
+        } else {
+            select.classList.remove("is-valid");
+            select.classList.add("is-invalid");
+        }
+    });
+
+    if (benar === selects.length) {
+        btnNext.style.display = 'inline-block';
+        btnCek.style.display = 'none';
     }
-    document.getElementById("result").textContent = "";
+}
+
+// Fungsi reset pilihan
+function resetGamePengolahanData() {
+    selects.forEach(select => {
+        select.value = "";
+        select.classList.remove("is-valid", "is-invalid");
+    });
+    btnCek.style.display = 'none';
+    btnNext.style.display = 'none';
 }

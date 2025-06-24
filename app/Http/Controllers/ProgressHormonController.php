@@ -55,4 +55,16 @@ class ProgressHormonController extends Controller
 
         return redirect()->route('hormon.verifikasi');
     }
+    public function selesaiVerifikasiHormon(Request $request)
+    {
+        Progress::updateOrCreate([
+            'user_id' => auth()->id(),
+            'chapter_id' => $request->chapter_id,
+            'exercise_id' => $request->exercise_id,
+        ], [
+            'is_complete' => true,
+        ]);
+
+        return redirect()->route('kesimpulan.hormon');
+    }
 }

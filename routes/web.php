@@ -189,7 +189,8 @@ Route::middleware(['auth', 'cekRole:siswa'])->group(function () {
     Route::post('/selesai_pengolahanData_Hormon', [ProgressHormonController::class, 'selesaiPengolahanDataHormon']);
 
     Route::get('/Hormon_verifikasi', [kesimpulanController::class, 'indexVerifikasiHormon'])->name('hormon.verifikasi');
-    Route::post('/simpan_verifikasi_hormon', [EssayController::class, 'simpanVerifikasiHormon'])->name('simpan.kesimpulanHormon');
+    // Route::post('/simpan_verifikasi_hormon', [EssayController::class, 'simpanVerifikasiHormon'])->name('simpan.kesimpulanHormon');
+    Route::post('/selesai_verifikasi_Hormon', [ProgressHormonController::class, 'selesaiVerifikasiHormon']);
 
     Route::get('/Hormon_kesimpulan', [kesimpulanController::class, 'indexHormon'])->name('kesimpulan.hormon');
     Route::post('/simpan_kesimpulan_hormon', [EssayController::class, 'simpanKesimpulanHormon'])->name('simpan.kesimpulanHormon');
@@ -219,10 +220,12 @@ Route::middleware(['auth', 'cekRole:siswa'])->group(function () {
     Route::post('/selesai_pengumpulanData_Homeostasis', [ProgressHomeostasisController::class, 'selesaiPengumpulanDataHomeostasis']);
 
     Route::get('/Homeostasis_pengolahanData', [kesimpulanController::class, 'indexPengolahanDataHomeostasis'])->name('pengolahan.data.homeostasis');
-    Route::post('/simpan_pengolahanData_homeostasis', [EssayController::class, 'simpanPengolahanDataHomeostasis'])->name('simpan.pengolahanDataHomeostasis');
+    // Route::post('/simpan_pengolahanData_homeostasis', [EssayController::class, 'simpanPengolahanDataHomeostasis'])->name('simpan.pengolahanDataHomeostasis');
+    Route::post('/selesai_pengolahanData_Homeostasis', [ProgressHomeostasisController::class, 'selesaiPengolahanDataHomeostasis']);
 
     Route::get('/Homeostasis_verifikasi', [kesimpulanController::class, 'indexVerifikasiHomeostasis'])->name('verifikasi.homeostasis');
-    Route::post('/simpan_verifikasi_homeostasis', [EssayController::class, 'simpanVerifikasiHomeostasis'])->name('simpan.verifikasiHomeostasis');
+    // Route::post('/simpan_verifikasi_homeostasis', [EssayController::class, 'simpanVerifikasiHomeostasis'])->name('simpan.verifikasiHomeostasis');
+    Route::post('/selesai_verifikasi_Homeostasis', [ProgressHomeostasisController::class, 'selesaiVerifikasiHomeostasis']);
 
 
     Route::get('/Homeostasis_kesimpulan', [kesimpulanController::class, 'indexHomeostasis'])->name('kesimpulan.homeostasis');

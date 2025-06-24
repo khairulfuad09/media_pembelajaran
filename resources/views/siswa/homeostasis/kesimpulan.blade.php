@@ -10,42 +10,56 @@
         <br>
         {{-- Narasi Pengantar --}}
         <div class="container-penjelasan">
-            <h3>Bagian 6 : KESIMPULAN</h3>
-            <p style="text-align: justify;">
-                Selamat! Kamu telah menyelesaikan seluruh tahapan pembelajaran mengenai homeostasis. Sekarang saatnya
-                kamu menyusun kesimpulan dari apa yang telah kamu pelajari. Kesimpulan ini akan membantu kamu memahami
-                inti dari materi secara menyeluruh, mulai dari mekanisme pengaturan suhu tubuh, kadar cairan, kadar
-                gula, hingga pentingnya menjaga keseimbangan fungsi tubuh.
-            </p>
-        </div>
-        <br>
-        <div class="container-ks mt-4">
-            <p class="d-inline-flex gap-1">
-                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample"
-                    aria-expanded="false" aria-controls="collapseExample">
-                    Petunjuk Pengerjaan
-                </button>
-            </p>
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-                    <ol style="text-align: left;">
-                        <li>Tulis kesimpulanmu tentang materi homeostasis pada kolom teks yang tersedia.</li>
-                        <li>Pastikan kesimpulan mencakup:
-                            <ul>
-                                <li>Pengertian homeostasis secara umum.</li>
-                                <li>Contoh mekanisme homeostasis di tubuh manusia.</li>
-                                <li>Pentingnya menjaga keseimbangan internal tubuh.</li>
-                            </ul>
+            <div class="card p-4">
+                <h3>Bagian 6 : KESIMPULAN</h3>
+                <br>
+                <p style="text-align: justify;">
+                    Kesimpulan merupakan bagian penting dalam proses pembelajaran. Pada bagian ini, kamu diminta untuk
+                    merangkum pemahamanmu mengenai alat indra manusia setelah menyelesaikan seluruh aktivitas sebelumnya.
+                    Tulis kesimpulan secara ringkas namun mencakup poin penting mengenai cara kerja dan peran alat indra.
+                </p>
+                <p style="text-align: justify;">
+                    Kamu bisa mengetik langsung di kolom yang tersedia atau mengunggah gambar tulisan tanganmu.
+                    Pastikan tulisan terbaca jelas agar dapat diproses dengan baik.
+                </p>
+
+                <div class="mt-4">
+                    <h5>Jawablah pertanyaan berikut dalam bentuk paragraf kesimpulan:</h5>
+                    <ol>
+                        <li>Bagaimana hormon dapat mempengaruhi kerja organ tubuh?
                         </li>
-                        <li>Jika kamu telah menulis kesimpulan di buku atau kertas, kamu bisa mengunggah fotonya dengan
-                            memilih
-                            tombol "Unggah & Baca Gambar".</li>
-                        <li>Tunggu proses pembacaan selesai (akan muncul teks otomatis).</li>
-                        <li>Klik "Simpan Kesimpulan" setelah selesai menulis.</li>
+                        <li>Apa fungsi hormon insulin dan dari mana asalnya?</li>
+                        <li>Mengapa sistem hormon dikatakan sebagai bagian dari sistem koordinasi?</li>
+                        <li>Apa saja perbedaan kerja sistem hormon dan sistem saraf?</li>
                     </ol>
                 </div>
+                <form action="/simpan_kesimpulan_homeostasis" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="id_kesimpulan" value="{{ $essay->id ?? '' }}">
+
+                    <div class="mb-3">
+                        <label for="manualInput" class="form-label"><strong>Ketik Kesimpulan Anda:</strong></label>
+                        <textarea id="manualInput" class="form-control" name="kesimpulan" rows="6"
+                            placeholder="Tulis kesimpulan Anda di sini...">{{ old('kesimpulan', $essay->jawaban ?? '') }}</textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="imageInput" class="form-label"><strong>Atau Unggah Gambar Tulisan Tangan
+                                Anda:</strong></label>
+                        <input type="file" class="form-control" id="imageInput" accept="image/*">
+                        <p class="text-muted" id="loadingText" style="display: none;">Sedang memproses gambar...</p>
+                    </div>
+
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">Simpan Kesimpulan</button>
+                        <button type="button" class="btn btn-secondary" onclick="extractText()">Unggah & Baca
+                            Gambar</button>
+                    </div>
+
+                    <div class="output mt-3" id="output"></div>
+                </form>
             </div>
-            <div class="container-kesimpulan">
+            {{-- <div class="container-kesimpulan">
                 <form action="/simpan_kesimpulan_homeostasis" method="post">
                     @csrf
                     <input type="hidden" name='id_kesimpulan' value="{{ $essay->id ?? '' }}">
@@ -56,7 +70,7 @@
                     <div class="output" id="output"></div>
                 </form>
                 <button class="btn-unggah" onclick="extractText()">Unggah & Baca Gambar</button>
-            </div>
+            </div> --}}
         </div>
     </div>
 @endsection
