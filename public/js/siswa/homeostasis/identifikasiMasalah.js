@@ -1,31 +1,3 @@
-function cekJawaban() {
-    let jawabanBenar = { q1: "B", q2: "C", q3: "C", q4: "B", q5: "A" };
-    let benarSemua = true;
-
-    for (let key in jawabanBenar) {
-        let pilihan = document.querySelector(`input[name="${key}"]:checked`);
-        if (pilihan) {
-            if (pilihan.value === jawabanBenar[key]) {
-                pilihan.parentElement.classList.add("correct");
-                pilihan.parentElement.classList.remove("incorrect");
-            } else {
-                pilihan.parentElement.classList.add("incorrect");
-                pilihan.parentElement.classList.remove("correct");
-                benarSemua = false;
-            }
-        } else {
-            benarSemua = false;
-        }
-    }
-
-    if (benarSemua) {
-        // document.getElementById("materiHomeostasis").classList.remove("hidden");
-        document.getElementById("btnNext").style.display = "inline-block";
-        document.getElementById("cekJawaban").style.display = "none";
-    }
-}
-
-// === Fungsi untuk Identifikasi Masalah dengan Checkbox ===
 const kunciJawaban = {
     1: "termasuk",
     2: "termasuk",
