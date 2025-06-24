@@ -42,7 +42,7 @@ class User extends Authenticatable
     }
     public function progress()
     {
-        return $this->hasMany(progress::class);
+        return $this->hasMany(Progress::class);
     }
 
     /**
