@@ -62,14 +62,14 @@
                         </button>
                     </div>
 
-                    <div class="text-center p-t-12">
+                    {{-- <div class="text-center p-t-12">
                         <span class="txt1">
                             Lupa
                         </span>
                         <a class="txt2" href="#">
                             NISN / Kata Sandi?
                         </a>
-                    </div>
+                    </div> --}}
 
                     <div class="text-center p-t-136">
                         <a class="txt2" href="/daftar_siswa">
