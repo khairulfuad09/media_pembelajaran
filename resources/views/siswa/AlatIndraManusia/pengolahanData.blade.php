@@ -81,15 +81,15 @@
             <div class="mt-4 text-center">
                 <h5>Gambar Alat Indra</h5>
                 <div class="d-flex flex-wrap justify-content-center gap-3 mt-3" id="gambarContainer">
-                    <img src="/img/indra_mata.png" id="img1" class="draggable" draggable="true" data-drop="drop1"
+                    <img src="/img/mata2.png" id="img1" class="draggable" draggable="true" data-drop="drop1"
                         alt="Mata" width="100">
-                    <img src="/img/indra_telinga.png" id="img2" class="draggable" draggable="true" data-drop="drop2"
+                    <img src="/img/telinga.png" id="img2" class="draggable" draggable="true" data-drop="drop2"
                         alt="Telinga" width="100">
-                    <img src="/img/indra_hidung.png" id="img3" class="draggable" draggable="true" data-drop="drop3"
+                    <img src="/img/hidung.png" id="img3" class="draggable" draggable="true" data-drop="drop3"
                         alt="Hidung" width="100">
-                    <img src="/img/indra_kulit.png" id="img4" class="draggable" draggable="true" data-drop="drop4"
+                    <img src="/img/kulit.png" id="img4" class="draggable" draggable="true" data-drop="drop4"
                         alt="Kulit" width="100">
-                    <img src="/img/indra_lidah.png" id="img5" class="draggable" draggable="true" data-drop="drop5"
+                    <img src="/img/lidah.png" id="img5" class="draggable" draggable="true" data-drop="drop5"
                         alt="Lidah" width="100">
                 </div>
             </div>

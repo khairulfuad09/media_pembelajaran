@@ -20,11 +20,9 @@
 
             <div class="text-center my-3">
                 {{-- Ganti src dengan gambar yang sesuai --}}
-                <img src="img/cahaya-mobil.jpg" alt="Cahaya Lampu Mobil" class="img-fluid rounded"
-                    style="max-width: 200px; margin: 10px;">
-                <img src="img/masakan.jpg" alt="Masakan" class="img-fluid rounded" style="max-width: 200px; margin: 10px;">
-                <img src="img/serangga.jpg" alt="Serangga Menggigit Kulit" class="img-fluid rounded"
-                    style="max-width: 200px; margin: 10px;">
+                <img src="img/takut_lelah dan lemas.png" alt="Cahaya Lampu Mobil" class="img-fluid rounded"
+                    style="max-width: 500px; margin: 10px;">
+
             </div>
 
             <p style="text-align: justify;">

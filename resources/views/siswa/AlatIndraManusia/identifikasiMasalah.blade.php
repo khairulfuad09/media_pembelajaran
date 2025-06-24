@@ -31,8 +31,8 @@
                                 memberikan tanggapan.
                             </p>
                             <div class="text-center my-3">
-                                <img src="img/alat-indra-otak.jpg" alt="Alat Indra ke Otak" class="img-fluid rounded"
-                                    style="max-width: 400px;">
+                                <img src="img/alat indra sebagai reseptor.png" alt="Alat Indra ke Otak"
+                                    class="img-fluid rounded" style="max-width: 1000px; max-height: 100px">
                             </div>
                             <p style="max-width:900px; margin: auto; text-align: justify;">
                                 Manusia memiliki lima alat indra utama, yaitu:
