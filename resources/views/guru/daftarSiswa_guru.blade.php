@@ -48,7 +48,7 @@
                                     <th>Nama</th>
                                     <th>NISN</th>
                                     <th>Password</th>
-                                    <th>Gender</th>
+                                    {{-- <th>Gender</th> --}}
                                     <th>Alamat</th>
                                     <th>No. Telepon</th>
                                     <th>kelas</th>
@@ -68,7 +68,7 @@
                                             </div>
 
                                         </td>
-                                        <td>{{ $siswa->profile->gender ?? '-' }}</td>
+                                        {{-- <td>{{ $siswa->profile->gender ?? '-' }}</td> --}}
                                         <td>{{ $siswa->profile->alamat ?? '-' }}</td>
                                         <td>{{ $siswa->profile->phone ?? '-' }}</td>
                                         <td>{{ $siswa->kelas ?? '-' }}</td>

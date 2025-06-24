@@ -26,7 +26,7 @@
                                 <th>Nama</th>
                                 <th>NISN</th>
                                 <th>Kelas</th>
-                                <th>Gender</th>
+                                {{-- <th>Gender</th> --}}
                                 <th>Rata-rata Nilai</th>
                                 <th>Aksi</th>
                             </tr>
@@ -39,7 +39,7 @@
                                     <td>{{ $nsiswa->name }}</td>
                                     <td>{{ $nsiswa->NISN_NIP }}</td>
                                     <td>{{ $nsiswa->kelas }}</td>
-                                    <td>{{ $nsiswa->profile->gender }}</td>
+                                    {{-- <td>{{ $nsiswa->profile->gender }}</td> --}}
                                     <td>
                                         @php
                                             $totalNilai = 0;
