@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Profile;
+use App\Models\profile;
 use App\Models\Progress;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -39,7 +39,7 @@ class DaftarSiswaController extends Controller
         ]);
 
         // simpan profile
-        Profile::create([
+        profile::create([
             'user_id' => $user->id,
             'gender' => $request->gender,
             'alamat' => $request->alamat,
