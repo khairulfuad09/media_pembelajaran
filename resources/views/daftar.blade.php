@@ -16,20 +16,6 @@
             <div class="card-body">
                 <h3 class="text-center mb-4">Registrasi Siswa</h3>
 
-                {{-- @if (session('success'))
-                    <div class="alert alert-success">{{ session('success') }}</div>
-                @endif
-
-                @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul class="mb-0">
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif --}}
-
                 <form action="{{ route('daftar.store') }}" method="POST">
                     @csrf
                     <div class="mb-3">
@@ -48,10 +34,6 @@
                         <input type="password" name="password" class="form-control" required>
                     </div>
 
-                    {{-- <div class="mb-3">
-                        <label for="password_confirmation" class="form-label">Konfirmasi Kata Sandi</label>
-                        <input type="password" name="plain_password" class="form-control" required>
-                    </div> --}}
                     <input type="text" name="role" id="" value="siswa" hidden>
                     <div class="mb-3">
                         <label for="kelas">Kelas</label>
@@ -63,18 +45,6 @@
                             <option value="9D">9D</option>
                         </select>
                     </div>
-                    <input type="text" name="role" id="" value="siswa" hidden>
-                    <div class="mb-3">
-                        <label for="kelas">Kelas</label>
-                        <select name="kelas" class="form-control" required>
-                            <option value="">Pilih</option>
-                            <option value="9A">9A</option>
-                            <option value="9B">9B</option>
-                            <option value="9C">9C</option>
-                            <option value="9D">9D</option>
-                        </select>
-                    </div>
-                    <input type="text" name="role" id="" value="siswa" hidden>
                     <div class="mb-3">
                         <label for="gender">Jenis Kelamin</label>
                         <select name="gender" class="form-control" required>
@@ -84,15 +54,15 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="password_confirmation" class="form-label">No. Telepon</label>
+                        <label for="phone" class="form-label">No. Telepon</label>
                         <input type="text" name="phone" class="form-control" required>
                     </div>
                     <div class="mb-3">
-                        <label for="password_confirmation" class="form-label">tanggal lahir</label>
+                        <label for="tanggal_lahir" class="form-label">tanggal lahir</label>
                         <input type="date" name="tanggal_lahir" class="form-control" required>
                     </div>
                     <div class="mb-3">
-                        <label for="password_confirmation" class="form-label">Alamat</label>
+                        <label for="alamat" class="form-label">Alamat</label>
                         <input type="text" name="alamat" class="form-control" required>
                     </div>
 
