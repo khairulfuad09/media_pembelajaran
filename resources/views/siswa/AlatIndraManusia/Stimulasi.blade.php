@@ -22,7 +22,7 @@
             <div class="text-center my-3">
                 {{-- Ganti src dengan gambar yang sesuai --}}
                 <img src="img/lampu mobil_masakan_serangga.png" alt="Cahaya Lampu Mobil" class="img-fluid rounded"
-                    style="max-width: 200px; margin: 10px;">
+                    style="max-width: 500px; margin: 10px;">
             </div>
 
             <p style="text-align: justify;">
