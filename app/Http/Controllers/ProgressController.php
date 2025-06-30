@@ -28,7 +28,7 @@ class ProgressController extends Controller
 
             $completedCount = $exercises->where('is_complete', true)->count();
             $total = $exercises->count();
-
+            // tidak ada yang berubah
             $progressData[] = [
                 'route' => ['/skm_stimulasi', '/AIM_Stimulasi', '/Hormon_Stimulasi', '/Homeostasis_Stimulasi', '/evaluasi'],
                 'chapter' => $chapter,
