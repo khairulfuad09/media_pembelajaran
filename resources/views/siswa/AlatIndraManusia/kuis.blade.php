@@ -44,7 +44,7 @@
                     <h4>Petunjuk Mengerjakan Kuis</h4>
                     <ul>
                         <li>Jawablah semua soal yang tersedia.</li>
-                        <li>Gunakan waktu sebaik mungkin, durasi hanya 30 menit.</li>
+                        <li>Gunakan waktu sebaik mungkin, durasi hanya 10 menit.</li>
                         <li>Klik tombol navigasi soal di sebelah kanan untuk berpindah soal.</li>
                         <li>Nilai akhir akan dihitung secara otomatis.</li>
                     </ul>
@@ -116,11 +116,11 @@
         }
 
         const daftarSoal = [{
-                teks: "1. Bagian mata yang berfungsi mengatur banyak sedikitnya cahaya yang masuk adalah ...",
+                teks: "1. Kemampuan kamera dalam menangkap cahaya dan menghasilkan gambar serupa dengan fungsi mata yang menggunakan bagian … untuk menerima rangsang cahaya.",
                 pilihan: [
-                    "A. Retina",
-                    "B. Lensa",
-                    "C. Kornea",
+                    "A. Iris",
+                    "B. Retina",
+                    "C. Lensa",
                     "D. Pupil"
                 ],
                 jawaban: "D"
@@ -283,7 +283,7 @@
         }
 
         // Timer
-        let waktuTotal = 900; // 30 menit
+        let waktuTotal = 600; // 30 menit
         let waktuMulai = localStorage.getItem('kuisMulai') ? parseInt(localStorage.getItem('kuisMulai')) : null;
         let waktuSekarang = Date.now();
         let sisaDetik = waktuMulai ? Math.floor((waktuTotal * 1000 - (waktuSekarang - waktuMulai)) / 1000) : waktuTotal;
